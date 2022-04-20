@@ -1,0 +1,44 @@
+
+/*----------------------  'not working' tab test--------------------------*/	
+.working {
+	background-color : green !important ;
+}
+
+/*----------------------  tab styling--------------------------*/	
+
+
+.bsp-nav-tab {
+    padding: 6px 15px!important;
+    font-size: 15px!important;
+    font-family: arial!important;
+    font-weight: 400!important;
+    background: #dcdcde26!important;
+    border-radius: 5px 5px 0px 0px!important;
+}
+
+.bsp-nav-tab:hover {
+    background: #dbefffbf!important;
+}
+
+.bsp-nav-tab-active, .bsp-nav-tab-active:focus, .bsp-nav-tab-active:focus:active, .bsp-nav-tab-active:hover {
+    background: #dbefffbf!important;
+    /* color: #000; */
+}
+
+
+/*----------------------  mod tools admin styling--------------------------*/
+
+#_bbp_moderation_english_threshold {
+	width: 50px;
+	text-align: right;
+}
+
+.bbp_moderation_custom_option {
+	padding-left: 30px;
+}
+
+.status-pending,
+.striped>tbody>:nth-child(odd).status-pending, 
+ul.striped>:nth-child(odd).status-pending {
+	background-color: #ffffe0;
+}

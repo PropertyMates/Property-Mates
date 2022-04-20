@@ -1,0 +1,41 @@
+# Translation of Plugins - Videojs HTML5 Player - Development (trunk) in English (Australia)
+# This file is distributed under the same license as the Plugins - Videojs HTML5 Player - Development (trunk) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2017-01-29 06:23:36+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/3.0.0-alpha.2\n"
+"Language: en_AU\n"
+"Project-Id-Version: Plugins - Videojs HTML5 Player - Development (trunk)\n"
+
+#: videojs-html5-player.php:63
+msgid "Videojs Settings"
+msgstr "Videojs Settings"
+
+#. Plugin Name of the plugin
+#: videojs-html5-player.php:63
+msgid "Videojs HTML5 Player"
+msgstr "Videojs HTML5 Player"
+
+#: videojs-html5-player.php:69
+msgid "For detailed documentation please visit the plugin homepage <a target=\"_blank\" href=\"%s\">here</a>."
+msgstr "For detailed documentation please visit the plugin homepage <a target=\"_blank\" href=\"%s\">here</a>."
+
+#: videojs-html5-player.php:121
+msgid "you need to specify the src of the video file"
+msgstr "you need to specify the src of the video file"
+
+#. Description of the plugin
+msgid "Easily embed videos using videojs html5 player"
+msgstr "Easily embed videos using videojs html5 player"
+
+#. Author of the plugin
+msgid "naa986"
+msgstr "naa986"
+
+#: videojs-html5-player.php:51
+msgid "Settings"
+msgstr "Settings"

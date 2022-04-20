@@ -1,0 +1,12 @@
+{
+    "require": {
+        "overtrue/socialite": "^3.2",
+        "htmlburger/carbon-fields": "^3.3",
+        "pusher/pusher-php-server": "^6.1",
+        "twilio/sdk": "^6.25",
+        "cosenary/instagram": "^2.3",
+        "league/oauth2-instagram": "^3.0"
+    },
+    "name": "co/owner",
+    "description": ""
+}

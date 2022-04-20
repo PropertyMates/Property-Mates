@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+    <defs>
+        <linearGradient id="t3e2xyb3sa" x1="100%" x2="0%" y1="50%" y2="50%">
+            <stop offset="0%" stop-color="#FE7400"/>
+            <stop offset="100%" stop-color="#DC5151"/>
+        </linearGradient>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <g>
+            <g>
+                <g>
+                    <path fill="url(#t3e2xyb3sa)" stroke="#FE7400" stroke-width="2.25" d="M15 1.299l11.865 6.85V21.85L15 28.701l-11.865-6.85V8.15L15 1.299z" transform="translate(-70 -2447) translate(0 2293) translate(70 154)"/>
+                    <text fill="#FFF" font-family="OpenSans-SemiBold, Open Sans" font-size="15" font-weight="500" transform="translate(-70 -2447) translate(0 2293) translate(70 154)">
+                        <tspan x="10.5" y="21.25">P</tspan>
+                    </text>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
