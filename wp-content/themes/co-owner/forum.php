@@ -31,7 +31,7 @@ $user_status = $user->exists() ? get_user_status($user->ID) : 0;
                             </span>
                             <div class="ms-auto d-flex align-items-center float-end">
                                 <?php if($user->exists() && $user_status == 1) : ?>
-                                    <a href="#" class="btn btn-orange rounded-pill has-pencil d-sm-none" data-bs-toggle="modal" data-bs-target="#topic-create-modal">New Post</a>
+                                    <a href="#" class="btn btn-orange rounded-pill has-pencil d-sm-none" data-bs-toggle="modal" data-bs-target="#topic-create-modal" title="Create new Topic">New Post</a>
                                 <?php elseif($user_status == 2) : ?>
 <!--                                    <p class="d-sm-none">(Your account is deactivated.)</p>-->
                                 <?php else: ?>

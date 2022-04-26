@@ -47,7 +47,7 @@ include_once('parts/modals/subscription.php');
 
                         <div class="row">
                             <div class="col text-center">
-                                <a href="<?php echo home_url(); ?>/?action=redirect_to_facebook_login" class="btn btn-custom-pills btn-facebook">
+                                <a title="Sign in with Facebook" href="<?php echo home_url(); ?>/?action=redirect_to_facebook_login" class="btn btn-custom-pills btn-facebook">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
                                         <g fill="none" fill-rule="evenodd">
                                             <g>
@@ -63,7 +63,7 @@ include_once('parts/modals/subscription.php');
                                     Log in with Facebook
                                 </a>
 
-                                <a href="<?php echo home_url(); ?>/?action=redirect_to_google_login" class="btn btn-custom-pills btn-g-plus">
+                                <a title="Sign in with Google" href="<?php echo home_url(); ?>/?action=redirect_to_google_login" class="btn btn-custom-pills btn-g-plus">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="16" viewBox="0 0 24 16">
                                         <g fill="none" fill-rule="evenodd">
                                             <g fill="#FFF" fill-rule="nonzero">

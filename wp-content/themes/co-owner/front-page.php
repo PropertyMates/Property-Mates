@@ -53,15 +53,16 @@
 			</a> -->
 			
 			
-			<p class="work-videos">How it works <a class="pop-video" href="#"  data-bs-toggle="modal" data-bs-target="#staticBackdrop">Watch</a>  or <a class="on-scroll" href="#how-id"> Read</a>
+			<p class="work-videos">How it works <a title="Watch Video" class="pop-video" href="#"  data-bs-toggle="modal" data-bs-target="#staticBackdrop">Watch</a>  or <a title="Read the steps" class="on-scroll" href="#how-id"> Read</a>
 				
 				
 				<div class="video-banners">
+                <div class="video-banners-in" title="Introductory video">
 					<?php
 						$link = get_option('_how_its_works_button_link');
 						echo do_shortcode("[videojs_video url='{$link}' controls poster='https://test.propertymates.io/wp-content/themes/co-owner/images/video-poster.jpg']");
 					?>
-				</div>
+				</div></div>
                 <?php endif; ?>
 			</div>
 			
@@ -96,7 +97,7 @@
 									
 								?>
 								<div class="col-md-6 col-sm-12 col-12 position-relative">
-									<a href="<?php echo $block_1_link; ?>" class="d-flex property-inner-btn align-items-center br-1">
+									<a  title="Create a buyer profile" href="<?php echo $block_1_link; ?>" class="d-flex property-inner-btn align-items-center br-1">
 										<div class="lnk-icon">
 											<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
 												<g fill="none" fill-rule="evenodd">
@@ -142,7 +143,7 @@
 									$block_2_link = (is_user_logged_in()) ? $block_2_link : site_url('/login');
 								?>
 								<div class="col-md-6 col-sm-12 col-12">
-									<a href="<?php echo $block_2_link; ?>" class="d-flex property-inner-btn align-items-center">
+									<a title="Create a seller profile" href="<?php echo $block_2_link; ?>" class="d-flex property-inner-btn align-items-center">
 										<div class="lnk-icon">
 											<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
 												<g fill="none" fill-rule="evenodd">
@@ -199,11 +200,11 @@
 					<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
 						<li class="label-li">I want to</li>
 						<li class="nav-item" role="presentation">
-							<button class="nav-link active" id="invest-tab" data-bs-toggle="pill" data-bs-target="#invest" type="button" role="tab" aria-controls="invest" aria-selected="true">Buy</button>
+							<button title="Buy Property" class="nav-link active" id="invest-tab" data-bs-toggle="pill" data-bs-target="#invest" type="button" role="tab" aria-controls="invest" aria-selected="true">Buy</button>
 						</li>
 						
 						<li class="nav-item" role="presentation">
-							<button class="nav-link" id="sell-tab" data-bs-toggle="pill" data-bs-target="#sell" type="button" role="tab" aria-controls="sell" aria-selected="false">Sell</button>
+							<button title="Sell Property" class="nav-link" id="sell-tab" data-bs-toggle="pill" data-bs-target="#sell" type="button" role="tab" aria-controls="sell" aria-selected="false">Sell</button>
 						</li>
 					</ul>
 					<div class="tab-content" id="pills-tabContent">
@@ -247,7 +248,7 @@
 									</div>
 									
 									<div class="col-sm-12 col-12 text-center mt-4">
-										<button type="submit" class="btn btn-orange btn-rounded">Search</button>
+										<button  title="See results" type="submit" class="btn btn-orange btn-rounded">Search</button>
 									</div>
 								</div>
 							</form>
@@ -312,7 +313,7 @@
 									</div>
 									
 									<div class="col-md-12 col-12 text-center mt-3">
-										<button type="submit" class="btn btn-orange btn-rounded">Search</button>
+										<button title="See results" type="submit" class="btn btn-orange btn-rounded">Search</button>
 									</div>
 								</div>
 							</form>
@@ -337,7 +338,7 @@
 						<h3 class="d-flex">
 							<?php echo get_post_meta($front_page, '_front_page_people_looking_for_properties_title', true); ?>
 							<?php if ($link = get_post_meta($front_page, '_front_page_people_looking_for_properties_link', true)) : ?>
-							<a href="<?php echo $link; ?>" class="d-md-block d-none ms-auto text-nowrap">View All</a>
+							<a title="All buyers" href="<?php echo $link; ?>" class="d-md-block d-none ms-auto text-nowrap">View All</a>
 							<?php endif; ?>
 						</h3>
 						<?php echo get_post_meta($front_page, '_front_page_people_looking_for_properties_description', true); ?>
@@ -359,11 +360,11 @@
 									<div class="property-one-thumb">
 										<div class="property-thumb-top d-flex align-items-center">
 											<?php foreach ($property_category as $category) : ?>
-											<a href="#" class="btn btn-<?php echo $category != 'commercial' ? 'orange' : 'primary'; ?> rounded-pill me-1">
+											<a href="#" title="<?php echo $category != 'commercial' ? 'Intended for private occupancy' : 'Investment Property'; ?>" class="btn btn-<?php echo $category != 'commercial' ? 'orange' : 'primary'; ?> rounded-pill me-1">
 												<?php echo $category; ?>
 											</a>
 											<?php endforeach; ?>
-											<a href="#" data-id="<?php echo $user->ID; ?>" class="btn btn-favourite ms-auto people <?php echo $is_liked ? 'active make-property-dislike' : 'make-property-like' ?>"></a>
+											<a title="Favorite/Shortlist" href="#" data-id="<?php echo $user->ID; ?>" class="btn btn-favourite ms-auto people <?php echo $is_liked ? 'active make-property-dislike' : 'make-property-like' ?>"></a>
 										</div>
 										<a href="<?php echo CO_OWNER_PERSON_DETAILS_PAGE . '?id=' . $user->ID; ?>">
 											<div class="property-thumb-bottom">
@@ -437,7 +438,7 @@
 						<h3 class="d-flex">
 							<?php echo get_post_meta($front_page, '_front_page_pools_already_created_title', true); ?>
 							<?php if ($link = get_post_meta($front_page, '_front_page_pools_already_created_link', true)) : ?>
-							<a href="<?php echo $link; ?>" class="d-md-block d-none ms-auto text-nowrap">View All</a>
+							<a title="See all property pools" href="<?php echo $link; ?>" class="d-md-block d-none ms-auto text-nowrap">View All</a>
 							<?php endif; ?>
 						</h3>
 						<?php echo get_post_meta($front_page, '_front_page_pools_already_created_description', true); ?>
@@ -466,10 +467,10 @@
 										<div class="property-thumb-top d-flex align-items-center">
 											<?php echo co_owner_get_svg('enable_pool'); ?>
 											
-											<a href="#" class="btn btn-<?php echo $property_category == 'residential' ? 'orange' : 'blue'; ?> rounded-pill ms-1 me-1"><?php echo $property_category; ?></a>
-											<a href="#" class="btn btn-orange-outline rounded-pill">Posted by: <?php echo $posted_by; ?></a>
+											<a href="#" title="<?php echo $property_category != 'commercial' ? 'Intended for private occupancy' : 'Investment Property'; ?>" class="btn btn-<?php echo $property_category == 'residential' ? 'orange' : 'blue'; ?> rounded-pill ms-1 me-1"><?php echo $property_category; ?></a>
+											<a href="#" title="<?php echo $posted_by != 'Agent' ? 'Leased by Proprietor' : 'Leased by an Agent'; ?>" class="btn btn-orange-outline rounded-pill">Posted by: <?php echo $posted_by; ?></a>
 											
-											<a href="#" data-id="<?php echo $pool_property->ID; ?>" class="btn btn-favourite ms-auto <?php echo $is_liked ? 'active make-property-dislike' : 'make-property-like' ?>"></a>
+											<a  title="Favorite/Shortlist" href="#" data-id="<?php echo $pool_property->ID; ?>" class="btn btn-favourite ms-auto <?php echo $is_liked ? 'active make-property-dislike' : 'make-property-like' ?>"></a>
 										</div>
 										<div class="property-thumb-bottom">
 											<div class="property-mbr">
@@ -529,17 +530,17 @@
 										
 										<div class="property-facility-area d-flex align-items-center">
 											<?php if ($property_category == 'residential' && ($bathroom || $bedroom || $parking)) : ?>
-											<a>
+											<a title="Bedroom">
 												<?php echo co_owner_get_svg('bedroom'); ?>
 												<span><?php echo $bedroom; ?></span>
 											</a>
 											
-											<a>
+											<a title="Bathroom">
 												<?php echo co_owner_get_svg('bathroom'); ?>
 												<span><?php echo $bathroom; ?></span>
 											</a>
 											
-											<a>
+											<a title="Parking">
 												<?php echo co_owner_get_svg('parking'); ?>
 												<span><?php echo $parking; ?></span>
 											</a>
@@ -610,7 +611,7 @@
 						<h3 class="d-flex">
 							<?php echo get_post_meta($front_page, '_front_page_need_co_owners_title', true); ?>
 							<?php if ($link = get_post_meta($front_page, '_front_page_need_co_owners_link', true)) : ?>
-							<a href="<?php echo $link; ?>" class="d-md-block d-none ms-auto text-nowrap">View All</a>
+							<a title="See all properties" href="<?php echo $link; ?>" class="d-md-block d-none ms-auto text-nowrap">View All</a>
 							<?php endif; ?>
 						</h3>
 						<?php echo get_post_meta($front_page, '_front_page_need_co_owners_description', true); ?>
@@ -640,7 +641,7 @@
 										<div class="property-thumb-top d-flex align-items-center">
 											<a href="#" class="btn btn-<?php echo $property_category == 'residential' ? 'orange' : 'blue'; ?> rounded-pill me-1"><?php echo $property_category; ?></a>
 											<a href="#" class="btn btn-orange-outline rounded-pill">Posted by: <?php echo $posted_by; ?></a>
-											<a href="#" data-id="<?php echo $property_co_owner->ID; ?>" class="btn btn-favourite ms-auto <?php echo $is_liked ? 'active make-property-dislike' : 'make-property-like' ?>"></a>
+											<a  title="Favorite/Shortlist" href="#" data-id="<?php echo $property_co_owner->ID; ?>" class="btn btn-favourite ms-auto <?php echo $is_liked ? 'active make-property-dislike' : 'make-property-like' ?>"></a>
 										</div>
 										<a href="<?php echo get_the_permalink($property_co_owner->ID); /* CO_OWNER_PROPERTY_DETAILS_PAGE . '/?id=' . $property_co_owner->ID; */ ?>">
 											<div class="property-thumb-bottom">
@@ -663,15 +664,15 @@
 										
 										<?php if ($property_category == 'residential') : ?>
 										<div class="property-facility-area">
-											<a>
+											<a title="Bedroom">
 												<?php echo co_owner_get_svg('bedroom'); ?>
 												<span><?php echo $bedroom; ?></span>
 											</a>
-											<a>
+											<a title="Bathroom">
 												<?php echo co_owner_get_svg('bathroom'); ?>
 												<span><?php echo $bathroom; ?></span>
 											</a> 
-											<a>
+											<a title="Parking">
 												<?php echo co_owner_get_svg('parking'); ?>
 												<span><?php echo $parking; ?></span>
 											</a>
@@ -839,7 +840,7 @@
 						</div>
 						
                         <div class="action-btn-row">
-                            <a class="btn btn-dark rounded-pill ms-auto" target="_blank" href="https://slklawyers.com.au/" >Website</a>
+                            <a title="Sutton  Laurence King Lawyers Website" class="btn btn-dark rounded-pill ms-auto" target="_blank" href="https://slklawyers.com.au/" >Website</a>
 							<!--  <a class="btn btn-orange rounded-pill ms-auto" href="#" >Book Consultation</a>
 							-->
 							<?php echo do_shortcode('[accept_stripe_payment name="Payments (powered by Stripe). This is a 60 mins consultation with our law firm. You can discuss anything in this call." price="250" url="http://example.com/downloads/my-script.zip" button_text="Book Consultation"]'); ?>
@@ -864,7 +865,7 @@
 							<p>To Meet your Mates go to <a target="_blank" href="https://www.mortgagemates.com.au/">www.mortgagemates.com.au</a> to sign up Match.</p>
 						</div>
                         <div class="action-btn-row">
-                            <a class="btn btn-dark rounded-pill ms-auto"  target="_blank" href="https://www.mortgagemates.com.au/">Website</a>
+                            <a title="Mortgage Mates Website" class="btn btn-dark rounded-pill ms-auto"  target="_blank" href="https://www.mortgagemates.com.au/">Website</a>
 							
 						</div>
 						
@@ -1083,8 +1084,8 @@
 				<div class="title-area">
 					<h3 class="title-select">
 						<?php echo get_post_meta($front_page, '_front_page_property_shares_under_title', true) ?>
-						<select class="single-select2 property-shares-price" name="p_state">
-							<option value="">Price</option>
+						<select class="single-select2 property-shares-price" name="p_state" title="Compare Property Prices">
+							<option title="Compare Property Prices" value="">Price</option>
 							<?php foreach (get_price_dropdown_options() as $p_value => $p_key) : ?>
 							<option value="<?php echo $p_value; ?>"><?php echo $p_key; ?></option>
 							<?php endforeach; ?>

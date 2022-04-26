@@ -349,7 +349,7 @@ $account_status_link = $user_status != 1 ? home_url(CO_OWNER_MY_ACCOUNT_PAGE) . 
                                         <div class="investor-cnt bb-1 mt-4 pb-4">
                                             <h3 class="mb-2">Do you have a suitable property?</h3>
                                             <p class="pb-3">Send me a connection request and let's chat.</p>
-                                            <a href="<?php echo $account_status_link; ?>" class="btn btn-orange connect-to-person rounded-pill">Connect with member</a>
+                                            <a title="Send connection request" href="<?php echo $account_status_link; ?>" class="btn btn-orange connect-to-person rounded-pill">Connect with member</a>
                                         </div>
                                     <?php endif; ?>
                                 </div>

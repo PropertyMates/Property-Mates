@@ -28,15 +28,15 @@ $view_mode = isset($_GET['view']) ? $_GET['view'] : 'list';
                             <?php the_title(); ?>
                             <div class="list-btns ms-auto d-none d-md-block">
                                 <div class="btn-group">
-                                    <a href="<?php echo get_view_url('list',CO_OWNER_SHORTLIST_PAGE); ?>" class="btn btn-orange list <?php echo ($view_mode == 'list'?'active':''); ?>">List View</a>
-                                    <a href="<?php echo get_view_url('map',CO_OWNER_SHORTLIST_PAGE); ?>" class="btn btn-orange map <?php echo ($view_mode == 'map'?'active':''); ?>">Map View</a>
+                                    <a title="See property listings on list" href="<?php echo get_view_url('list',CO_OWNER_SHORTLIST_PAGE); ?>" class="btn btn-orange list <?php echo ($view_mode == 'list'?'active':''); ?>">List View</a>
+                                    <a title="See all property locations" href="<?php echo get_view_url('map',CO_OWNER_SHORTLIST_PAGE); ?>" class="btn btn-orange map <?php echo ($view_mode == 'map'?'active':''); ?>">Map View</a>
                                 </div>
                             </div>
                         </h3>
                         <div class="list-btns ms-auto d-block d-md-none pt-3">
                             <div class="btn-group">
-                                <a href="<?php echo get_view_url('list',CO_OWNER_SHORTLIST_PAGE); ?>" class="btn btn-orange list <?php echo ($view_mode == 'list'?'active':''); ?>">List View</a>
-                                <a href="<?php echo get_view_url('map',CO_OWNER_SHORTLIST_PAGE); ?>" class="btn btn-orange map <?php echo ($view_mode == 'map'?'active':''); ?>">Map View</a>
+                                <a title="See property listings on list" href="<?php echo get_view_url('list',CO_OWNER_SHORTLIST_PAGE); ?>" class="btn btn-orange list <?php echo ($view_mode == 'list'?'active':''); ?>">List View</a>
+                                <a title="See all property locations" href="<?php echo get_view_url('map',CO_OWNER_SHORTLIST_PAGE); ?>" class="btn btn-orange map <?php echo ($view_mode == 'map'?'active':''); ?>">Map View</a>
                             </div>
                         </div>
                     </div>

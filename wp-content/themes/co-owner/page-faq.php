@@ -158,7 +158,7 @@ $faqs = get_posts($args);
                                 <?php the_title(); ?>
                             </span>
                             <div class="align-items-center d-flex float-end ms-auto">
-                                <a href="#" class="btn btn-orange btn-rounded pe-3 ps-3" type="button" data-bs-toggle="modal" data-bs-target="#faq-feedback">
+                                <a title="Leave a comment" href="#" class="btn btn-orange btn-rounded pe-3 ps-3" type="button" data-bs-toggle="modal" data-bs-target="#faq-feedback">
                                     Help us improve
                                 </a>
                             </div>

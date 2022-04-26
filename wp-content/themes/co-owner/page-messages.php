@@ -502,7 +502,7 @@ if($chat_with_connected){
                             <p class="ms-auto text-orange d-none d-md-block">Remember: You can anytime add a member to your pool either from pool chat or from your listing.</p>
 
                             <div class="ms-auto d-flex align-items-center">
-                                <a class="custom-btn-area d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#compose-message-modal">
+                                <a title="Create new message" class="custom-btn-area d-flex align-items-center" data-bs-toggle="modal" data-bs-target="#compose-message-modal">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                                         <g fill="none" fill-rule="evenodd">
                                             <g>
@@ -624,7 +624,7 @@ if($chat_with_connected){
                                             </svg>
                                         </span>
                                 <input type="text" class="form-control contact-search" aria-label="Amount (to the nearest dollar)" placeholder="Search User">
-                                <a href="#" class="input-group-text contact-search-close close">
+                                <a title="Delete" href="#" class=" input-group-text contact-search-close close">
                                     <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 12 12" style="enable-background:new 0 0 12 12;" xml:space="preserve">
                                         <style type="text/css">.st0{opacity:0.65;fill:#727272;enable-background:new    ;}</style>
                                         <g>
@@ -750,8 +750,8 @@ if($chat_with_connected){
 							
 					?>
                         <ul>
-                            <li class="<?php echo !$is_group ? 'active' : ''; ?> direct_message"><a class="messages" href="<?php echo home_url(CO_OWNER_MESSAGE_PAGE.'/?is_pool=false') ?>" >Direct Messages</a></li>
-                            <li class="<?php echo $is_group ? 'active' : ''; ?> direct_group"><a class="pools" href="<?php echo home_url(CO_OWNER_MESSAGE_PAGE.'/?is_pool=true') ?>" >Active Pools</a></li>
+                            <li title="See all your direct messages" class="<?php echo !$is_group ? 'active' : ''; ?> direct_message"><a class="messages" href="<?php echo home_url(CO_OWNER_MESSAGE_PAGE.'/?is_pool=false') ?>" >Direct Messages</a></li>
+                            <li title="View all of the active pools you're a member of. " class="<?php echo $is_group ? 'active' : ''; ?> direct_group"><a class="pools" href="<?php echo home_url(CO_OWNER_MESSAGE_PAGE.'/?is_pool=true') ?>" >Active Pools</a></li>
                         </ul>
                     </div>
                 </div>
@@ -760,7 +760,7 @@ if($chat_with_connected){
                         <div class="pnl-title bb-1px d-flex ps-3 pt-10px pb-10px align-items-center min-h-50px">
                             <h6>All Messages</h6>
                             <div class="dropdown member-drop ms-auto">
-                                <button class="btn dropdown-toggle" type="button" id="dropdownMenu1" data-bs-toggle="dropdown" aria-expanded="false">
+                                <button title="Open more actions" class="btn dropdown-toggle" type="button" id="dropdownMenu1" data-bs-toggle="dropdown" aria-expanded="false">
                                     <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 32 18" style="enable-background:new 0 0 32 18;" xml:space="preserve">
                                         <style type="text/css">
                                             .st0{opacity:0.65;fill:#262626;}
@@ -773,16 +773,16 @@ if($chat_with_connected){
                                     </svg>
                                 </button>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                    <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#all-connections-modal" href="#">All Connections</a></li>
-                                    <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#compose-message-modal" href="#">Compose Message</a></li>
+                                    <li><a title="See all connections" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#all-connections-modal" href="#">All Connections</a></li>
+                                    <li><a title="Start a conversation" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#compose-message-modal" href="#">Compose Message</a></li>
                                 </ul>
                             </div>
                         </div>
                         <?php if(!$is_group): ?>
                         <div class="side-tab-links bb-1px pt-10px pb-2">
                             <ul>
-                                <li class="<?php echo $is_received ? 'active' : ''; ?>"><a class="nav-link <?php echo $is_received ? 'active' : ''; ?>" href="<?php echo home_url(CO_OWNER_MESSAGE_PAGE.'/?is_pool=false&is_received=true') ?>">Received</a></li>
-                                <li class="<?php echo !$is_received ? 'active' : ''; ?>"><a class="nav-link <?php echo !$is_received ? 'active' : ''; ?>" href="<?php echo home_url(CO_OWNER_MESSAGE_PAGE.'/?is_pool=false&is_received=false') ?>">Request Sent</a></li>
+                                <li class="<?php echo $is_received ? 'active' : ''; ?>"><a title="See all your current messages" class="nav-link <?php echo $is_received ? 'active' : ''; ?>" href="<?php echo home_url(CO_OWNER_MESSAGE_PAGE.'/?is_pool=false&is_received=true') ?>">Received</a></li>
+                                <li class="<?php echo !$is_received ? 'active' : ''; ?>"><a title="See all your sent connection request" class="nav-link <?php echo !$is_received ? 'active' : ''; ?>" href="<?php echo home_url(CO_OWNER_MESSAGE_PAGE.'/?is_pool=false&is_received=false') ?>">Request Sent</a></li>
                             </ul>
                         </div>
                         <?php endif; ?>
@@ -820,7 +820,7 @@ if($chat_with_connected){
                                     </svg>
                                 </span>
                                 <input type="text" class="form-control contact-search" aria-label="Amount (to the nearest dollar)" placeholder="Search User">
-                                <a href="#" class="input-group-text contact-search-close close">
+                                <a title="Delete" href="#" class="input-group-text contact-search-close close">
                                     <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 12 12" style="enable-background:new 0 0 12 12;" xml:space="preserve">
                                         <style type="text/css">.st0{opacity:0.65;fill:#727272;enable-background:new    ;}</style>
                                         <g>
@@ -967,7 +967,7 @@ if($chat_with_connected){
                                         </div>
                                     </div>
                                     <div class="dropdown member-drop ms-auto">
-                                        <button class="btn dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <button title="Open more actions" class="btn dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
                                             <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 32 18" style="enable-background:new 0 0 32 18;" xml:space="preserve">
                                                 <style type="text/css">.st0{opacity:0.65;fill:#262626;}</style>
                                                 <g>
@@ -979,8 +979,8 @@ if($chat_with_connected){
                                         </button>
                                         <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
                                             <?php if(!$is_group): ?>
-                                                <li><a data-id="<?php echo $chat_with_connected->user_info->ID; ?>" class="user-block-action dropdown-item" href="#">Block</a></li>
-                                                <li><a data-connection-id="<?php echo $chat_with_connected->id; ?>" data-id="<?php echo $chat_with_connected->user_info->ID; ?>" class="user-remove-action dropdown-item" href="#">Remove</a></li>
+                                                <li><a title="Block user" data-id="<?php echo $chat_with_connected->user_info->ID; ?>" class="user-block-action dropdown-item" href="#">Block</a></li>
+                                                <li><a title="Remove user and its messages" data-connection-id="<?php echo $chat_with_connected->id; ?>" data-id="<?php echo $chat_with_connected->user_info->ID; ?>" class="user-remove-action dropdown-item" href="#">Remove</a></li>
                                                 <li><a data-id="<?php echo $chat_with_connected->user_info->ID; ?>" class="dropdown-item clear-connection-chat" href="#">Clear Chats</a></li>
                                             <?php elseif($is_group && $chat_with_connected->user_id == $user_id && $chat_with_connected->group_status == 1 && $available_price > 0): ?>
                                                 <li><a class="dropdown-item add-group-members" href="#" data-is-group="true">Add Member</a></li>
@@ -993,7 +993,7 @@ if($chat_with_connected){
                                             <?php endif; ?>
 
                                             <?php if($is_group): ?>
-                                                <li><a class="dropdown-item clear-group-chat" href="#" data-id="<?php echo ($chat_with_connected->id);?>">Clear Chat</a></li>
+                                                <li><a title="Delete all the conversation" class="dropdown-item clear-group-chat" href="#" data-id="<?php echo ($chat_with_connected->id);?>">Clear Chat</a></li>
                                             <?php endif; ?>
                                         </ul>
                                     </div>
@@ -1134,7 +1134,7 @@ if($chat_with_connected){
                                             <div class="input-group-append">
                                                 <div class="file-field-btn">
                                                     <div class="btn-floating text-center">
-                                                        <div class="file-cnt text-center sand-file-input">
+                                                        <div title="Attach a file" class="file-cnt text-center sand-file-input">
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
                                                                 <g fill="none" fill-rule="evenodd">
                                                                     <g fill="#FE7400" fill-rule="nonzero">
@@ -1213,7 +1213,7 @@ if($chat_with_connected){
                                     <div class="accordion" id="accordionPanelsStayOpenExample">
                                         <div class="accordion-item">
                                             <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-                                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                                                <button title="All about your friend" class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
                                                     About
                                                 </button>
                                             </h2>
@@ -1350,7 +1350,7 @@ if($chat_with_connected){
 
                                         <div class="accordion-item">
                                             <h2 class="accordion-header" id="panelsStayOpen-headingThree">
-                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#files_and_links" aria-expanded="false" aria-controls="files_and_links">
+                                                <button title="See all your files and links" class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#files_and_links" aria-expanded="false" aria-controls="files_and_links">
                                                     Files &amp; Links
                                                 </button>
                                             </h2>

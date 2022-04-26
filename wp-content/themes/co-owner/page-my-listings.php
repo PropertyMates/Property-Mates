@@ -64,7 +64,7 @@ $view = isset($_GET['view']) && in_array($_GET['view'], ['create_by_my', 'joined
                                             <?php endforeach; ?>
                                             <a href="#" class="btn btn-green rounded-pill user-listing-status-button" style="display: <?php echo $person->listing_status != 1 ? 'none;' : 'unset;'; ?>">Live</a>
                                             <div class="dropdown member-drop ms-auto">
-                                                <button class="btn dropdown-toggle" type="button" id="dropdownMenu1" data-bs-toggle="dropdown" aria-expanded="false">
+                                                <button title="Open more actions" class="btn dropdown-toggle" type="button" id="dropdownMenu1" data-bs-toggle="dropdown" aria-expanded="false">
                                                     <?php echo co_owner_get_svg('3_dots'); ?>
                                                 </button>
                                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
@@ -158,7 +158,7 @@ $view = isset($_GET['view']) && in_array($_GET['view'], ['create_by_my', 'joined
                                             <?php endif; ?>
                                             <a href="#" style="<?php echo ($property->post_status == 'completed') ? "" : 'display: none;' ?>" class="btn btn-green property-completed rounded-pill">Completed</a>
                                             <div class="dropdown member-drop ms-auto">
-                                                <button class="btn dropdown-toggle" type="button" id="dropdownMenu1" data-bs-toggle="dropdown" aria-expanded="false">
+                                                <button title="Open more actions" class="btn dropdown-toggle" type="button" id="dropdownMenu1" data-bs-toggle="dropdown" aria-expanded="false">
                                                     <?php echo co_owner_get_svg('3_dots'); ?>
                                                 </button>
                                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">

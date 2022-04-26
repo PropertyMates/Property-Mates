@@ -159,7 +159,7 @@ src="https://www.facebook.com/tr?id=611123330010120&ev=PageView&noscript=1"
                             if (has_custom_logo()) {
                                 the_custom_logo();
                             } else { ?>
-                                <a href="<?php echo home_url(); ?>">
+                                <a  href="<?php echo home_url(); ?>">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="123" height="27" viewBox="0 0 123 27">
                                         <g fill="none" fill-rule="evenodd">
                                             <g fill="#FFF">

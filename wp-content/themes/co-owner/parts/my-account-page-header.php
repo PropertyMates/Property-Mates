@@ -16,8 +16,8 @@
 
                         <div class="ms-auto">
                             <div class="custom-btn-area">
-                                <a href="#"  data-bs-toggle="modal" data-bs-target="#why-upgrade" class="btn btn-black-text me-2 ">Why Upgrade?</a>
-                                <a href="#" class="btn btn-orange btn-big rounded-pill" data-bs-target="#plan-modal" data-bs-toggle="modal">Upgrade</a>
+                                <a href="#" title="Benefits of Upgrading"  data-bs-toggle="modal" data-bs-target="#why-upgrade" class="btn btn-black-text me-2 ">Why Upgrade?</a>
+                                <a href="#" title="Sign Up" class="btn btn-orange btn-big rounded-pill" data-bs-target="#plan-modal" data-bs-toggle="modal">Upgrade</a>
                             </div>
                         </div>
                     </h3>

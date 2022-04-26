@@ -110,7 +110,7 @@ function co_owner_login_out_menu_link( $items, $args ) {
             )) : 0;
             $notification_dot = $count > 0 ? "orange-circle" : '';
             $items.='<li class="nav-item dropdown">
-                        <a class="nav-link d-flex" href="#" id="notification-dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="true">
+                        <a class="nav-link d-flex" title="New Activity" href="#" id="notification-dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="true">
                             Notifications
                             <span class="notification-alert-dot '.$notification_dot.'"></span>
                         </a>
@@ -130,13 +130,13 @@ function co_owner_login_out_menu_link( $items, $args ) {
 				}
 			
             $items .= '<li>
-                            <a class="d-flex nav-link text-nowrap user-forst-name" href="'.home_url('/my-account').'">
+                            <a title="Account" class="d-flex nav-link text-nowrap user-forst-name" href="'.home_url('/my-account').'">
                                 <img class="user-menu-avatar" src="'.$url.'" alt=""/>
                                 '.$username.'
                             </a>
                         </li>';
         } else {
-            $items .= '<li class="nav-item"><a class="nav-link" href="'. home_url('login') .'">'.co_owner_get_svg('user-avatar').'Log In</a></li>';
+            $items .= '<li title="Sign in your account" class="nav-item"><a class="nav-link" href="'. home_url('login') .'">'.co_owner_get_svg('user-avatar').'Log In</a></li>';
         }
     }
     return $items;

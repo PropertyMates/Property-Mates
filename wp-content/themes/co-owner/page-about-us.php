@@ -24,7 +24,7 @@ get_header();
                     <h1>About Us</h1>
                     <h4><strong>Property Mates</strong> is Australia’s first digital platform that makes it easy to buy or sell a portion of a property – from a 1% stake to 100% ownership.</h4>
                     <div class="about-btn pb-3">
-                        <a href="#" class="btn btn-rounded btn-grey px-4" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                        <a title="Watch Video" href="#" class="btn btn-rounded btn-grey px-4" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                                 <g fill="none" fill-rule="evenodd">
                                     <g fill="#FE7400" fill-rule="nonzero">
@@ -128,7 +128,7 @@ get_header();
                         <div class="pe-3">
                             <img src="<?php echo CO_OWNER_THEME_DIR_URI; ?>images/icon-email.png" class="img-fluid" alt="">
                         </div>
-                        <h4 class="mb-0">Have a question?<a href="<?php echo home_url(CO_OWNER_CONTACT_US_PAGE); ?>"> Contact us</a></h4>
+                        <h4 class="mb-0">Have a question?<a title="Ask us anything!" href="<?php echo home_url(CO_OWNER_CONTACT_US_PAGE); ?>"> Contact us</a></h4>
                     </div>
                 </div>
             </div>

@@ -1102,7 +1102,7 @@ function get_custom_logo( $blog_id = 0 ) {
 			$aria_current = is_front_page() && ! is_paged() ? ' aria-current="page"' : '';
 
 			$html = sprintf(
-				'<a href="%1$s" class="custom-logo-link" rel="home"%2$s>%3$s</a>',
+				'<a href="%1$s" title="Homepage" class="custom-logo-link" rel="home"%2$s>%3$s</a>',
 				esc_url( home_url( '/' ) ),
 				$aria_current,
 				$image
@@ -1111,7 +1111,7 @@ function get_custom_logo( $blog_id = 0 ) {
 	} elseif ( is_customize_preview() ) {
 		// If no logo is set but we're in the Customizer, leave a placeholder (needed for the live preview).
 		$html = sprintf(
-			'<a href="%1$s" class="custom-logo-link" style="display:none;"><img class="custom-logo" alt="" /></a>',
+			'<a href="%1$s" title="Homepage" class="custom-logo-link" style="display:none;"><img class="custom-logo" alt="" /></a>',
 			esc_url( home_url( '/' ) )
 		);
 	}

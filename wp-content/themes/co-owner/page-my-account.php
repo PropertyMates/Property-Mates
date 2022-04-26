@@ -212,7 +212,7 @@ $user_eot_date = co_owner_get_user_field('s2member_auto_eot_time', $user->ID);
                                                 <?php if((empty($document_shield_status) && $document_shield_status != 0) || $document_shield_status == 2 || $document_shield_status == 0): ?>
                                                     <div class="file-field-btn">
                                                         <span class="btn-floating text-center mt-4 text-orange" id="user_upload_document_file">
-                                                            <div class="file-cnt text-center">+ Upload file</div>
+                                                            <div title="Insert a file" class="file-cnt text-center">+ Upload file</div>
                                                         </span>
                                                     </div>
                                                     <button class="btn btn-orange-bordered btn-rounded ms-4" id="user_document_send_request" style="display:none;">

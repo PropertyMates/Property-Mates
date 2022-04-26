@@ -101,7 +101,7 @@
 															<a href="<?php echo home_url('?action=subscription&subscription_type=standard'); ?>" class="standard-subscription">Start membership today</a>
 														</div>
 														<?php else : ?>
-														<a href="<?php echo home_url('?action=subscription&subscription_type=standard'); ?>" class="btn btn-orange rounded-pill px-3 py-2 text-white">Choose</a>
+														<a title="Get Plan" href="<?php echo home_url('?action=subscription&subscription_type=standard'); ?>" class="btn btn-orange rounded-pill px-3 py-2 text-white">Choose</a>
 														<?php endif; ?>
 													</div>
 													<?php endif; ?>
@@ -131,11 +131,11 @@
 													<?php if (!$is_admin) : ?>
 													<?php if (!$co_current_user && empty($role)) : ?>
 													<div class="plan-bottom-main text-center pt-4">
-														<a href="<?php echo $is_register_page ? '#' : home_url("register?subscription=professional"); ?>" class="btn btn-blue rounded-pill px-3 py-2 text-white professional-subscription">Choose</a>
+														<a  title="Get Plan"  href="<?php echo $is_register_page ? '#' : home_url("register?subscription=professional"); ?>" class="btn btn-blue rounded-pill px-3 py-2 text-white professional-subscription">Choose</a>
 													</div>
 													<?php else : ?>
 													<div class="plan-bottom-main text-center pt-4">
-														<a href="<?php echo home_url('?action=subscription&subscription_type=professional'); ?>" class="btn btn-blue rounded-pill px-3 py-2 text-white">Choose</a>
+														<a  title="Get Plan" href="<?php echo home_url('?action=subscription&subscription_type=professional'); ?>" class="btn btn-blue rounded-pill px-3 py-2 text-white">Choose</a>
 													</div>
 													<?php endif; ?>
 													<?php endif; ?>
