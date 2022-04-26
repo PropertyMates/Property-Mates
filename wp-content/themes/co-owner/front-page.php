@@ -639,8 +639,8 @@
 								<div class="card-body">
 									<div class="property-one-thumb">
 										<div class="property-thumb-top d-flex align-items-center">
-											<a href="#" class="btn btn-<?php echo $property_category == 'residential' ? 'orange' : 'blue'; ?> rounded-pill me-1"><?php echo $property_category; ?></a>
-											<a href="#" class="btn btn-orange-outline rounded-pill">Posted by: <?php echo $posted_by; ?></a>
+											<a title="<?php echo $property_category != 'residential' ? 'Investment Property' : 'Intended for private occupancy'; ?>" href="#" class="btn btn-<?php echo $property_category == 'residential' ? 'orange' : 'blue'; ?> rounded-pill me-1"><?php echo $property_category; ?></a>
+											<a title="<?php echo $posted_by != 'Agent' ? 'Leased by Proprietor' : 'Leased by an Agent'; ?>" href="#" class="btn btn-orange-outline rounded-pill">Posted by: <?php echo $posted_by; ?></a>
 											<a  title="Favorite/Shortlist" href="#" data-id="<?php echo $property_co_owner->ID; ?>" class="btn btn-favourite ms-auto <?php echo $is_liked ? 'active make-property-dislike' : 'make-property-like' ?>"></a>
 										</div>
 										<a href="<?php echo get_the_permalink($property_co_owner->ID); /* CO_OWNER_PROPERTY_DETAILS_PAGE . '/?id=' . $property_co_owner->ID; */ ?>">
