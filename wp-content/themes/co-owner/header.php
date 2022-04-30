@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-	<meta property="og:image" content="<?php echo get_site_url(); ?>/wp-content/uploads/2021/08/sitesocial-logo.jpeg" />
+	
     <title>
         <?php wp_title('|', true, 'right'); ?><?php bloginfo('name'); ?>
     </title>
@@ -15,7 +15,7 @@
     <?php $subscription = get_user_subscription_level(get_current_user_id()); ?>
 
 
-
+<meta property="og:image" content="<?php echo get_site_url(); ?>/wp-content/uploads/2021/08/LinkedIn-Profile-Picture.png" />
     <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],

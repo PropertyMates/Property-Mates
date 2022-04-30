@@ -38,7 +38,7 @@ $connections = get_all_my_connections($view);
                             <div class="my-list-links w-100">
                                 <ul>
                                     <li class="<?php echo $view == 'connections' ? 'active' : null; ?>"><a href="<?php echo home_url('my-connections?view=connections')?>">All Connections</a></li>
-                                    <li class="<?php echo $view == 'pools' ? 'active' : null; ?>"><a href="<?php echo home_url('my-connections?view=pools')?>">Pools-Chat Rooms</a></li>
+                                    <li class="<?php echo $view == 'pools' ? 'active' : null; ?>"><a title="All existing pools" href="<?php echo home_url('my-connections?view=pools')?>">Pools-Chat Rooms</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -52,7 +52,7 @@ $connections = get_all_my_connections($view);
                                             <div class="mbr-title d-flex w-100">
                                                 <div class="form-check small custom-checkbox ms-auto">
                                                     <div class="dropdown member-drop ms-auto">
-                                                        <button class="btn dropdown-toggle" type="button" id="dropdownMenu1" data-bs-toggle="dropdown" aria-expanded="false">
+                                                        <button title="Open more actions" class="btn dropdown-toggle" type="button" id="dropdownMenu1" data-bs-toggle="dropdown" aria-expanded="false">
                                                             <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                                                  viewBox="0 0 32 18" style="enable-background:new 0 0 32 18;" xml:space="preserve">
                                                                     <style type="text/css">
@@ -102,7 +102,7 @@ $connections = get_all_my_connections($view);
                                             <div class="mbr-title d-flex w-100">
                                                 <div class="form-check small custom-checkbox ms-auto">
                                                     <div class="dropdown member-drop ms-auto">
-                                                        <button class="btn dropdown-toggle" type="button" id="dropdownMenu1" data-bs-toggle="dropdown" aria-expanded="false">
+                                                        <button  title="Open more actions" class="btn dropdown-toggle" type="button" id="dropdownMenu1" data-bs-toggle="dropdown" aria-expanded="false">
                                                             <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 32 18" style="enable-background:new 0 0 32 18;" xml:space="preserve">
                                                                 <style type="text/css">
                                                                     .st0{opacity:0.65;fill:#262626;}

@@ -826,7 +826,7 @@
 						</ul>
                         <div class="book-consult">
                             <span><p>Book Consultation</p></span>
-                            <span class="consult-price">$250-60 mins</span>
+                            <span class="consult-price">$125-30 mins</span>
 						</div>
 						
                         <div class="book-consult">
@@ -841,9 +841,8 @@
 						
                         <div class="action-btn-row">
                             <a title="Sutton  Laurence King Lawyers Website" class="btn btn-dark rounded-pill ms-auto" target="_blank" href="https://slklawyers.com.au/" >Website</a>
-							<!--  <a class="btn btn-orange rounded-pill ms-auto" href="#" >Book Consultation</a>
-							-->
-							<?php echo do_shortcode('[accept_stripe_payment name="Payments (powered by Stripe). This is a 60 mins consultation with our law firm. You can discuss anything in this call." price="250" url="http://example.com/downloads/my-script.zip" button_text="Book Consultation"]'); ?>
+							<a class="btn btn-orange rounded-pill ms-auto" href="/thanku-consultation" >Book Consultation</a>
+							<?php //echo do_shortcode('[accept_stripe_payment name="Payments (powered by Stripe). This is a 60 mins consultation with our law firm. You can discuss anything in this call." price="250" url="http://example.com/downloads/my-script.zip" button_text="Book Consultation"]'); ?>
 						</div>
 						
 					</div>

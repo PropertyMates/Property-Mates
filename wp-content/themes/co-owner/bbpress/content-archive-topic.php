@@ -24,7 +24,7 @@ $user_status = $user->exists() ? get_user_status($user->ID) : 0;
 		</div>
         <div class="bbp-user-post">
             <?php if($user->exists() && $user_status == 1) : ?>
-                <a href="#" class="btn btn-orange has-pencil rounded-pill" data-bs-toggle="modal" data-bs-target="#topic-create-modal">New Post</a>
+                <a href="#" title="Create new Topic" class="btn btn-orange has-pencil rounded-pill" data-bs-toggle="modal" data-bs-target="#topic-create-modal">New Post</a>
             <?php elseif($user_status == 2) : ?>
                 <p>(Your account is deactivated.)</p>
             <?php else: ?>

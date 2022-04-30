@@ -8605,3 +8605,7 @@ ul.comment_hover li ul.children li:last-child {
     margin-bottom: 0 !important;
     padding-bottom: 0;
 }
+
+.video-banners-in {
+    display: inline-block;
+}

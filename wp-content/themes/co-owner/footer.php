@@ -37,25 +37,26 @@
                                     <div class="w-100 d-block ftr-social text-start">
                                     <?php
                                         if(get_option('_crb_facebook_account')) {
-                                            echo '<a target="_blanck" href="'.get_option('_crb_facebook_account').'">';
+                                            echo '<a title="Like us on Facebook" target="_blanck" href="'.get_option('_crb_facebook_account').'">';
                                             echo co_owner_get_svg('small_facebook');
                                             echo '</a>';
                                         }
                                         if(get_option('_crb_instagram_account')) {
-                                            echo '<a target="_blanck" href="'.get_option('_crb_instagram_account').'">';
+                                            echo '<a title="Follow us on Instagram" target="_blanck" href="'.get_option('_crb_instagram_account').'">';
                                             echo co_owner_get_svg('small_instagram');
                                             echo '</a>';
                                         }
                                         if(get_option('_crb_linkedin_account')) {
-                                            echo '<a target="_blanck" href="'.get_option('_crb_linkedin_account').'">';
+                                            echo '<a title="Follow us on Linkedin" target="_blanck" href="'.get_option('_crb_linkedin_account').'">';
                                             echo co_owner_get_svg('small_linkedin');
                                             echo '</a>';
                                         }
                                         if(get_option('_crb_twitter_account')) {
-                                            echo '<a target="_blanck" href="'.get_option('_crb_twitter_account').'">';
+                                            echo '<a title="Follow us on Twitter" target="_blanck" href="'.get_option('_crb_twitter_account').'">';
                                             echo co_owner_get_svg('small_twitter');
                                             echo '</a>';
                                         }
+										 
                                     ?>
                                     </div>
                                 </div>

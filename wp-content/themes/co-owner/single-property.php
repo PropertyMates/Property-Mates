@@ -765,8 +765,8 @@ include 'parts/modals/my-connection.php'; ?>
 					<div class="side-new">
 						<img src="<?php echo get_template_directory_uri(); ?>/images/sutton-logo.png">
 						<h5>Need advice or assistance with a legal matter?</h5>
-						<!-- <a class="btn btn-orange rounded-pill ms-auto" href="#" >Book Consultation</a>-->
-						<?php echo do_shortcode('[accept_stripe_payment name="Payments (powered by Stripe). This is a 60 mins consultation with our law firm. You can discuss anything in this call." price="250" url="http://example.com/downloads/my-script.zip" button_text="Book Consultation"]'); ?>
+				<a class="btn btn-orange rounded-pill ms-auto" href="/thanku-consultation" >Book Consultation</a>
+						<?php //echo do_shortcode('[accept_stripe_payment name="Payments (powered by Stripe). This is a 60 mins consultation with our law firm. You can discuss anything in this call." price="250" url="http://example.com/downloads/my-script.zip" button_text="Book Consultation"]'); ?>
 					</div>
 				</div>
 				
