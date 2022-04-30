@@ -503,7 +503,7 @@ class ASP_Shortcode_NG {
 			$is_disabled = ' disabled';
 		}
 
-		$button = sprintf( '<div class="asp_product_buy_btn_container"><button id="%s" type="submit" class="%s"%s><span>%s</span></button></div>', esc_attr( $button_id ), esc_attr( $class ), $is_disabled, sanitize_text_field( $button_text ) );
+		$button = sprintf( '<div class="asp_product_buy_btn_container"><button title="Schedule a call" id="%s" type="submit" class="%s"%s><span>%s</span></button></div>', esc_attr( $button_id ), esc_attr( $class ), $is_disabled, sanitize_text_field( $button_text ) );
 
 		$out_of_stock          = false;
 		$stock_control_enabled = false;
