@@ -107,6 +107,17 @@ $members = $enable_pool ? get_property_total_members($property->ID) : array();
                             <?php echo co_owner_get_svg('parking'); ?>
                             <span><?php echo $parking; ?></span>
                         </a>
+						<?php 
+											$comments_count = wp_count_comments($property->ID );
+											?>
+											<a class="comment-icons like-icons" href="<?php  echo get_the_permalink($pool_property->ID); /*CO_OWNER_PROPERTY_DETAILS_PAGE . '/?id=' . $pool_property->ID;*/ ?>">
+
+												<?php echo getTotalVoteByPostId($property->ID); ?>
+											</a>
+											<a class="comment-icons" href="<?php echo get_the_permalink($property->ID); /*CO_OWNER_PROPERTY_DETAILS_PAGE . '/?id=' . $pool_property->ID; */ ?>">
+												<span class="sbs-count-comments"><?php echo $comments_count->total_comments; /*do_shortcode( '[sbs_comments]' ); */ ?> </span> 
+								
+											</a>
                     <?php endif; ?>
                     <?php if($enable_pool && $available_share == 0): ?>
                         <a href="#" class="btn fw ms-auto text-danger pb-0">POOL IS FULL</a>
