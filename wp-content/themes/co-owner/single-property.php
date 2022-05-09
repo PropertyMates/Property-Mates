@@ -318,7 +318,7 @@ include 'parts/modals/my-connection.php'; ?>
 						<?php if($key != 0 && $key < 5): ?>
 					<?php $filename_from_url = parse_url($image['url']);
                            $ext = pathinfo($filename_from_url['path'], PATHINFO_EXTENSION); 
-						   if($ext){
+						   //if($ext){
 						   ?>
 						<div class="col-sm-6 col-6 pb-3 mb-1">
 							<div class="medium-thumb-property">
@@ -326,7 +326,7 @@ include 'parts/modals/my-connection.php'; ?>
 								<img src="<?php echo $image['url']; ?>" alt="">
 							</div>
 						</div>
-						   <?php } ?>
+						   <?php //} ?>
 						<?php endif; ?>
 						<?php endforeach; ?>
 					</div>
