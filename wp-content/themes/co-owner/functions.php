@@ -36,7 +36,7 @@ define('CO_OWNER_FAQS_PAGE', 'faq');
 define('CO_OWNER_ABOUT_US_PAGE', 'about-us');
 define('CO_OWNER_CONTACT_US_PAGE', 'contact-us');
 
-define('CO_OWNER_PERPAGE', 15);
+define('CO_OWNER_PERPAGE', 24);
 define('CO_OWNER_CURRENCY_SYMBOL', '$');
 define('CO_OWNER_MAXIMUM_INPUT_FILE_SIZE', 5);
 
@@ -274,6 +274,7 @@ if (!function_exists('co_owner_script_init')) {
         wp_enqueue_style('owl.carousel-theme-css', get_template_directory_uri() . '/js/plugins/owlcarousel/css/owl.theme.default.min.css', array(), CO_OWNER_SCRIPT_VERSION, 'screen');
         wp_enqueue_style('flexslider-css', get_template_directory_uri() . '/js/plugins/flex-slider/css/flexslider.css', array(), CO_OWNER_SCRIPT_VERSION, 'screen');
         wp_enqueue_style('sweetalert2-css', get_template_directory_uri() . '/js/plugins/sweetalert2/sweetalert2.min.css', array(), CO_OWNER_SCRIPT_VERSION, 'screen');
+         wp_enqueue_style('croppie-style', get_template_directory_uri() . '/css/croppie.css', array(), CO_OWNER_SCRIPT_VERSION, 'screen');
 
         wp_enqueue_style('co-owner', get_template_directory_uri() . '/style.css', array(), CO_OWNER_SCRIPT_VERSION, 'screen');
         wp_enqueue_style('app', get_template_directory_uri() . '/css/app.css', array('co-owner'), CO_OWNER_SCRIPT_VERSION, 'screen');
@@ -380,6 +381,7 @@ if (!function_exists('co_owner_script_init')) {
         wp_enqueue_script('toastr-js', get_template_directory_uri() . '/js/plugins/toastr/toastr.min.js', array('jquery'), CO_OWNER_SCRIPT_VERSION, true);
         wp_enqueue_script('jquery-validation', get_template_directory_uri() . '/js/plugins/jquery-validation/jquery.validate.js', array('jquery'), CO_OWNER_SCRIPT_VERSION, true);
         wp_enqueue_script('jquery-validation-additional-methods', get_template_directory_uri() . '/js/plugins/jquery-validation/additional-methods.js', array('jquery', 'jquery-validation'), CO_OWNER_SCRIPT_VERSION, true);
+       wp_enqueue_script('jquery-croppie', get_template_directory_uri() . '/js/croppie.min.js', array(), CO_OWNER_SCRIPT_VERSION, true);
 
        
             $key = get_option('_crb_google_map_api_key');
@@ -686,9 +688,9 @@ function my_ajax_callback_function() {
 			if (isset($_POST['email'])) {
 				//user posted variables
 				$name = $_POST['name'];
-				
-
-				
+				$lawyer_id = $_POST['lawyer_id'];
+                $lawyer_title = get_the_title($lawyer_id);
+				$lawyer_link = get_permalink($lawyer_id);				
 				//php mailer variables
 				$to = 'hello@propertymates.io';
 				$subject = "Enquiry came for legal assistance".$_POST['title'];
@@ -700,7 +702,7 @@ function my_ajax_callback_function() {
 				$headers .= 'From: '. $_POST['email'] . "\r\n" .
 				'Reply-To: ' . $_POST['email'] . "\r\n";
 				//  $message = 'Enquire Now with'. $_POST['email'] .( (isset($_POST['agreement']) && !empty($_POST['agreement']) ) ? 'for'.$_POST['agreement'] : '');
-				$message = '<table><tr><td>Username - '.$_POST['name']. '</td></tr><tr><td> Email address - '.$_POST['email']. '</td></tr><tr><td> Enquire Now with : '. $_POST['email'] .( (isset($_POST['agreement']) && !empty($_POST['agreement']) ) ? ' for '.$_POST['agreement'] : ''). '</td></tr><tr><td> Listing - <a href="'.$_POST['urls'].'">'.$_POST['urls'].'</a></td></tr></table>';
+				$message = '<table><tr><td>Lawyer -<a href="'.$lawyer_link.'">'.$lawyer_title.'</a> </td> </tr> <tr><td>Username - '.$_POST['name']. '</td></tr><tr><td> Email address - '.$_POST['email']. '</td></tr><tr><td> Enquire Now with : '. $_POST['email'] .( (isset($_POST['agreement']) && !empty($_POST['agreement']) ) ? ' for '.$_POST['agreement'] : ''). '</td></tr><tr><td> Listing - <a href="'.$_POST['urls'].'">'.$_POST['urls'].'</a></td></tr></table>';
 				
 				$sent = wp_mail(  $to, $subject, $message, $headers);
 				
