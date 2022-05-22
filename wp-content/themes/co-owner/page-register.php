@@ -249,7 +249,7 @@ include_once('parts/modals/subscription.php');
 /* #change007  */
 include('register_modal.php'); ?>
 
-
+<?php include('parts/modals/croppie.php'); ?>
 
 <?php
 CoOwner::get_template_parts(array('parts/shared/html-footer'));
