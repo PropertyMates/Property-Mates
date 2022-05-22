@@ -891,6 +891,21 @@ jQuery(function ($) {
         },
       });
     }
+	if ($(".our-community-owlslider").length > 0) {
+      $(".our-community-owlslider").owlCarousel({
+        loop: false,
+        margin: 32,
+        nav: true,
+        dots: false,
+        stageClass: "owl-stage d-flex",
+        responsive: {
+          0: { items: 1 },
+          768: { items: 2 },
+          1000: { items: 3 },
+          1400: { items: 3 },
+        },
+      });
+    }
 
     if ($(".people-looking-for-properties").length > 0) {
       $(".people-looking-for-properties").owlCarousel({
@@ -5343,6 +5358,59 @@ $inp.on({
 });
 /* Copy Paste OTP*/
   
+  
+  
+  /*Croppie code*/
+  
+   $image_crop = $('#image_demo').croppie({
+    enableExif: true,
+    viewport: {
+      width:200,
+      height:200,
+      type:'square' //circle
+    },
+    boundary:{
+      width:300,
+      height:300
+    }
+  });
+
+  $('#upload_image').on('change', function(){
+    var reader = new FileReader();
+    reader.onload = function (event) {
+      $image_crop.croppie('bind', {
+        url: event.target.result
+      }).then(function(){
+        console.log('jQuery bind complete');
+      });
+    }
+    reader.readAsDataURL(this.files[0]);
+    $('#uploadimageModal').modal('show');
+  });
+
+  $('.crop_image').click(function(event){
+    $image_crop.croppie('result', {
+      type: 'canvas',
+      size: 'viewport'
+    }).then(function(response){
+      $.ajax({
+        url: php_vars.ajax_url,
+        type: "POST",
+        data:{"image": response,'action': 'croppie_profile_fnc'},
+        success:function(data)
+        {
+          $('#uploadimageModal').modal('hide');
+		   
+         $('#user-profile').attr('src',data);
+		 $('#user-profile').show();
+      
+        }
+      });
+    })
+  });
+
+  
+  /*Croppie code*/
   
   
 });

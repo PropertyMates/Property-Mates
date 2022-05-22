@@ -6532,12 +6532,23 @@ form#front-page-people-filter-box input {
 
 .commnunity-inner {
     background-color: #f6f6f6;
-    padding: 50px;
+    padding: 30px;
     width: 100%;    height: 100%;
     display: inline-block;
 }
 .logo-comminuty {
-    margin-bottom: 35px;
+    margin-bottom: 15px;
+}
+.logo-comminuty a {
+    display: flex;
+    width: 100%;
+    height: 200px;
+    align-items: center;
+    justify-content: center;
+}
+.logo-comminuty img {
+    max-height: 200px;
+    max-width: 100%;
 }
 .commnunity-inner ul {
     padding: 0;
@@ -6548,7 +6559,7 @@ form#front-page-people-filter-box input {
 .commnunity-inner ul li {
     display: inline-block;
     width: 100%;
-    margin: 9px 0;
+    margin: 3px 0;
     padding-left: 30px;
     position: relative;
     font-size: 16px;
@@ -6582,6 +6593,7 @@ form#front-page-people-filter-box input {
     padding: 10px 16px;
     margin-bottom: 15px;
     color: #000;
+    font-size: 14px;
 }
 .book-consult p {
     margin: 0;
@@ -6601,7 +6613,7 @@ span.consult-price {
     margin-top: 40px;
 }
 .action-btn-row {
-    margin-top: 30px;
+    margin-top: 10px;
     display: inline-block;
     width: 100%;
 }
@@ -6796,7 +6808,7 @@ span.consult-price {
 }
 
 
-img.load-custom {
+.owl-carousel .owl-item img.load-custom {
     position: fixed;
     top: 50%;
     transform: translateY(-50%);
@@ -7632,8 +7644,9 @@ div#register_steps .modal-footer button#register_back {
 .register_step .modal-body.profile-up .md-form.mb-4 {
     width: calc(100% - 156px);
 }
-div#property_goal .modal-dialog ,
-.create-a-person-listing .swal2-popup.swal2-modal {
+div#property_goal .modal-dialog , 
+div#uploadimageModal .modal-dialog ,
+.create-a-person-listing .swal2-popup.swal2-modal  {
     margin-top: 70px;
     max-width: 400px !important;
 }
@@ -7837,7 +7850,7 @@ div.footer-sec .ftr-section {
 .action-btn-row a.btn, .action-btn-row .asp_product_buy_button button.stripe-button-el {
     line-height: 35px;
     height: 35px;
-    padding: 0 19px;
+    padding: 0 18px;
 }
 .login-main h1 {
     font-size: 22px;
@@ -7969,7 +7982,8 @@ div#register_steps,
 	.controls-section .btn-link {
     font-size: 13px;
 }
-div#property_goal {
+div#property_goal ,
+div#uploadimageModal{
     padding: 0 !important;
 }	
 div#register_steps .modal-footer button:hover, .swal2-actions button:hover {
@@ -8120,7 +8134,8 @@ img.mobile-img-list {
     border-radius: 10px;
     justify-content: center;
 }
-.h-100.h-100-lastitem a.d-md-block {
+.h-100.h-100-lastitem a.d-md-block ,
+.item-lawyer-viewall a.d-md-block {
     display: inline-block !important;
     font-weight: 400;
     line-height: 1.5;
@@ -8174,6 +8189,12 @@ img.mobile-img-list {
     position: relative;
     padding-bottom: 100%;
 }
+.blog-articls-img.lawyer_img {
+    padding-bottom: 60%;
+}
+img.load-custom {
+    display: none;
+} 
 .blog-articls-img img {
     position: absolute;
     top: 50%;
@@ -8184,14 +8205,16 @@ img.mobile-img-list {
     right: 0;
     display: block;
     margin: 0 auto;
+        max-width: 100%;
 }
-.blog-articls-text h4 a {
+.blog-articls-text h4 a ,
+.commnunity-inner .title-area h3 {
     color: #fe7400;
     font-size: 20px;
     text-transform: capitalize;
     white-space: nowrap;
     width: 100%;
-    display: inline-block;
+    display: inline-block !important;
     overflow: hidden;
     text-overflow: ellipsis;
 }
@@ -8316,7 +8339,8 @@ button, a {
     margin: 0;
 }
 
-.short-des-blog {
+.short-des-blog ,
+.logo-comminuty-excerp p{
     width: 100%;
     overflow: hidden;
     display: -webkit-box;
@@ -8326,8 +8350,92 @@ button, a {
     min-height: 68px;
 }
 
+div#uploadimageModal .modal-content {
+    border: 0;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgb(0 0 0 / 20%);
+    padding: 30px;
+    box-sizing: border-box;
+}
+div#uploadimageModal .modal-content h4.modal-title {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: normal;
+    color: #262626;
+}
+div#uploadimageModal .modal-header {
+    padding: 0;
+    border: 0;
+}
+div#uploadimageModal .modal-header button.close {
+    order: 2;
+    border: 0;
+    background-color: transparent;
+    font-size: 25px;
+    height: auto;
+    line-height: normal;
+}
+div#uploadimageModal .modal-footer {
+    display: none;
+}
+div#uploadimageModal .modal-body .row {
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+}
+div#uploadimageModal .modal-body div#image_demo {
+    max-width: 100%;
+}
+div#uploadimageModal .modal-body button.btn.crop_image {
+    background-color: #ff7300;
+    color: #fff;
+    border-radius: 50px;
+    padding: 5px 30px;
+    font-weight: 500;
+    line-height: 24px;
+    border: 1px solid transparent;
+    font-size: 13px;
+    width: 100%;
+}
+div#uploadimageModal .modal-body button.btn.crop_image:hover {
+    background-color: #e46800 !important;
+    border-color: #e46800 !important;
+    color: #fff !important;
+}
+div#uploadimageModal .modal-body {
+    padding: 0;
+}
+
+div#uploadimageModal .croppie-container .cr-boundary {
+    max-width: 250px;
+    max-height: 250px !important;
+}
 
 
+.browse-new.panel.panel-default {
+    position: relative;
+    width: 100%;
+    margin-top: 10px;
+}
+.browse-new div#uploaded_image svg {
+    display: inline-block;
+    vertical-align: inherit;
+    max-width: 18px;
+    margin-right: 6px;
+}
+.browse-new div#uploaded_image {
+    color: #fe7400 !important;
+}
+.browse-new.panel.panel-default input#upload_image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    cursor: pointer;
+}
 
 
 
@@ -8371,7 +8479,8 @@ div#register_steps .modal-footer button:hover ,
     background-color: #ff7300 !important;
     border-color: #ff7300 !important;
 }
-div#property_goal .modal-dialog, .create-a-person-listing .swal2-popup.swal2-modal {
+div#property_goal .modal-dialog, .create-a-person-listing .swal2-popup.swal2-modal ,
+div#uploadimageModal .modal-dialog{
     margin-left: auto;
     margin-right: auto;
 }
@@ -8497,13 +8606,25 @@ ul.creat-listin li {
 div#register_steps .modal-footer {    display: flex !important;    width: 100%;    justify-content: center; !important; }
 .register_step .modal-body.profile-up {    justify-content: center;    text-align: center;}
 
-div#property_goal .modal-dialog, .create-a-person-listing .swal2-popup.swal2-modal {
+div#property_goal .modal-dialog, 
+div#uploadimageModal  .modal-dialog,
+.create-a-person-listing .swal2-popup.swal2-modal {
     max-width: calc(100% - 40px) !important;
     margin-left: auto !important;
     margin-right: auto !important;
 }
 .blog-articls {
     width: 100%;
+}
+div#uploadimageModal .croppie-container .cr-boundary {
+    max-width: 230px;
+    max-height: 230px !important;
+}
+div#uploadimageModal .modal-content {
+    padding: 15px;
+}
+div#uploadimageModal .modal-content h4.modal-title {
+    font-size: 16px;
 }
 }
 
@@ -8608,4 +8729,193 @@ ul.comment_hover li ul.children li:last-child {
 
 .video-banners-in {
     display: inline-block;
+}
+
+.people-looking-for-properties .owl-item .property-one-thumb img {
+    width: 100%;
+    height: 100%;
+    /* object-fit: cover; */
+}
+
+
+
+#our-community .owl-carousel .owl-item img {
+    width: auto;
+    margin: 0 auto;
+}
+.action-btn-row a.btn {
+    font-size: 14px;
+    font-family: 'Poppins';
+    font-weight: 500;
+        margin: 3px 0;
+}
+
+
+
+#our-community  .owl-nav button {
+    width: 36px;
+    height: 36px;
+    position: absolute;
+    top: 50%;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    transform: translateY(-50%);
+}
+
+#our-community  .owl-nav [class*="owl-"]:hover {
+  background-color: transparent;
+}
+
+#our-community  .owl-nav button span {
+  font-size: 0px;
+}
+
+#our-community  .owl-nav button.owl-prev {
+  left: -46px;
+}
+
+#our-community  .owl-nav button.owl-prev:before {
+  content: "";
+  width: 36px;
+  height: 36px;
+  background: url(images/icons-left.svg) left top no-repeat;
+  display: block;
+}
+
+#our-community  .owl-nav button.owl-next {
+  right: -46px;
+}
+
+#our-community  .owl-nav button.owl-next:before {
+  content: "";
+  width: 36px;
+  height: 36px;
+  background: url(images/icons-right.svg) left top no-repeat;
+  display: block;
+}
+
+.item-lawyer-viewall {
+    box-shadow: 0 1px 4px 0 rgb(0 0 0 / 8%);
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    justify-content: center;
+    height: 100%;
+    text-align: center;
+}
+#our-community .owl-stage {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 9px 0;
+}
+.item-lawyer {
+    height: 100%;
+    padding: 0 2px;
+}
+
+.lawyr-articls .blog-articls-in {
+    height: 100%;
+}
+
+.lawyr-articls .blog-articls-text {
+    display: flex;
+    flex-direction: column;
+    min-height: 274px;
+}
+.lawyr-articls .action-btn-row-lwyr {
+    margin-top: auto;
+    padding-top: 20px;
+}
+
+.lawyr-articls .book-consult, .lawyr-articls .book-consult a {
+    font-size: 14px;
+    margin-bottom: 0;
+}
+
+.commnunity-inner .title-area {
+    padding: 0 0 10px 0;
+}
+.hf-comunity {
+    display: flex;
+    width: 100%;
+    padding-bottom: 20px;
+}
+.left-comunity {
+    width: 100%;
+    max-width: 240px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.right-comunity {
+    width: calc(100% - 240px);
+    padding-left: 20px;
+}
+.blog-detil-info .commnunity-inner {
+    margin-top: 20px;
+}
+
+
+@media (max-width: 1399px) {
+ .lawyr-articls .blog-articls-text {
+    min-height: 336px;
+}
+}
+
+@media (max-width: 767px) {
+  #our-community  .owl-nav button.owl-next {
+    right: -20px;
+}
+#our-community  .owl-nav button.owl-prev {
+    left: -20px;
+}
+div#our-community .container {
+    padding: 0 20px;
+}
+.blog-articls.lawyr-articls {
+    width: 100%;
+    padding: 10px 0;
+}
+.lawyr-articls .blog-articls-text {
+    min-height: auto;
+}
+.commnunity-inner .title-area h3 {
+    font-size: 17px;
+}
+.hf-comunity {
+    flex-direction: column;
+}
+.left-comunity {
+    background-color: transparent;
+    margin-bottom: 10px;
+}
+.right-comunity {
+    width: 100%;
+    padding: 0;
+}
+.blog-detil-info h3 a {
+    font-size: 20px;
+}
+.commnunity-inner ul li {
+    padding-left: 20px;
+    font-size: 15px;
+}
+}
+
+.commnunity-inner {
+    background-color: #fff;
+        border-radius: 10px;
+    box-shadow: 0 1px 4px 0 rgb(0 0 0 / 8%);
+}
+div#our-community {
+    background-color: #f6f6f6 !important;
+}
+
+.item-lawyer-viewall {
+    background-color: #fff;
+}
+
+.logo-comminuty-excerp p {
+    line-height: 1.7;
 }

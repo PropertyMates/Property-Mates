@@ -1752,10 +1752,11 @@ function send_person_connection_request()
     //  }
 
     $auth_user = get_current_user_id();
+	
     if (
         isset($_POST['description']) && !empty($_POST['description']) &&
         isset($_POST['user_id']) && !empty($_POST['user_id']) &&
-        isset($_POST['property_id']) && !empty($_POST['property_id']) &&
+       /* isset($_POST['property_id']) && !empty($_POST['property_id']) && */
         $auth_user > 0
     ) {
         $array = array(
@@ -4299,11 +4300,11 @@ function save_register_modal(){
 		 if($is_mobile){
 			 if(!empty($_FILES)){
 				 $dataImageTitle = $_FILES['profile']['name'];
-				 save_data_image($_POST['profile_data_img'], $dataImageTitle ,$user_id );				 
+				// save_data_image($_POST['profile_data_img'], $dataImageTitle ,$user_id );				 
 			 } 
 		 }else{
 			 if(!empty($_FILES)){
-				 save_user_avatar_image($user_id);
+				// save_user_avatar_image($user_id);
 			 }	 
 		 }
 
@@ -4439,3 +4440,79 @@ function remove_profile_image()
 
 add_action('wp_ajax_remove_profile_image', 'remove_profile_image');
 /* #changed 11*/
+
+add_action('wp_ajax_croppie_profile_fnc','croppie_profile_fnc');
+function croppie_profile_fnc(){
+	
+if(isset($_POST["image"]))
+{
+	
+$user_id = get_current_user_id();	
+
+ $data = $_POST["image"];
+
+ $image_array_1 = explode(";", $data);
+
+ $image_array_2 = explode(",", $image_array_1[1]);
+
+ $decoded = base64_decode($image_array_2[1]);
+  $hashed_filename = time().'_'.$user_id.'_profile'.'.png';
+
+     //file_put_contents($imageName, $data);
+ 
+		//$dataImageTitle = $user_id.'_profile'.'.png';
+
+
+	// Upload dir.
+	$upload_dir  = wp_upload_dir();
+	$upload_path = str_replace( '/', DIRECTORY_SEPARATOR, $upload_dir['path'] ) . DIRECTORY_SEPARATOR;
+
+	//$img             = str_replace( 'data:image/jpeg;base64,', '', $base64_img );
+	//$img             = str_replace( ' ', '+', $img );
+	//$decoded         = base64_decode( $img );
+	$filename        = $title;
+	$file_type       = 'image/jpeg';
+	//$hashed_filename = md5( $filename . microtime() ) . '_' . $filename;
+
+	// Save the image in the uploads directory.
+	$upload_file = file_put_contents( $upload_path . $hashed_filename, $decoded );
+
+	$attachment = array(
+		'post_mime_type' => $file_type,
+		'post_title'     => preg_replace( '/\.[^.]+$/', '', basename( $hashed_filename ) ),
+		'post_content'   => '',
+		'post_status'    => 'inherit',
+		'guid'           => $upload_dir['url'] . '/' . basename( $hashed_filename )
+	);
+
+	$attach_id = wp_insert_attachment( $attachment, $upload_dir['path'] . '/' . $hashed_filename );
+	   if(	$attach_id){
+		   $moveFile= array(
+		    'file' => $upload_dir['path'] . '/' . $hashed_filename,
+			'url'=> $upload_dir['url'] . '/' . $hashed_filename,
+			'type'=> $file_type
+		   );
+			$old_avatar = get_user_meta($user_id, '_user_profile_avatar', true);
+			if ($old_avatar && $old_avatar['file']) {
+				if (file_exists($old_avatar['file'])) {
+					unlink($old_avatar['file']);
+					delete_user_meta($user_id, '_user_profile_avatar');
+				}
+			}
+		
+			update_user_meta($user_id, '_user_profile_avatar', $moveFile);
+
+	   
+	echo  $upload_dir['url'] . '/' . $hashed_filename;
+}else{
+	
+	echo 100;
+}
+
+
+// echo '<img src="'.$imageName.'" class="img-thumbnail" />';
+}
+	
+	die;
+}
+

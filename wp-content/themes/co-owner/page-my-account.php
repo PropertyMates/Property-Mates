@@ -27,6 +27,7 @@ $user_eot_date = co_owner_get_user_field('s2member_auto_eot_time', $user->ID);
 <?php include('parts/modals/deactivate-or-delete-my-account-model.php'); ?>
 <?php include('parts/modals/leave-account-feedback-model.php'); ?>
 <?php include('parts/modals/change-password-model.php'); ?>
+<?php include('parts/modals/croppie.php'); ?>
 
 
 <div class="center-area">
@@ -53,7 +54,14 @@ $user_eot_date = co_owner_get_user_field('s2member_auto_eot_time', $user->ID);
                             <div class="row list-section pt-10px">
                                 <div class="col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 pb-30px person-list-box">
                                     <div class="card property-card-one pb-2">
+									
+									
+									
                                         <div class="card-body">
+										
+										
+										
+										
 										<?php
                                            	/* #changed 11*/									
 										  if(avatar_exist($user->ID)){
@@ -75,7 +83,19 @@ $user_eot_date = co_owner_get_user_field('s2member_auto_eot_time', $user->ID);
                                           
 										   </div>
                                         </div>
-                                        <span class="d-block" id="user-profile-browse">
+                                         <div class="browse-new panel panel-default">
+      <!-- <div class="panel-heading">Select Profile Image</div> -->
+      <div class="panel-body" align="center">
+       <input type="file" name="upload_image" id="upload_image" accept="image/*" />
+       <div id="uploaded_image">
+        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 30 30" style="enable-background:new 0 0 30 30;" xml:space="preserve"><style type="text/css">.st0{fill:#0A7E80;}</style>
+        <path class="st0" d="M28,18.1v6.4h0v2.2c0,0.8-0.7,1.5-1.5,1.5h-23c-0.8,0-1.5-0.7-1.5-1.5v-7.1l0-1.5l-1.9,0V27c0,1.7,1.3,3,3,3H27c1.7,0,3-1.3,3-3v-8.9H28z"></path>
+        <path class="st0" d="M22.6,7.9L15.8,1c-0.4-0.4-1-0.4-1.4,0l-7,6.7l1.4,1.4l5.5-5.3v18.1h1.8V4.1l5.1,5.2L22.6,7.9z"></path>
+        </svg>
+        Browse</div>
+      </div>
+     </div>
+                                        <!-- <span class="d-block" id="user-profile-browse">
                                             <a class="user-browse-svg text-orange d-block" href="#">
                                                 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 30 30" style="enable-background:new 0 0 30 30;" xml:space="preserve">
                                                 <style type="text/css">
@@ -88,7 +108,7 @@ $user_eot_date = co_owner_get_user_field('s2member_auto_eot_time', $user->ID);
                                                 Browse
                                             </a>
 											<input type="file" name="profile" accept=".png,.jpg,.jpeg" style="display: none;">
-                                         </span>
+                                         </span> -->
                                     </div>
                                 </div>
 
