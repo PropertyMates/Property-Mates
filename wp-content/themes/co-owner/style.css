@@ -6542,12 +6542,12 @@ form#front-page-people-filter-box input {
 .logo-comminuty a {
     display: flex;
     width: 100%;
-    height: 200px;
+    height: 130px;
     align-items: center;
     justify-content: center;
 }
 .logo-comminuty img {
-    max-height: 200px;
+    max-height: 130px;
     max-width: 100%;
 }
 .commnunity-inner ul {
@@ -8176,6 +8176,7 @@ img.mobile-img-list {
     overflow: hidden;
     background-color: #fff;
     width: 100%;
+    font-size: 15px;
 }
 .blog-articls-text {
     display: inline-block;
@@ -8207,7 +8208,8 @@ img.load-custom {
     margin: 0 auto;
         max-width: 100%;
 }
-.blog-articls-text h4 a ,
+
+.blog-articls-in  h4 a ,
 .commnunity-inner .title-area h3 {
     color: #fe7400;
     font-size: 20px;
@@ -8348,8 +8350,21 @@ button, a {
     -webkit-box-orient: vertical;
     margin-bottom: 15px;
     min-height: 68px;
+    position: relative;
 }
+.fivelinecontent p{   -webkit-line-clamp: 6;}
+.sixlinecontent p {   -webkit-line-clamp: 8;}
 
+.logo-comminuty-excerp p::after {
+    content: "";
+    height: 25px;
+    width: 17px;
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    background-color: #fff;
+}
 div#uploadimageModal .modal-content {
     border: 0;
     border-radius: 10px;
@@ -8857,6 +8872,260 @@ ul.comment_hover li ul.children li:last-child {
 }
 
 
+.commnunity-inner {
+    background-color: #fff;
+        border-radius: 10px;
+    box-shadow: 0 1px 4px 0 rgb(0 0 0 / 8%);
+}
+div#our-community {
+    background-color: #f6f6f6 !important;
+}
+
+.item-lawyer-viewall {
+    background-color: #fff;
+}
+
+.logo-comminuty-excerp p {
+    line-height: 1.7;
+}
+.col-sm-12.col-12.hideconnectpop {
+    display: none;
+}
+
+.commnunity-inner {
+    display: flex;
+    flex-direction: column;
+}
+.action-btn-row {
+    margin-top: auto;
+}
+
+.blog-articls.lawyr-articls .blog-articls-in {
+    display: flex;
+    flex-direction: column;
+    padding: 0 15px 15px 15px;
+}
+.calendar-bx {
+    display: block;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 1px 4px 0 rgb(0 0 0 / 8%);
+    max-width: 1000px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.calendar-bx .row { margin-left: 0px; margin-right: 0px; }
+.calendar-bx-left {
+    background-color: #1b1b1b;
+    color: #fff;
+    text-align: center;
+    padding: 30px;
+}
+.lawyer_icon {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 10px;
+    border: 4px solid #fff;
+}
+.lawyer_icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.meeting_with a {
+    font-size: 20px;
+    color: #fff;
+    font-weight: 500;
+}
+
+.weeks-wrapper.header {
+    border: 0;
+}
+.buttons-container {
+    border: 0;
+    margin: 0;
+    background-color: #efefef;
+    padding: 6px 0;
+}
+.calendar-bx-right {
+    padding: 30px;
+}
+.meeting_duration ,
+.time_best {
+    font-weight: 600;
+    display: block;
+        margin-top: 10px;
+}
+
+.calendar-bx-left button.prev-button, .calendar-bx-left button.next-button {
+    width: 50px;
+    height: 36px;
+    background: url(images/icons-left.svg) center no-repeat;
+    display: inline-block;
+    font-size: 0;
+    background-size: 25px !important;
+    background-position: center center !important;
+}
+.buttons-container .label-container {
+    color: #000;
+}
+.calendar-box {
+    border: 0;
+    background-color: #fff;
+}
+.calendar-bx-left button.next-button  {background: url(images/icons-right.svg) left top no-repeat;}
+.day span ,
+.day.disabled span{
+    color: rgb(0 0 0 / 70%);
+}
+.day span {
+    color: #000;
+}
+
+.week .day[disabled="disabled"] span {
+    color: rgb(0 0 0 / 70%);
+}
+
+.day.today span, 
+.day.active span ,
+.day span:hover {
+    background-color: #000 !important;
+    color: #fff !important;
+}
+.day.today span::after {
+    display: none;
+}
+.week .day.header {
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff !important;
+}
+.special-buttons button.today-button {
+    color: #fe7400;
+    font-weight: 700;
+}
+.meeting_duration_time {
+    background-color: #f7f7f7;
+    border: 1px solid #ddd;
+    text-align: center;
+    padding: 5px 10px;
+    font-weight: 400;
+    font-size: 14px;
+    border-radius: 5px;
+    display: inline-block;
+    width: 100%;
+    margin: 6px 0;
+}
+
+ul.time_slot_list {
+    display: inline-block;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+ul.time_slot_list li {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+}
+ul.time_slot_list li a {
+    border: 1px solid #ddd;
+    color: #000;
+    padding: 8px 10px;
+    display: inline-block;
+    width: 100%;
+    border-radius: 5px;
+    font-size: 15px;
+    margin: 3px 0;
+}
+.datepick {
+    margin-top: 30px;
+}
+.special-buttons {
+    background-color: #efefef;
+    border: 0;
+    padding: 0;
+}
+
+.special-buttons button.today-button {
+    padding: 10px 0;
+}
+div#booking_form_lawyer .modal-dialog {
+    border-radius: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 1px 4px 0 rgb(0 0 0 / 18%);
+    padding: 30px;
+}
+div#booking_form_lawyer .modal-dialog .modal-content {
+    border: 0;
+    padding: 0;
+}
+
+div#booking_form_lawyer h4 {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: normal;
+    color: #262626;
+}
+div#booking_form_lawyer .modal-header {
+    border: 0;
+    padding: 0 0 20px 0;
+}
+div#booking_form_lawyer h1 {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0;
+}
+span.meeting_date_message, span.meeting_time_message {
+    font-weight: 500;
+    font-size: 15px;
+    margin-bottom: 15px;
+    display: inline-block;
+    color: #8f9296;
+}
+div#booking_form_lawyer .modal-body {
+    padding: 0;
+}
+div#booking_form_lawyer input.wpcf7-form-control.wpcf7-submit {
+    background-color: #ff7300;
+    color: #fff;
+    border-radius: 50px;
+    padding: 6px 40px;
+    font-weight: 500;
+    line-height: 24px;
+    border: 1px solid transparent;
+    font-size: 16px;
+}
+div#booking_form_lawyer input.wpcf7-form-control.wpcf7-submit:hover {
+background-color: #e46800 !important;
+    border-color: #e46800 !important;
+    color: #fff !important;
+  }
+
+div#booking_form_lawyer form input.wpcf7-form-control.wpcf7-text {
+    padding: 0.532rem 0.75rem;
+    border: 1px solid #999999;
+    background-color: #ffffff;width: 100%;
+    border-radius: 2px;
+    box-sizing: border-box !important;
+}
+div#booking_form_lawyer form label {
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #262626;width: 100%;
+    padding-bottom: 5px;
+}
+div#booking_form_lawyer .modal-header button.close {
+    border: 0;
+    background-color: #fff;
+    color: #ff7300;
+    font-size: 30px;
+    line-height: 20px;
+}
+
+
 @media (max-width: 1399px) {
  .lawyr-articls .blog-articls-text {
     min-height: 336px;
@@ -8901,21 +9170,31 @@ div#our-community .container {
     padding-left: 20px;
     font-size: 15px;
 }
+ .calendar-bx .row {
+    flex-direction: column;
+}
+.calendar-bx-left, .calendar-bx-right {
+    width: 100%;
+}
+.calendar-bx-left {
+    padding: 15px;
+}
+.day span {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+}
+.day.today span {
+    font-size: 14px;
+}
+.meeting_with a {
+    font-size: 18px;
+}
+.calendar-bx-right {
+    padding: 20px;
+}
 }
 
-.commnunity-inner {
-    background-color: #fff;
-        border-radius: 10px;
-    box-shadow: 0 1px 4px 0 rgb(0 0 0 / 8%);
-}
-div#our-community {
-    background-color: #f6f6f6 !important;
-}
 
-.item-lawyer-viewall {
-    background-color: #fff;
-}
 
-.logo-comminuty-excerp p {
-    line-height: 1.7;
-}
