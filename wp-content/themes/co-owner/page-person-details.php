@@ -35,17 +35,24 @@ $account_status_link = $user_status != 1 ? home_url(CO_OWNER_MY_ACCOUNT_PAGE) . 
                                         <h6>Connect with member</h6>
                                     </div>
 
-                                    <?php $properties = get_my_properties_options($person->ID); ?>
+                                    <?php $properties = get_my_properties_options($person->ID); 
+									
+									$class = "";
+									if(count($properties) == 0){
+									$classhide = "hideconnectpop";
+									}
+									$properties =1;
+									?>
                                     <?php if (count($properties) > 0) : ?>
  
-                                        <div class="col-sm-12 col-12">
+                                        <div class="col-sm-12 col-12 <?php echo $classhide; ?>">
                                             <h5 class="double-bb-title">
                                                 <span>Seller</span>
                                             </h5>
                                             <p>HEY, CHECK MY PROPERTY LISTING.</p>
                                         </div>
 
-                                        <div class="col-sm-12 col-12 mb-3">
+                                        <div class="col-sm-12 col-12 mb-3 <?php echo $classhide; ?>">
                                             <div class="w-100 custom-select mb-3 <?php echo (count($properties) == 1 ? 'd-none' : null) ?>">
                                                 <select class="single-select2 property-select2" name="property_id">
                                                     <option value="">Select a property</option>
@@ -347,8 +354,8 @@ $account_status_link = $user_status != 1 ? home_url(CO_OWNER_MY_ACCOUNT_PAGE) . 
                                     </h2>
                                     <?php if (!$is_auth_user && (count($properties) > 0 || $user_status != 1)) : ?>
                                         <div class="investor-cnt bb-1 mt-4 pb-4">
-                                            <h3 class="mb-2">Do you have a suitable property?</h3>
-                                            <p class="pb-3">Send me a connection request and let's chat.</p>
+                                            <h3 class="mb-2"><?php  echo "Do you have a suitable property?"; ?></h3>
+                                            <p class="pb-3"><?php  echo "Send me a connection request and let's chat."; ?></p>
                                             <a title="Send connection request" href="<?php echo $account_status_link; ?>" class="btn btn-orange connect-to-person rounded-pill">Connect with member</a>
                                         </div>
                                     <?php endif; ?>
