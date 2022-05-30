@@ -76,9 +76,11 @@
 <div class="book-consult">
 <span><p><?php echo $inquiry_label; ?></p></span>
 <?php if(is_user_logged_in()){ ?>
-	<span id="enquirey" lawyer_id="<?php echo get_the_ID(); ?>"><a href="#" data-bs-toggle="modal" >Enquire Now <img class="load-custom"  src="<?php echo get_template_directory_uri(); ?>/images/loading-buffering.gif"></a></span>
+	<span class="enquirey" lawyer_id="<?php echo get_the_ID(); ?>">
+	<a href="#" data-bs-toggle="modal" class="inq_cl" >Enquire Now 
+	<img class="load-custom"  src="<?php echo get_template_directory_uri(); ?>/images/loading-buffering.gif"></a></span>
 	<?php }else { ?>
-	<span><a href="<?php echo site_url().'/login'; ?>" >Enquire Now <img  class="load-custom" src="<?php echo get_template_directory_uri(); ?>/images/loading-buffering.gif"></a></span>
+	<span><a href="<?php echo site_url().'/login'; ?>" class="inq_cl" >Enquire Now <img  class="load-custom" src="<?php echo get_template_directory_uri(); ?>/images/loading-buffering.gif"></a></span>
 	
 <?php } ?>
 </div>
@@ -115,4 +117,59 @@
 </h1>
 <?php endif; ?>
 </div>
+
+
+    <div class="modal enquire-pp fade default-modal-custom" id="enquire-popup" data-bs-keyboard="false" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-12 col-12 d-flex">
+                            <button type="button" class="btn-close ms-auto" data-bs-dismiss="modal" aria-label="Close"></button>
+						</div>
+                        <div class="col-12 enquiry-data">
+                            <img src="<?php echo get_template_directory_uri(); ?>/images/tick.jpg">
+                            <h3>Thank you for showing your Interest.</h3>
+                            <p>We have received your message. <br> Our team will get in touch with you soon.</p>
+                            <br>
+                            <p>Please check your email for future updates.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+<?php if(is_user_logged_in()){
+$cu = wp_get_current_user(); ?>
+
+<script> jQuery('.enquirey').on('click' , function(){ 
+	jQuery('.load-custom',this).show();
+	
+	
+	
+	var lawyerId = jQuery(this).attr('lawyer_id');
+	var formData = {name:"<?php echo $cu->user_firstname; ?>", email:"<?php echo $cu->user_email; ?>",action :"my_action_name",lawyer_id:lawyerId }; //Array 
+	var ajaxurl = "<?php echo admin_url('admin-ajax.php'); ?>";
+	
+	jQuery.ajax({
+		url : ajaxurl,
+		type: "POST",
+		data : formData,
+		dataType : 'json',
+		success: function(data, textStatus, jqXHR)
+		{
+		jQuery('.load-custom').hide();
+		jQuery('#enquire-popup').modal('show');
+			//data - response from server
+		},
+		error: function (jqXHR, textStatus, errorThrown)
+		{
+			
+		}
+	});
+});
+</script>
+<?php  } 	?>
 <?php get_footer(); ?>

@@ -888,7 +888,7 @@
                         <div class="book-consult">
                             <span><p><?php echo $inquiry_label; ?></p></span>
 							<?php if(is_user_logged_in()){ ?>
-								<span id="enquirey" lawyer_id="<?php echo get_the_ID(); ?>"><a href="#" data-bs-toggle="modal" >Enquire Now <img class="load-custom"  src="<?php echo get_template_directory_uri(); ?>/images/loading-buffering.gif"></a></span>
+								<span class="enquirey" lawyer_id="<?php echo get_the_ID(); ?>"><a href="#" data-bs-toggle="modal" >Enquire Now <img class="load-custom"  src="<?php echo get_template_directory_uri(); ?>/images/loading-buffering.gif"></a></span>
 								<?php }else { ?>
 								<span><a href="<?php echo site_url().'/login'; ?>" >Enquire Now <img  class="load-custom" src="<?php echo get_template_directory_uri(); ?>/images/loading-buffering.gif"></a></span>
 								
@@ -1191,8 +1191,8 @@ include('register_modal.php'); ?>
 <?php if(is_user_logged_in()){
 $cu = wp_get_current_user(); ?>
 
-<script> jQuery('#enquirey').on('click' , function(){ 
-	jQuery('.load-custom').show();
+<script> jQuery('.enquirey').on('click' , function(){ 
+    jQuery('.load-custom',this).show();
 	var lawyerId = jQuery(this).attr('lawyer_id');
 	var formData = {name:"<?php echo $cu->user_firstname; ?>", email:"<?php echo $cu->user_email; ?>",action :"my_action_name",lawyer_id:lawyerId }; //Array 
 	var ajaxurl = "<?php echo admin_url('admin-ajax.php'); ?>";
