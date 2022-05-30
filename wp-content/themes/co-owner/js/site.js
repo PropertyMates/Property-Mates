@@ -906,6 +906,21 @@ jQuery(function ($) {
         },
       });
     }
+	
+      $(".pdetail-community-owlslider").owlCarousel({
+        loop: false,
+        margin: 32,
+        nav: true,
+        dots: false,
+        stageClass: "owl-stage d-flex",
+        responsive: {
+          0: { items: 1 },
+          768: { items: 1 },
+          1000: { items: 1 },
+          1400: { items: 1 },
+        },
+      });
+   
 
     if ($(".people-looking-for-properties").length > 0) {
       $(".people-looking-for-properties").owlCarousel({

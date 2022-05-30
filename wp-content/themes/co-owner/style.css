@@ -8918,7 +8918,7 @@ div#our-community {
 .calendar-bx .row { margin-left: 0px; margin-right: 0px; }
 .calendar-bx-left {
     background-color: #1b1b1b;
-    color: #fff;
+    /* color: #fff; */
     text-align: center;
     padding: 30px;
 }
@@ -8999,7 +8999,7 @@ div#our-community {
 .week .day.header {
     font-size: 16px;
     font-weight: 700;
-    color: #fff !important;
+    /* color: #fff !important; */
 }
 .special-buttons button.today-button {
     color: #fe7400;

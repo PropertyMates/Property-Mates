@@ -43,6 +43,36 @@ class CoOwner_custom_post_tyoes {
         );
         register_post_type( "{$type}",$args );
     }
+	
+    public static function lawyers()
+    {   $type = 'lawyer';
+        $uc_type = ucfirst('lawyer');
+        $labels = array(
+            "name"               => _x( "Lawyers", "post type general name" ),
+            "singular_name"      => _x( "{$uc_type}", "post type singular name" ),
+            "add_new"            => __( "Add New"),
+            "add_new_item"       => __( "Add New {$uc_type}" ),
+            "edit_item"          => __( "Edit {$uc_type}" ),
+            "new_item"           => __( "New {$uc_type}" ),
+            "all_items"          => __( "All Lawyers" ),
+            "view_item"          => __( "View {$uc_type}" ),
+            "search_items"       => __( "Search {$uc_type}" ),
+            "not_found"          => __( "No faq found" ),
+            "not_found_in_trash" => __( "No faq found in the Trash" ),
+            "menu_name"          => "Lawyers",
+
+        );
+        $args = array(
+            "labels"        => $labels,
+            "description"   => "Holds our {$type} specific data",
+            "public"        => true,
+            "menu_position" => 6,
+            "supports"      => array( "title","editor",'author','comments'),
+            "has_archive"   => true,
+            "rewrite" => array("slug" => "{$type}"),
+        );
+        register_post_type( "{$type}",$args );
+    }	
 
     public static function faq()
     {
@@ -145,6 +175,7 @@ class CoOwner_custom_post_tyoes {
 
 add_action( 'init', function (){
     CoOwner_custom_post_tyoes::property();
+    CoOwner_custom_post_tyoes::lawyers();
     CoOwner_custom_post_tyoes::faq();
     CoOwner_custom_post_tyoes::feedback();
     CoOwner_custom_post_tyoes::status();
@@ -765,3 +796,34 @@ if (is_admin()) {
     }
 
 }
+
+// Let us create Taxonomy for Custom Post Type
+add_action( 'init', 'lawyer_texo_register', 0 );
+ 
+//create a custom taxonomy name it "Assistance" for your posts
+function lawyer_texo_register() {
+ 
+  $labels = array(
+    'name' => _x( 'Assistance', 'taxonomy general name' ),
+    'singular_name' => _x( 'Assistance', 'taxonomy singular name' ),
+    'search_items' =>  __( 'Search Assistance' ),
+    'all_items' => __( 'All Assistance' ),
+    'parent_item' => __( 'Parent Assistance' ),
+    'parent_item_colon' => __( 'Parent Assistance:' ),
+    'edit_item' => __( 'Edit Assistance' ), 
+    'update_item' => __( 'Update Assistance' ),
+    'add_new_item' => __( 'Add New Assistance' ),
+    'new_item_name' => __( 'New Assistance Name' ),
+    'menu_name' => __( 'Assistance' ),
+  ); 	
+ 
+  register_taxonomy('assistance',array('lawyer'), array(
+    'hierarchical' => true,
+    'labels' => $labels,
+    'show_ui' => true,
+    'show_admin_column' => true,
+    'query_var' => true,
+    'rewrite' => array( 'slug' => 'assistance' ),
+  ));
+}
+//create a custom taxonomy name it "Assistance" for your posts

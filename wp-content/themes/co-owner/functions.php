@@ -268,6 +268,7 @@ if (!function_exists('co_owner_script_init')) {
         // Get theme version number (located in style.css)
         $theme = wp_get_theme();
         wp_enqueue_style('bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css', array(), BOOTSTRAP_VERSION, 'all');
+		
         wp_enqueue_style('select2-css', get_template_directory_uri() . '/js/plugins/select2/css/select2.min.css', array(), CO_OWNER_SCRIPT_VERSION, 'screen');
         wp_enqueue_style('toastr-css', get_template_directory_uri() . '/js/plugins/toastr/toastr.min.css', array(), CO_OWNER_SCRIPT_VERSION, 'screen');
         wp_enqueue_style('owl.carousel-css', get_template_directory_uri() . '/js/plugins/owlcarousel/css/owl.carousel.min.css', array(), CO_OWNER_SCRIPT_VERSION, 'screen');
@@ -275,7 +276,8 @@ if (!function_exists('co_owner_script_init')) {
         wp_enqueue_style('flexslider-css', get_template_directory_uri() . '/js/plugins/flex-slider/css/flexslider.css', array(), CO_OWNER_SCRIPT_VERSION, 'screen');
         wp_enqueue_style('sweetalert2-css', get_template_directory_uri() . '/js/plugins/sweetalert2/sweetalert2.min.css', array(), CO_OWNER_SCRIPT_VERSION, 'screen');
          wp_enqueue_style('croppie-style', get_template_directory_uri() . '/css/croppie.css', array(), CO_OWNER_SCRIPT_VERSION, 'screen');
-
+	    wp_enqueue_style('cal-style', get_template_directory_uri() . '/powerful-calendar/style.css', array(), BOOTSTRAP_VERSION, 'all');
+		    wp_enqueue_style('cal-style-theme', get_template_directory_uri() . '/powerful-calendar/theme.css', array(), BOOTSTRAP_VERSION, 'all');
         wp_enqueue_style('co-owner', get_template_directory_uri() . '/style.css', array(), CO_OWNER_SCRIPT_VERSION, 'screen');
         wp_enqueue_style('app', get_template_directory_uri() . '/css/app.css', array('co-owner'), CO_OWNER_SCRIPT_VERSION, 'screen');
 
@@ -369,6 +371,7 @@ if (!function_exists('co_owner_script_init')) {
             );
         }
         wp_enqueue_script('bootstrap', get_template_directory_uri() . '/js/bootstrap.bundle.min.js', array('jquery'), BOOTSTRAP_VERSION, true);
+  
         wp_enqueue_script('block-ui-js', get_template_directory_uri() . '/js/plugins/block-ui/jquery.blockUI.js', array('jquery'), CO_OWNER_SCRIPT_VERSION, true);
         wp_enqueue_script('select2-js', get_template_directory_uri() . '/js/plugins/select2/js/select2.min.js', array('jquery'), CO_OWNER_SCRIPT_VERSION, true);
 
@@ -383,7 +386,8 @@ if (!function_exists('co_owner_script_init')) {
         wp_enqueue_script('jquery-validation-additional-methods', get_template_directory_uri() . '/js/plugins/jquery-validation/additional-methods.js', array('jquery', 'jquery-validation'), CO_OWNER_SCRIPT_VERSION, true);
        wp_enqueue_script('jquery-croppie', get_template_directory_uri() . '/js/croppie.min.js', array(), CO_OWNER_SCRIPT_VERSION, true);
 
-       
+             wp_enqueue_script('datepikcer-js', get_template_directory_uri() . '/powerful-calendar/calendar.min.js', array(), BOOTSTRAP_VERSION, true);
+			 
             $key = get_option('_crb_google_map_api_key');
             wp_enqueue_script('google', $_SERVER['REQUEST_SCHEME'] . "://maps.google.com/maps/api/js?sensor=false&key={$key}", array('jquery'), CO_OWNER_SCRIPT_VERSION, true);
             wp_enqueue_script('google-marker', $_SERVER['REQUEST_SCHEME'] . '://unpkg.com/@google/markerclustererplus@4.0.1/dist/markerclustererplus.min.js', array('jquery'), CO_OWNER_SCRIPT_VERSION, true);
@@ -688,9 +692,18 @@ function my_ajax_callback_function() {
 			if (isset($_POST['email'])) {
 				//user posted variables
 				$name = $_POST['name'];
-				$lawyer_id = $_POST['lawyer_id'];
+				$lawyer_id = !empty($_POST['lawyer_id']) ? $_POST['lawyer_id'] : $_POST['partner'];
+		
                 $lawyer_title = get_the_title($lawyer_id);
-				$lawyer_link = get_permalink($lawyer_id);				
+				$lawyer_link = get_permalink($lawyer_id);
+				
+				$assistance = !empty($_POST['assistance']) ? $_POST['assistance'] :'';
+				$assistanceName = '';
+				if($assistance){
+					$assistance = get_term_by('id', $assistance, 'assistance');
+					$assistanceName = $assistance->name;
+				}
+				
 				//php mailer variables
 				$to = 'hello@propertymates.io';
 				$subject = "Enquiry came for legal assistance".$_POST['title'];
@@ -702,7 +715,10 @@ function my_ajax_callback_function() {
 				$headers .= 'From: '. $_POST['email'] . "\r\n" .
 				'Reply-To: ' . $_POST['email'] . "\r\n";
 				//  $message = 'Enquire Now with'. $_POST['email'] .( (isset($_POST['agreement']) && !empty($_POST['agreement']) ) ? 'for'.$_POST['agreement'] : '');
-				$message = '<table><tr><td>Lawyer -<a href="'.$lawyer_link.'">'.$lawyer_title.'</a> </td> </tr> <tr><td>Username - '.$_POST['name']. '</td></tr><tr><td> Email address - '.$_POST['email']. '</td></tr><tr><td> Enquire Now with : '. $_POST['email'] .( (isset($_POST['agreement']) && !empty($_POST['agreement']) ) ? ' for '.$_POST['agreement'] : ''). '</td></tr><tr><td> Listing - <a href="'.$_POST['urls'].'">'.$_POST['urls'].'</a></td></tr></table>';
+				$message = '<table>
+				<tr><td>Partner -<a href="'.$lawyer_link.'">'.$lawyer_title.'</a> </td> </tr>
+				<tr><td>Assistance -'.$assistanceName.'</td> </tr>				
+				<tr><td>Username - '.$_POST['name']. '</td></tr><tr><td> Email address - '.$_POST['email']. '</td></tr><tr><td> Enquire Now with : '. $_POST['email'] .( (isset($_POST['agreement']) && !empty($_POST['agreement']) ) ? ' for '.$_POST['agreement'] : ''). '</td></tr><tr><td> Listing - <a href="'.$_POST['urls'].'">'.$_POST['urls'].'</a></td></tr></table>';
 				
 				$sent = wp_mail(  $to, $subject, $message, $headers);
 				
@@ -908,7 +924,14 @@ function site_get_avatar($avatar, $id_or_email, $size, $default, $alt){
 
 		
 }
-
+add_shortcode('booking_process',function(){
+	$html='';
+	ob_start();
+		include('booking_shortcode.php');
+		$html = ob_get_contents();
+	ob_get_clean();
+	return $html;
+});
 
 
 ?> 

@@ -741,7 +741,7 @@
 						</div>
                         <div class="step-number"><strong>Step 2</strong> Listings</div>
                         <div class="step-btm-data">
-							<p><strong>If you're a Seller:</strong><br> Create a Property Listing</p>
+							<p><strong> <?php echo "If you're a Seller:" ?></strong><br> Create a Property Listing </p>
 						</div>
 					</div>
 				</div>
@@ -805,71 +805,124 @@
 		<div class="container">
 			<div class="title-area"><h3>Our Community</h3></div>
 			
-			<div class="row">
-                <div class="col-md-6">
+			<?php 
+			
+				$args = array(  
+				'post_type' => 'lawyer',
+				'post_status' => 'publish',
+				'posts_per_page' => -1,
+				'order' => 'DESC', 
+				);
+
+				$lawyerObj = new WP_Query( $args ); 
+
+
+			
+			
+			?>
+			
+			<div class="owl-carousel owl-theme our-community-owlslider">
+			<?php 
+			
+			  while ( $lawyerObj->have_posts() ) : $lawyerObj->the_post(); 	
+			  $google_rating = get_field('google_ratings');
+			  $total_based_review = get_field('total_based_review');
+			  $hilighted_points = get_field('hilighted_points');
+			  $book_consultation_fee = get_field('book_consultation_fee');
+			  $book_consultation = get_field('book_consultation');
+			  $website_address = get_field('website_address');
+			  $lawyer_logo = get_field('logo');
+			  $google_rating_image = get_field('google_rating_image');
+			  $book_consultation_link = get_field('book_consultation_link');
+			  $enquiry_on_off= get_field('enquiry_on_off');
+			   $inquiry_label= get_field('inquiry_label');
+			   $view_button= get_field('view_button');
+			      $short_description= get_field('short_description');
+			  //pr($lawyer_logo);
+			
+			?>
+                <div class="item-lawyer">
                     <div class="commnunity-inner">
-                        <div class="logo-comminuty"><img src="<?php echo get_template_directory_uri(); ?>/images/sutton-logo.png"></div>
-                        <p>Sutton Laurence King Lawyers are a full service property law firm that completes over 500 conveyances a year. If you are selling or purchasing a property, the details are important because mistakes can be costly. Our team are experienced, efficient property law professionals whose aim is to make your conveyancing transaction hassle-free.</p>
-                        
-                        <div class="g-review">
-							<img src="<?php echo get_template_directory_uri(); ?>/images/google-review.png">
+					    <?php if($lawyer_logo):?>
+                        <div class="logo-comminuty">
+						<a href="<?php the_permalink();?>">
+						<img src="<?php echo $lawyer_logo['url'];?>">
+						</a>
 						</div>
+						<?php endif; ?>
+						<div class="title-area">
+						<a href="<?php the_permalink();?>">
+						<h3 class="d-flex align-items-center"><span><?php the_title(); ?></span></h3>
+						</a>
+					    </div>
+						<?php 
+						$contentline = "threelinecontent";	
+						if(!$book_consultation_fee && !$enquiry_on_off ){
+							$contentline = "sixlinecontent";
+						}elseif(!$book_consultation_fee || !$enquiry_on_off){
+						$contentline = "fivelinecontent";
+						}
+							
+						?>
+                        <div class="logo-comminuty-excerp <?php echo $contentline; ?>"><?php echo $short_description; ?></div>
 						
+                        <?php if($google_rating_image):?>
+                        <!--<div class="g-review">
+							<img src="<?php echo $google_rating_image['url'];?>">
+							
+						</div>-->
+						<?php endif;?>
 						
-                        <p><strong>SLK Lawyers will assist you with:</strong></p>
-                        <ul>
-                            <li>Co-ownership agreement</li>
-                            <li>A review of the sale contract</li>
-                            <li>Due diligence on the property title</li>
-                            <li>Applying for grants and concessions</li>
-                            <li>The transfer of the property to you</li>
-						</ul>
+						<?php if($hilighted_points): ?>
+						<?php //echo $hilighted_points; ?>
+						<?php endif; ?>
+						
+						<?php if($book_consultation_fee):?>
                         <div class="book-consult">
                             <span><p>Book Consultation</p></span>
-                            <span class="consult-price">$125-30 mins</span>
+                            <span class="consult-price"><?php echo $book_consultation_fee; ?></span>
 						</div>
+						<?php endif; ?>
 						
+						<?php if($enquiry_on_off) :?>
                         <div class="book-consult">
-                            <span><p>Ready to proceed ahead and need legal assistance in conveyancing?</p></span>
+                            <span><p><?php echo $inquiry_label; ?></p></span>
 							<?php if(is_user_logged_in()){ ?>
-								<span id="enquirey"><a href="#" data-bs-toggle="modal" >Enquire Now <img class="load-custom"  src="<?php echo get_template_directory_uri(); ?>/images/loading-buffering.gif"></a></span>
+								<span id="enquirey" lawyer_id="<?php echo get_the_ID(); ?>"><a href="#" data-bs-toggle="modal" >Enquire Now <img class="load-custom"  src="<?php echo get_template_directory_uri(); ?>/images/loading-buffering.gif"></a></span>
 								<?php }else { ?>
 								<span><a href="<?php echo site_url().'/login'; ?>" >Enquire Now <img  class="load-custom" src="<?php echo get_template_directory_uri(); ?>/images/loading-buffering.gif"></a></span>
 								
 							<?php } ?>
 						</div>
+						<?php endif; ?>
 						
                         <div class="action-btn-row">
-                            <a title="Sutton  Laurence King Lawyers Website" class="btn btn-dark rounded-pill ms-auto" target="_blank" href="https://slklawyers.com.au/" >Website</a>
-							<a class="btn btn-orange rounded-pill ms-auto" href="/thanku-consultation" >Book Consultation</a>
+                           <!-- <a title="Sutton  Laurence King Lawyers Website" class="btn btn-dark rounded-pill ms-auto" target="_blank" href="https://slklawyers.com.au/" >Website</a> -->
+                            <?php if($website_address): ?>
+							<a title="<?php the_title(); ?>" class="btn btn-dark rounded-pill ms-auto" target="_blank" href="<?php echo $website_address; ?>" >Website</a>
+							<?php endif; ?>
+							
+							<?php if($book_consultation):?>
+							
+							<a  class="btn btn-orange rounded-pill ms-auto" href="/booking-process/?book_id=<?php echo get_the_ID(); ?>" >Book Consultation</a>
+							<?php endif; ?>
+							
 							<?php //echo do_shortcode('[accept_stripe_payment name="Payments (powered by Stripe). This is a 60 mins consultation with our law firm. You can discuss anything in this call." price="250" url="http://example.com/downloads/my-script.zip" button_text="Book Consultation"]'); ?>
 						</div>
 						
 					</div>
 				</div>
 				
-				
-				
-				<div class="col-md-6">
-                    <div class="commnunity-inner">
-                        <div class="logo-comminuty"><img src="<?php echo get_template_directory_uri(); ?>/images/morgage.png"></div>
-                        <p><strong>Mortgage Mates-Why Rent? Share a mortgage with compatible Mates!</strong></p>
-                        <p>The Bumble of homeownership, Mortgage Mates matches two or more Mates to own a home together based on housing need such as location, price and deposit amount, and, houseMate preferences include whether you are a dog or a cat person!</p>
-                        <br>
-						
-                        <p><strong>#TurningStrangersintoMates</strong></p>
-                        <div class="spacer-p">
-							<p>To make contact with Mortgage Mates, or to have any questions answered please reach out to <a href="mailto:daisy@mortgagemates.com.au">daisy@mortgagemates.com.au</a></p>
-							
-							<p>To Meet your Mates go to <a target="_blank" href="https://www.mortgagemates.com.au/">www.mortgagemates.com.au</a> to sign up Match.</p>
-						</div>
-                        <div class="action-btn-row">
-                            <a title="Mortgage Mates Website" class="btn btn-dark rounded-pill ms-auto"  target="_blank" href="https://www.mortgagemates.com.au/">Website</a>
-							
-						</div>
-						
-					</div>
+				<?php 	endwhile;
+
+				wp_reset_postdata(); ?>
+				<div class="item-lawyer">
+				<div class="item-lawyer-viewall">	
+				<a href="<?php echo home_url('/lawyer');?>" class="d-md-block d-none ms-auto text-nowrap">View All</a>
+				</div>	
 				</div>
+				
+				
 			</div>
 			
 		</div>
@@ -1134,11 +1187,14 @@
 </script>
 <?php /* #change007  */ 
 include('register_modal.php'); ?>
+<?php include('parts/modals/croppie.php'); ?>
 <?php if(is_user_logged_in()){
 $cu = wp_get_current_user(); ?>
+
 <script> jQuery('#enquirey').on('click' , function(){ 
 	jQuery('.load-custom').show();
-	var formData = {name:"<?php echo $cu->user_firstname; ?>", email:"<?php echo $cu->user_email; ?>",action :"my_action_name"}; //Array 
+	var lawyerId = jQuery(this).attr('lawyer_id');
+	var formData = {name:"<?php echo $cu->user_firstname; ?>", email:"<?php echo $cu->user_email; ?>",action :"my_action_name",lawyer_id:lawyerId }; //Array 
 	var ajaxurl = "<?php echo admin_url('admin-ajax.php'); ?>";
 	
 	jQuery.ajax({

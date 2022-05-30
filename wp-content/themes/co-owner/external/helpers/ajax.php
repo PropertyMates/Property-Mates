@@ -4516,3 +4516,158 @@ $user_id = get_current_user_id();
 	die;
 }
 
+/* Assistance and Partner dropdown */
+add_action('wp_ajax_fetch_lawyer_data_dropdown','fetch_lawyer_data_dropdown');
+function fetch_lawyer_data_dropdown(){
+	
+	$html='';
+	$catid = $_POST['id'];
+	
+	$args=array(
+		'posts_per_page' => -1,    
+		'post_type' => 'lawyer',
+		'tax_query' => array(
+			array(
+				'taxonomy' => 'assistance',
+				'field'    => 'id',
+				'terms'    => $catid,
+			),
+		),
+	 );
+		$posts = new WP_Query( $args );	
+
+		if ($posts->have_posts()){
+
+			while ($posts->have_posts()){
+				$posts->the_post(); 
+				$html .= '<option value="'.get_the_ID().'">'.get_the_title().'</option>';
+			}
+		}
+		wp_reset_postdata();
+
+	  echo $html;
+	die;
+}
+/* Assistance and Partner dropdown */
+
+
+/*
+ajax get time slot for lawyer
+*/
+
+function prepare_time_slots($starttime, $endtime, $duration, $currentTime){
+	 
+	$time_slots = array();
+	$start_time    = strtotime($starttime); //change to strtotime
+	$end_time      = strtotime($endtime); //change to strtotime
+	$currentTime=    date('Y-m-d').' '.$currentTime;
+	 $currentTime = strtotime($currentTime);
+	 
+	$add_mins  = $duration * 60;
+	 
+	while ($start_time <= $end_time) // loop between time
+	{
+		
+		if($currentTime){
+			if($start_time >= $currentTime && $end_time > $currentTime ){
+			   $time_slots[] = date("H:i A", $start_time);
+			}
+		}else{
+			 $time_slots[] = date("H:i A", $start_time);
+		}
+	   $start_time += $add_mins; // to check endtime
+	}
+
+	return $time_slots;
+}
+
+
+function gen_slot_html($timeSlots){
+	 $html='';
+	if($timeSlots){
+	 foreach($timeSlots as $slot){
+			   $html.='<li class="time_slot_'.$slot.'"><a href="javascript:void(0);" class="time_book_now"  data-slot="'.$slot.'">'.$slot.'</a></li>';
+		 }
+       }else{
+		   $html ='<li class="time_no_slot"><strong>No slots available</strong></li>';
+	   }
+
+return $html;	   
+}
+
+add_action('wp_ajax_fetch_time_slot_by_date_user','fetch_time_slot_by_date_user');
+add_action('wp_ajax_nopriv_fetch_time_slot_by_date_user','fetch_time_slot_by_date_user');
+function fetch_time_slot_by_date_user(){
+  	
+	$is_time_responsive = true; // It will allow to get future time slots not morning to evening 
+	
+	$post_id = $_POST['pid'];
+	$day = date('l', strtotime($_POST['date']));
+	$week_group = 'week_days';
+	$currentTime= $_POST['currentTime'];
+	$today_date = date('y-m-d');
+	
+	if(strtotime($_POST['date'])  > strtotime($today_date)){
+		$currentTime='';
+	}
+	$duration_field = 'slot_duration';
+	
+	$week_group_data =  get_field($week_group,$post_id);
+	$duration =  get_field($duration_field,$post_id);
+	if(empty($duration)){
+		$duration = 60;
+	}
+	
+//	pr($week_group_data);
+	
+	$day_start_time_field_name =  strtolower($day).'_start_time';
+	$day_end_time_field_name =  strtolower($day).'_end_time';
+	$day_off_field_name =  strtolower($day).'_off';
+	$is_day_enabled = $week_group_data[$day_off_field_name];
+	
+	$default_day_off_field_name = 'use_default_time';
+	$default_day_start_field_name = 'default_start_time';
+	$default_day_end_field_name = 'default_end_time';
+	
+	$is_default_day_enabled = get_field($default_day_off_field_name,$post_id);
+		
+ // var_dump($is_day_enabled);
+	
+	$response = '';
+	
+	if($is_default_day_enabled){
+	
+		$start_time = get_field($default_day_start_field_name,$post_id);
+		$end_time = get_field($default_day_end_field_name,$post_id);
+		
+		  
+		
+		if($start_time && $end_time){	
+           		
+			$response = prepare_time_slots($start_time, $end_time, $duration,$currentTime);
+		}	
+		
+	}else if(!$is_day_enabled){
+		
+		
+		$start_time = $week_group_data[$day_start_time_field_name];
+		$end_time = $week_group_data[$day_end_time_field_name];
+		
+		
+		if($start_time && $end_time){			
+			$response = prepare_time_slots($start_time, $end_time, $duration,$currentTime);
+		}	
+	}else{
+		
+		$response= array();
+	}
+	
+	  $response = gen_slot_html($response);
+	
+	
+	echo $response;
+	die;
+}
+/*
+ajax get time slot for lawyer
+*/
