@@ -702,6 +702,16 @@ function my_ajax_callback_function() {
 				if($assistance){
 					$assistance = get_term_by('id', $assistance, 'assistance');
 					$assistanceName = $assistance->name;
+				}else{
+						$assistance = get_the_terms($lawyer_id,'assistance');
+						
+						if ( !empty( $assistance ) ){
+						// get the first term
+							$term = array_shift( $assistance );
+							$assistanceName=  $term->name;
+						}			
+					
+					
 				}
 				
 				//php mailer variables

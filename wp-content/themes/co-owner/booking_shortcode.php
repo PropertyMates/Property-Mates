@@ -17,8 +17,22 @@ $end      = '23:00'; // end time
 
  $timeSlots =  prepare_time_slots($start, $end,$duration,$currenTime=null) ;
  
+ $getOffDays =  get_field('week_days',$book_id);
+ $use_default_time = get_field('use_default_time',$book_id);
+ 
+ $weekDaysOffAr= array('sunday'=>false,'monday'=>false,'tuesday'=>false,'wednesday'=>false,'thursday'=>false,'friday'=>false,'saturday'=>false);
+  $weekDaysOff =array();
+ foreach($weekDaysOffAr as $key=>$day){
+	  if($key=="sunday"){
+		   $weekDaysOff[ucfirst($key)]= false;
+	  }else{
+		   $weekDaysOff[ucfirst($key)]= $getOffDays[$key.'_off'];
+	  }
+ }
+$weekDaysOff = json_encode($weekDaysOff);
 
 
+//var_dump($use_default_time);
 ?>
 <div class="calendar-bx">
     <div class="row">
@@ -68,7 +82,11 @@ $end      = '23:00'; // end time
 	  
    
  <script>
- 	var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+ var use_default_time = '<?php echo $use_default_time; ?>';
+ var weekDaysOff = JSON.parse('<?php echo $weekDaysOff; ?>');
+
+console.log('use_default_time ' + use_default_time)
+var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
 var monthNames = ["January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December"
@@ -196,7 +214,30 @@ jQuery(function($) {
 
 	$('.datepick').calendar({
  disable: function (date) { 
-    return date < new Date(); // This will disable all dates before today
+     var dayName= days[date.getDay()];
+ //console.log(dayName +' '+ use_default_time);
+    if(date < new Date()){
+		return true;
+	}
+	if(dayName=="Sunday"){
+		return true;
+	}
+	
+	if(use_default_time){
+		if(dayName=="Saturday"){
+			return true;
+		}
+	}
+		
+	if(!use_default_time){
+		if(weekDaysOff[dayName]){
+			return true;
+		}
+	}
+
+	
+	
+    //return date < new Date(); // This will disable all dates before today
   },
 	  onChangeMonth: function (date) {},
 	  onClickToday: function (date) {},

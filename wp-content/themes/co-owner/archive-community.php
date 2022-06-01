@@ -123,6 +123,7 @@
             	</div>
                 <div class="modal-body">
 				<form class="frm-custom" method="post" action="" id="co-owner-user-enquire" novalidate="novalidate">
+				  <input type="hidden" name="lawyer_id_extra" id="lawyer_id_extra">
                     <div class="row">
                         <div class="col col-sm-6 col-12 mb-3">
                         	<label>First Name <span style="color:#f00">*</span></label>
@@ -130,9 +131,9 @@
                              <div class="require-fielderor formfname">This is a required field</div>
                          </div>
 						 <div class="col col-sm-6 col-12 mb-3">
-						 	<label>Last Name</label>
+						 	<label>Last Name <span style="color:#f00">*</span></label>
                                     <input name="last_name" type="text" maxlength="20" class="form-control" id="lastname" placeholder="Last Name">
-                                    <div class="invalid-feedback lastname"></div>
+                                    <div class="invalid-feedback lastname">This is a required field</div>
                                 </div>
 								<div class="col col-sm-12 col-12 mb-3">
 									<label>Email Id <span style="color:#f00">*</span></label>
@@ -141,7 +142,7 @@
                                         
                                        
                                     </div>
-                                    <div class="require-fielderor formemail">This is a required field</div>
+                                    <div class="require-fielderor formemail">Email is not valid</div>
                                 </div>
 								<div class="col col-sm-12 col-12">
                               <button id="user_form-enquire" class="btn btn-orange btn-rounded w-180px" type="button">Submit Enquiry</button>
@@ -175,7 +176,15 @@
 			</div>
 		</div>
 	</div>
-	
+	<script>
+function ValidateEmail(email) 
+{
+    var re = /\S+@\S+\.\S+/;
+        return re.test(email);
+}
+
+
+</script>
 	
 <?php if(is_user_logged_in()){
 $cu = wp_get_current_user(); ?>
@@ -210,21 +219,26 @@ $cu = wp_get_current_user(); ?>
 <?php  }else{ 	?>
 <script> jQuery('.enquirey').on('click' , function(){ 
     //jQuery('.load-custom',this).show();
+    var lawyerId = jQuery(this).attr('lawyer_id');
+	jQuery('#lawyer_id_extra').val(lawyerId);
 	jQuery('#enquire-popup-form').modal('show');	
 });
 </script>
 <script> jQuery('#user_form-enquire').on('click' , function(){ 
 	
-	var lawyerId = jQuery(this).attr('lawyer_id');
+	var lawyerId = jQuery('#lawyer_id_extra').val();
 	var user_firstname = jQuery('#firstname').val();
+	var user_lastname = jQuery('#lastname').val();
 	var user_email = jQuery('#user-email').val();
 	if(user_firstname == ""){
 	jQuery('.require-fielderor.formfname').addClass('require-error-show');
 	return false;
-	} else if (user_email == ""){
+	} else if (!ValidateEmail(user_email)){
 	
 	jQuery('.require-fielderor.formemail').addClass('require-error-show');
 	return false;
+	}else if (user_lastname == "" ){
+	jQuery('.require-fielderor.lastname').addClass('require-error-show');
 	}
 	
     jQuery('.load-custom',this).show();
