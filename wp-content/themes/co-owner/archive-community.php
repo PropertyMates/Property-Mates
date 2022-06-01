@@ -118,16 +118,16 @@
         <div class="modal-dialog modal-dialog-centered modal-xl">
             <div class="modal-content">
             	<div class="modal-header">
-            		<h4>Enquire Now</h4>
+            		<h4>Enquiry Now</h4>
             		      <button type="button" class="btn-close ms-auto" data-bs-dismiss="modal" aria-label="Close"></button>
             	</div>
                 <div class="modal-body">
 				<form class="frm-custom" method="post" action="" id="co-owner-user-enquire" novalidate="novalidate">
                     <div class="row">
                         <div class="col col-sm-6 col-12 mb-3">
-                        	<label>First Name</label>
+                        	<label>First Name <span style="color:#f00">*</span></label>
                            <input name="first_name" type="text" maxlength="20" class="form-control" id="firstname" placeholder="First Name">
-                             <div class="require-fielderor formfname">This is required field</div>
+                             <div class="require-fielderor formfname">This is a required field</div>
                          </div>
 						 <div class="col col-sm-6 col-12 mb-3">
 						 	<label>Last Name</label>
@@ -135,16 +135,16 @@
                                     <div class="invalid-feedback lastname"></div>
                                 </div>
 								<div class="col col-sm-12 col-12 mb-3">
-									<label>Email Id</label>
+									<label>Email Id <span style="color:#f00">*</span></label>
                                     <div class="verify-email-sec">
                                         <input name="email" id="user-email" type="text" maxlength="50" class="form-control" placeholder="Email id" aria-describedby="button-addon2">
                                         
                                        
                                     </div>
-                                    <div class="require-fielderor formemail">This is required field</div>
+                                    <div class="require-fielderor formemail">This is a required field</div>
                                 </div>
 								<div class="col col-sm-12 col-12">
-                              <button id="user_form-enquire" class="btn btn-orange btn-rounded w-180px" type="button">Submit Enquire</button>
+                              <button id="user_form-enquire" class="btn btn-orange btn-rounded w-180px" type="button">Submit Enquiry</button>
                                 </div>
 							
 					</div>
