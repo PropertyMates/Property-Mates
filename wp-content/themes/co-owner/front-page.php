@@ -808,7 +808,7 @@
 			<?php 
 			
 				$args = array(  
-				'post_type' => 'lawyer',
+				'post_type' => 'community',
 				'post_status' => 'publish',
 				'posts_per_page' => -1,
 				'order' => 'DESC', 
@@ -878,21 +878,18 @@
 						<?php endif; ?>
 						
 						<?php if($book_consultation_fee):?>
-                        <div class="book-consult">
+                        <div class="book-consult book-consult-first">
                             <span><p>Book Consultation</p></span>
                             <span class="consult-price"><?php echo $book_consultation_fee; ?></span>
 						</div>
 						<?php endif; ?>
 						
 						<?php if($enquiry_on_off) :?>
-                        <div class="book-consult">
+                        <div class="book-consult book-consult-last">
                             <span><p><?php echo $inquiry_label; ?></p></span>
-							<?php if(is_user_logged_in()){ ?>
+							
 								<span class="enquirey" lawyer_id="<?php echo get_the_ID(); ?>"><a href="#" data-bs-toggle="modal" >Enquire Now <img class="load-custom"  src="<?php echo get_template_directory_uri(); ?>/images/loading-buffering.gif"></a></span>
-								<?php }else { ?>
-								<span><a href="<?php echo site_url().'/login'; ?>" >Enquire Now <img  class="load-custom" src="<?php echo get_template_directory_uri(); ?>/images/loading-buffering.gif"></a></span>
 								
-							<?php } ?>
 						</div>
 						<?php endif; ?>
 						
@@ -918,7 +915,7 @@
 				wp_reset_postdata(); ?>
 				<div class="item-lawyer">
 				<div class="item-lawyer-viewall">	
-				<a href="<?php echo home_url('/lawyer');?>" class="d-md-block d-none ms-auto text-nowrap">View All</a>
+				<a href="<?php echo home_url('/community');?>" class="d-md-block d-none ms-auto text-nowrap">View All</a>
 				</div>	
 				</div>
 				
@@ -928,7 +925,45 @@
 		</div>
 	</div>
 	
-	
+	<div class="modal enquire-pp fade default-modal-custom" id="enquire-popup-form" data-bs-keyboard="false" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content">
+            	<div class="modal-header">
+            		<h4>Enquire Now</h4>
+            		      <button type="button" class="btn-close ms-auto" data-bs-dismiss="modal" aria-label="Close"></button>
+            	</div>
+                <div class="modal-body">
+				<form class="frm-custom" method="post" action="" id="co-owner-user-enquire" novalidate="novalidate">
+                    <div class="row">
+                        <div class="col col-sm-6 col-12 mb-3">
+                        	<label>First Name</label>
+                           <input name="first_name" type="text" maxlength="20" class="form-control" id="firstname" placeholder="First Name">
+                             <div class="require-fielderor formfname">This is required field</div>
+                         </div>
+						 <div class="col col-sm-6 col-12 mb-3">
+						 	<label>Last Name</label>
+                                    <input name="last_name" type="text" maxlength="20" class="form-control" id="lastname" placeholder="Last Name">
+                                    <div class="invalid-feedback lastname"></div>
+                                </div>
+								<div class="col col-sm-12 col-12 mb-3">
+									<label>Email Id</label>
+                                    <div class="verify-email-sec">
+                                        <input name="email" id="user-email" type="text" maxlength="50" class="form-control" placeholder="Email id" aria-describedby="button-addon2">
+                                        
+                                       
+                                    </div>
+                                    <div class="require-fielderor formemail">This is required field</div>
+                                </div>
+								<div class="col col-sm-12 col-12">
+                              <button id="user_form-enquire" class="btn btn-orange btn-rounded w-180px" type="button">Submit Enquire</button>
+                                </div>
+							
+					</div>
+					</form>	
+				</div>
+			</div>
+		</div>
+	</div>
 	
 	
     <div class="modal enquire-pp fade default-modal-custom" id="enquire-popup" data-bs-keyboard="false" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -1215,7 +1250,52 @@ $cu = wp_get_current_user(); ?>
 	});
 });
 </script>
-<?php } 
+<?php } else{ ?>	
+<script> jQuery('.enquirey').on('click' , function(){ 
+    //jQuery('.load-custom',this).show();
+	jQuery('#enquire-popup-form').modal('show');	
+});
+</script>
+<script> jQuery('#user_form-enquire').on('click' , function(){ 
+	
+	var lawyerId = jQuery(this).attr('lawyer_id');
+	var user_firstname = jQuery('#firstname').val();
+	var user_email = jQuery('#user-email').val();
+	if(user_firstname == ""){
+	jQuery('.require-fielderor.formfname').addClass('require-error-show');
+	return false;
+	} else if (user_email == ""){
+	
+	jQuery('.require-fielderor.formemail').addClass('require-error-show');
+	return false;
+	}
+	
+    jQuery('.load-custom',this).show();
+	jQuery('#enquire-popup-form').modal('hide');
+	
+	var formData = {name:user_firstname, email:user_email,action :"my_action_name",lawyer_id:lawyerId }; //Array 
+	var ajaxurl = "<?php echo admin_url('admin-ajax.php'); ?>";
+	
+	jQuery.ajax({
+		url : ajaxurl,
+		type: "POST",
+		data : formData,
+		dataType : 'json',
+		success: function(data, textStatus, jqXHR)
+		{
+		jQuery('.load-custom').hide();
+		jQuery('#enquire-popup').modal('show');
+			//data - response from server
+		},
+		error: function (jqXHR, textStatus, errorThrown)
+		{
+			
+		}
+	});
+});
+</script>
+	
+<?php }
 
 
 get_footer(); ?>

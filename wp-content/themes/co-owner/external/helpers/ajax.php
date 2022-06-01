@@ -4525,7 +4525,7 @@ function fetch_lawyer_data_dropdown(){
 	
 	$args=array(
 		'posts_per_page' => -1,    
-		'post_type' => 'lawyer',
+		'post_type' => 'community',
 		'tax_query' => array(
 			array(
 				'taxonomy' => 'assistance',
@@ -4552,7 +4552,7 @@ function fetch_lawyer_data_dropdown(){
 
 
 /*
-ajax get time slot for lawyer
+ajax get time slot for lawyer = community
 */
 
 function prepare_time_slots($starttime, $endtime, $duration, $currentTime){

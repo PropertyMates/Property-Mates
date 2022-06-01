@@ -45,21 +45,25 @@ class CoOwner_custom_post_tyoes {
     }
 	
     public static function lawyers()
-    {   $type = 'lawyer';
-        $uc_type = ucfirst('lawyer');
+    {  
+
+           /*Old Laywer*/
+		   /*New name is community*/
+     	$type = 'community';
+        $uc_type = ucfirst('community');
         $labels = array(
-            "name"               => _x( "Lawyers", "post type general name" ),
+            "name"               => _x( "Community", "post type general name" ),
             "singular_name"      => _x( "{$uc_type}", "post type singular name" ),
             "add_new"            => __( "Add New"),
             "add_new_item"       => __( "Add New {$uc_type}" ),
             "edit_item"          => __( "Edit {$uc_type}" ),
             "new_item"           => __( "New {$uc_type}" ),
-            "all_items"          => __( "All Lawyers" ),
+            "all_items"          => __( "All Communities" ),
             "view_item"          => __( "View {$uc_type}" ),
             "search_items"       => __( "Search {$uc_type}" ),
             "not_found"          => __( "No faq found" ),
             "not_found_in_trash" => __( "No faq found in the Trash" ),
-            "menu_name"          => "Lawyers",
+            "menu_name"          => "Communities",
 
         );
         $args = array(
@@ -817,7 +821,7 @@ function lawyer_texo_register() {
     'menu_name' => __( 'Assistance' ),
   ); 	
  
-  register_taxonomy('assistance',array('lawyer'), array(
+  register_taxonomy('assistance',array('community'), array(
     'hierarchical' => true,
     'labels' => $labels,
     'show_ui' => true,

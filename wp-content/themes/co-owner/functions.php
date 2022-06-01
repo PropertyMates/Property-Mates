@@ -934,4 +934,25 @@ add_shortcode('booking_process',function(){
 });
 
 
+
+add_action('init',function(){
+	
+	if(!empty($_GET['merged']) && $_GET['merged']==1){
+			global $wpdb, $wp_rewrite;
+		
+				$old_type = 'lawyer';
+				$type = 'community';
+				$q = 'numberposts=-1&post_status=any&post_type='.$old_type;
+			$items = get_posts($q);
+			foreach ($items as $item) {
+				$update['ID'] = $item->ID;
+				$update['post_type'] = $type;
+				wp_update_post( $update );
+				echo 'ID execute ='.$item->ID.'<br>';
+			}
+			
+			$wp_rewrite->flush_rules();
+	}
+});
+
 ?> 
