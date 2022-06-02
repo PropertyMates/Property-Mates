@@ -895,9 +895,7 @@
 						
                         <div class="action-btn-row">
                            <!-- <a title="Sutton  Laurence King Lawyers Website" class="btn btn-dark rounded-pill ms-auto" target="_blank" href="https://slklawyers.com.au/" >Website</a> -->
-                            <?php if($website_address): ?>
-							<a title="<?php the_title(); ?>" class="btn btn-dark rounded-pill ms-auto" target="_blank" href="<?php echo $website_address; ?>" >Website</a>
-							<?php endif; ?>
+                            
 							
 							<?php if($book_consultation):?>
 							

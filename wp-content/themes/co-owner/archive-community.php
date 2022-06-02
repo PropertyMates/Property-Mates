@@ -83,9 +83,7 @@
 
 <div class="action-btn-row action-btn-row-lwyr">
 <!-- <a title="Sutton  Laurence King Lawyers Website" class="btn btn-dark rounded-pill ms-auto" target="_blank" href="https://slklawyers.com.au/" >Website</a> -->
-<?php if($website_address): ?>
-<a title="<?php the_title(); ?>" class="btn btn-dark rounded-pill ms-auto" target="_blank" href="<?php echo $website_address; ?>" >Website</a>
-<?php endif; ?>
+
 
 <?php if($book_consultation):?>
 <a class="btn btn-orange rounded-pill ms-auto" href="/booking-process/?book_id=<?php echo get_the_ID(); ?>" >Book Consultation</a>

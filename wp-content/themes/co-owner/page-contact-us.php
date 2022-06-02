@@ -38,8 +38,8 @@ get_header();
                 <?php if(isset($_GET['submitted']) && $_GET['submitted'] == true): ?>
                     <div class="col-xxl-5 col-xl-6 col-lg-6 col-md-8 col-sm-11 py-40px mx-auto contact-section">
                         <h1 class="text-center pb-3">
-                            Thank you!
-                            <span class="d-block pt-3">for connecting us. We’ll be in touch soon.</span>
+                            <?php echo "Thank you for connecting with us"; ?>
+                           
                         </h1>
                     </div>
                 <?php else: ?>

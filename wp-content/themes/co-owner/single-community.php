@@ -13,7 +13,6 @@
 ?>
 <?php if ( have_posts() ) while ( have_posts() ) : the_post(); ?>
 <div class="center-area">
-
 <div class="main-section bg-white public-title border-bottom py-20px">
 <div class="container">
 <div class="row">
@@ -25,10 +24,8 @@
 </div>
 </div>
 </div>
-
 <div class="main-section mt-5 blog-detal-pg">
 <div class="container ">
-
 <div class="row">
 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 <div class="card custom-card blog-detil-info mb-5">
@@ -46,14 +43,6 @@
 <?php the_title(); ?>
 </a>
 </h3>
-
-<time datetime="<?php the_time( 'Y-m-d' ); ?>" pubdate>
-<?php the_date(); ?> <?php the_time(); ?>
-</time>
-
-
-
-
 <?php 
 	
 	$google_rating = get_field('google_ratings');
@@ -65,11 +54,8 @@
 	$lawyer_logo = get_field('logo');
 	$google_rating_image = get_field('google_rating_image');
 				   $inquiry_label= get_field('inquiry_label');
-			   $view_button= get_field('view_button');
-		
-	
+			   $view_button= get_field('view_button');	
 ?>
-
 <div class="commnunity-inner">
 	<div class="hf-comunity">
 <div class="left-comunity">
@@ -79,29 +65,22 @@
 </div>
 <div class="right-comunity">
 <?php if($hilighted_points): ?>
-
 <?php echo $hilighted_points; ?>
 <?php endif; ?>
 </div>
 </div>
 <?php the_content(); ?>
-
 <?php if($google_rating_image):?>
 <div class="g-review">
 <img src="<?php echo $google_rating_image['url'];?>">
-
 </div>
 <?php endif;?>
-
-
-
 <?php if($book_consultation_fee):?>
 <div class="book-consult">
 <span><p>Book Consultation</p></span>
 <span class="consult-price"><?php echo $book_consultation_fee; ?></span>
 </div>
 <?php endif; ?>
-
 <div class="book-consult">
 <span><p><?php echo $inquiry_label; ?></p></span>
 <?php if(is_user_logged_in()){ ?>
@@ -111,24 +90,17 @@
 	
 <?php } ?>
 </div>
-
 <div class="action-btn-row">
 <!-- <a title="Sutton  Laurence King Lawyers Website" class="btn btn-dark rounded-pill ms-auto" target="_blank" href="https://slklawyers.com.au/" >Website</a> -->
 <?php if($website_address): ?>
 <a title="<?php the_title(); ?>" class="btn btn-dark rounded-pill ms-auto" target="_blank" href="<?php echo $website_address; ?>" >Website</a>
 <?php endif; ?>
-
 <?php if($book_consultation):?>
 <a class="btn btn-orange rounded-pill ms-auto" href="/booking-process/?book_id=<?php echo get_the_ID(); ?>" >Book Consultation</a>
 <?php endif; ?>
-
 <?php //echo do_shortcode('[accept_stripe_payment name="Payments (powered by Stripe). This is a 60 mins consultation with our law firm. You can discuss anything in this call." price="250" url="http://example.com/downloads/my-script.zip" button_text="Book Consultation"]'); ?>
 </div>
-
 </div>
-
-
-
 <?php if ( get_the_author_meta( 'description' ) ) : ?>
 <?php echo get_avatar( get_the_author_meta( 'user_email' ) ); ?>
 <h3>
@@ -136,20 +108,10 @@
 </h3>
 <?php the_author_meta( 'description' ); ?>
 <?php endif; ?>
-
-
 </div> </div>
 </div>
-
 </div></div>
-
-
-
-
 </div>
 </div>
-
-
 <?php endwhile; ?>
-
 <?php get_footer() ?>
