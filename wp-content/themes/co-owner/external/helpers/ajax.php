@@ -4595,6 +4595,30 @@ function gen_slot_html($timeSlots){
 return $html;	   
 }
 
+function gen_slot_specific_html($day){
+	$$html='';
+	$day = strtolower($day);
+	$daysTimeSlots = array(
+	 'monday' => array('10:00 AM','13:00 PM'),
+	 'wednesday' => array('10:00 AM','13:00 PM'),
+	 'saturday' => array('12:00 PM','15:00 PM'),
+	
+	);
+    $timeSlots =  $daysTimeSlots[$day];
+	//$timeSlots = array('10:00 AM','13:00 PM');
+	
+	if($timeSlots){
+	 foreach($timeSlots as $slot){
+			   $html.='<li class="time_slot_'.$slot.'"><a href="javascript:void(0);" class="time_book_now"  data-slot="'.$slot.'">'.$slot.'</a></li>';
+		 }
+       }else{
+		   $html ='<li class="time_no_slot"><strong>No slots available</strong></li>';
+	   }
+
+return $html;	 	
+}
+
+
 add_action('wp_ajax_fetch_time_slot_by_date_user','fetch_time_slot_by_date_user');
 add_action('wp_ajax_nopriv_fetch_time_slot_by_date_user','fetch_time_slot_by_date_user');
 function fetch_time_slot_by_date_user(){
@@ -4602,6 +4626,7 @@ function fetch_time_slot_by_date_user(){
 	$is_time_responsive = true; // It will allow to get future time slots not morning to evening 
 	
 	$post_id = $_POST['pid'];
+	$getTheTitle = get_the_title($post_id);
 	$day = date('l', strtotime($_POST['date']));
 	$week_group = 'week_days';
 	$currentTime= $_POST['currentTime'];
@@ -4662,7 +4687,13 @@ function fetch_time_slot_by_date_user(){
 		$response= array();
 	}
 	
-	  $response = gen_slot_html($response);
+	    if($getTheTitle=="Mortgage Solved"){
+			 $response = gen_slot_specific_html($day);
+		}else{
+			  $response = gen_slot_html($response);
+		}
+	  
+	
 	
 	
 	echo $response;

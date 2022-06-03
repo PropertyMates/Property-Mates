@@ -164,7 +164,7 @@
 						</div>
                         <div class="col-12 enquiry-data">
                             <img src="<?php echo get_template_directory_uri(); ?>/images/tick.jpg">
-                            <h3>Thank you for showing your Interest.</h3>
+                            <h3><?php echo "Thank you for showing your interest."; ?></h3>
                             <p>We have received your message. <br> Our team will get in touch with you soon.</p>
                             <br>
                             <p>Please check your email for future updates.</p>

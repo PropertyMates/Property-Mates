@@ -605,7 +605,7 @@ holds <?php echo $member->interested_in; ?>% Portions
 <?php } ?>
 <div class="col-12 enquiry-data tankyu-enqury">
 <img src="<?php echo get_template_directory_uri(); ?>/images/tick.jpg">
-<h3>Thank you for showing your Interest.</h3>
+<h3><?php echo "Thank you for showing your interest."; ?></h3>
 <p>We have received your message. <br> Our team will get in touch with you soon.</p>
 <br>
 <p>Please check your email for future updates.</p>
@@ -776,12 +776,12 @@ class="btn btn-orange rounded-pill mb-2 calculate-price">Calculate Price</a>
 <div class="card custom-card side-card mb-4">
 <div class="card-body">
 <div class="side-property-thumb">
-<a href="<?php echo home_url(CO_OWNER_PROPERTY_DETAILS_PAGE).'?id='.$sm_property->ID ?>">
+<a href="<?php echo get_the_permalink($sm_property->ID); ?>">
 <img src="<?php echo $sm_property->image; ?>" alt="">
 </a>
 </div>
 <div class="side-property-cnt">
-<a href="<?php echo home_url(CO_OWNER_PROPERTY_DETAILS_PAGE).'?id='.$sm_property->ID ?>">
+<a href="<?php echo get_the_permalink($sm_property->ID); ?>">
 <p><?php echo $sm_property->address; ?></p>
 </a>
 <h2><?php echo CO_OWNER_CURRENCY_SYMBOL.' '.number_format($sm_property->price); ?></h2>
