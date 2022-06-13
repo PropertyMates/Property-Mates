@@ -505,13 +505,13 @@ holds <?php echo $member->interested_in; ?>% Portions
 <div class="logo-engury"><img src="<?php echo get_template_directory_uri(); ?>/images/Banner.png"></div>
 <div class="book-enq">
 
-
+<a class="btn btn-orange rounded-pill ms-auto" href="#" data-bs-toggle="modal" data-bs-target="#enquire-popup-detail">Enquire Now </a>
 <?php 
 	if(is_user_logged_in()){    ?>
-	<a class="btn btn-orange rounded-pill ms-auto" href="#" data-bs-toggle="modal" data-bs-target="#enquire-popup-detail">Enquire Now </a>
+	<!-- <a class="btn btn-orange rounded-pill ms-auto" href="#" data-bs-toggle="modal" data-bs-target="#enquire-popup-detail">Enquire Now </a> -->
 	<?php
 	} else { ?>
-	<span><a class="btn btn-orange rounded-pill ms-auto" href="<?php echo site_url().'/login?vs=1'; ?>" >Enquire Now </a></span>
+	<!-- <span><a class="btn btn-orange rounded-pill ms-auto" href="<?php echo site_url().'/login?vs=1'; ?>" >Enquire Now </a></span> -->
 	
 <?php }  ?>
 </div>
@@ -526,7 +526,7 @@ holds <?php echo $member->interested_in; ?>% Portions
 <button type="button" class="btn-close ms-auto" data-bs-dismiss="modal" aria-label="Close"></button>
 </div>
 <?php 
-	if(is_user_logged_in()){
+	
 		$cu = wp_get_current_user(); 
 		//print_r($cu);
 		
@@ -534,22 +534,47 @@ holds <?php echo $member->interested_in; ?>% Portions
 	<div class="col-12 enquiry-confirmation-form">
 	<h4>Please Confirm</h4>
 	
-	<form id="enquirey">
+	<form id="enquirey" method="post">
+	 <input type="hidden" name="action" value="my_action_name"> 
+	 <input type="hidden" name="urls" value="<?php echo get_the_permalink($post->ID); ?>"> 
+	 <input type="hidden" name="title" value="<?php echo get_the_title($post->ID); ?>"> 
+	 <input type="hidden" name="is_logged_in" id ="is_logged_in" value="<?php echo (is_user_logged_in()) ? 'Yes' : 'No'; ?>"> 
+	  
+	 
 	<div class="field-form">
 	<label>Property Details:</label>
 	<input type="text" value="<?php echo $property->address; ?>">
 	</div>
-	<div class="field-form">
+	<div class="field-form ">
 	<label>User Details:</label>
 	
 	<?php
-		echo '<input  type="hidden" value="'.$cu->full_name.'" name="full_name"><br/>
-		<input  type="hidden" value="'.$cu->full_name.'" name="email"> 
-		<input  type="hidden" value="'.$cu->_mobile.'" name="phone_number"> 
+	  if(is_user_logged_in()){
+		echo '<input  type="hidden" value="'.$cu->full_name.'" id="name" name="name"><br/>
+		<input  type="hidden" value="'.$cu->user_email.'" id="email" name="email"> 
+		<input  type="hidden" value="'.$cu->_mobile.'" id="phone_number" name="phone_number"> 
 		<p>'.$cu->full_name.'</p>
 		<p>'.$cu->user_email.' | '.$cu->_mobile.'</p>';
 		//echo '   Paras Kumar  paras.kumar@gmail.com | 0452375990';
+	  }else{
 	?>
+	
+	<div class="row label-black">
+		<div class="col col-sm-6 col-12 mb-3">
+	<label>First Name:</label>
+	<input class="border-field-form"  type="text" value="" name="first_name" id="first_name" required> 
+</div>
+	<div class="col col-sm-6 col-12 mb-3">
+	<label>last Name:</label>
+	<input class="border-field-form" type="text" value="" name="last_name" id="last_name" required> 	
+	</div>
+	<div class="col col-sm-12 col-12">
+	<label>Email:</label>
+	<input class="border-field-form"  type="email" value="" name="email" id="email" required> 	
+</div>
+</div>
+	
+	  <?php } ?>	
 	
 	</div>
 	<!-- Added new drop down for inquery -->
@@ -563,7 +588,7 @@ holds <?php echo $member->interested_in; ?>% Portions
 	</select>
 	</div>
 	-->
-	<div class="field-form">
+	<div class="field-form  label-black">
 	<label>Type of assistance:</label>
 	<select required="required" id="assistance" name="assistance" required>
 	<option value="">Select Option</option>
@@ -584,7 +609,7 @@ holds <?php echo $member->interested_in; ?>% Portions
 		
 		</div>			
 		
-		<div class="field-form">
+		<div class="field-form label-black">
 		<label>Please choose a partner:</label>
 		<select required="required" id="partner" name="partner" required>
 		</select>
@@ -602,7 +627,7 @@ holds <?php echo $member->interested_in; ?>% Portions
 		</form>
 		</div>
 		
-<?php } ?>
+
 <div class="col-12 enquiry-data tankyu-enqury">
 <img src="<?php echo get_template_directory_uri(); ?>/images/tick.jpg">
 <h3><?php echo "Thank you for showing your interest."; ?></h3>
@@ -893,9 +918,17 @@ $postid = $_GET['id'];
 }
 
 ?>
-<?php if(is_user_logged_in()){
+<?php 
 $cu = wp_get_current_user(); ?>
+
+
 <script> 
+
+function ValidateEmail(email) 
+{
+    var re = /\S+@\S+\.\S+/;
+        return re.test(email);
+}
 jQuery('#agreement').on('change', function() {
 var agreementval = jQuery(this).val();
 if(agreementval != ""){
@@ -907,13 +940,53 @@ jQuery('.form-btn-bar').hide();
 jQuery('#cancel-enq').on('click', function() {
 jQuery('.btn-close.ms-auto').trigger('click');
 });
-jQuery('#enquirey').on('submit' , function(e){ 
-e.preventDefault();
+jQuery('#enquirey').on('submit' , function(){ 
+
 jQuery('.load-custom').show();
 
+
+
+/*
 var formData = {name:"<?php echo $cu->user_firstname; ?>", email:"<?php echo $cu->user_email; ?>",title:"<?php echo get_the_title(); ?>", urls:"<?php echo get_the_permalink($post->ID); ?>",
 'agreement' : jQuery('#agreement').val() ,action :"my_action_name"  , assistance: jQuery('#assistance').val(), partner: jQuery('#partner').val() }; //Array 
+*/
+var name = '';
+var user_email = jQuery('#email').val();
+var first_name = jQuery('#first_name').val();
+var last_name = jQuery('#last_name').val();
 
+var is_logged_in = jQuery('#is_logged_in').val();
+
+if(is_logged_in=="No"){
+	if(jQuery('#first_name').val()) {
+	name = jQuery('#first_name').val()+' '+jQuery('#last_name').val();		
+	}
+}
+else{
+name = jQuery('#name').val();	
+	
+}
+
+if(is_logged_in=="No"){
+	
+	if(first_name ==""){
+		   jQuery('.require-fielderor.formemail').addClass('require-error-show');
+	return false;
+}
+if(last_name ==""){
+		   jQuery('.require-fielderor.formemail').addClass('require-error-show');
+	return false;
+}
+else if (!ValidateEmail(user_email)){
+    jQuery('.require-fielderor.formemail').addClass('require-error-show');
+	return false;
+	}
+
+}
+
+
+var formData = jQuery(this).serialize();
+formData = formData+'&name='+name;
 
 var ajaxurl = "<?php echo admin_url('admin-ajax.php'); ?>";
 
@@ -935,7 +1008,10 @@ error: function (jqXHR, textStatus, errorThrown)
 {
 
 }
+
+
 });
+return false;
 
 });
 
@@ -987,5 +1063,5 @@ jQuery('.form-btn-bar').hide();
 /* Drop down function */
 
 </script>
-<?php } 
+<?php 
 get_footer(); ?>

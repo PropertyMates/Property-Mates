@@ -4518,6 +4518,7 @@ $user_id = get_current_user_id();
 
 /* Assistance and Partner dropdown */
 add_action('wp_ajax_fetch_lawyer_data_dropdown','fetch_lawyer_data_dropdown');
+add_action('wp_ajax_nopriv_fetch_lawyer_data_dropdown','fetch_lawyer_data_dropdown');
 function fetch_lawyer_data_dropdown(){
 	
 	$html='';

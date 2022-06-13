@@ -803,7 +803,13 @@
 	
 	<div id="our-community" class="main-section w-100 d-block py-40px bg-white our-comm">
 		<div class="container">
-			<div class="title-area"><h3>Our Community</h3></div>
+			<div class="title-area">
+				<h3 class="main-comunity">Our Community</h3>
+				<div class="people-community">
+					<p>We connect everyone and provide solutions for the whole real estate community.</p>
+					 <img src="<?php echo get_template_directory_uri(); ?>/images/our-commnuity.png">
+				</div>
+			</div>
 			
 			<?php 
 			

@@ -5618,12 +5618,16 @@ a.custom-btn-area {
 }
 
 .contact-section h1 {
-  font-size: 45px;
-  font-weight: 500;
-  color: #fe7400;
-  font-family: "Poppins", sans-serif;
-  margin: 0;
-      text-transform: capitalize;
+    font-size: 45px;
+    font-weight: 500;
+    color: #fe7400;
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    text-transform: none;
+}
+.contact-section h1 + p {
+    font-size: 20px;
+    text-align: center;
 }
 
 .contact-section h1 span {
@@ -9246,12 +9250,70 @@ div#enquire-popup-form .require-fielderor.require-error-show {
 
 
 
+.people-community img {
+    max-width: 100%;
+    height: auto;
+}
+div#our-community .title-area {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+}
+div#our-community .title-area h3.main-comunity {
+    white-space: nowrap;
+        width: 100%;
+}
+
+.people-community p {
+    margin: 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: #fff;
+    font-weight: 600;
+    font-size: 20px;
+    top: 8px;
+}
+.people-community {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 10px;
+    margin-left: 0;
+    margin-top: 25px;
+}
+
+
 
 
 @media (max-width: 1399px) {
  .lawyr-articls .blog-articls-text {
     min-height: 336px;
 }
+}
+
+@media (max-width: 1199px) {
+
+.people-community p {
+    font-size: 15px;
+    top: 5px;
+    padding: 0 15px;
+    line-height: normal;
+}
+.people-community img {
+    min-height: 100px;
+    object-fit: cover;
+    object-position: top;
+}
+}
+
+@media (max-width: 991px) {
+
+div#our-community .title-area {    flex-direction: column;}
+.people-community {    margin: 10px 0 0 0;}
+div#our-community .title-area h3.main-comunity {    text-align: center;}
 }
 
 @media (max-width: 767px) {
@@ -9327,7 +9389,40 @@ div#our-community .container {
 .book-enq {
     padding: 10px 0;
 }
+
+}
+
+@media (max-width: 479px) {
+.people-community p {
+    font-size: 13px;
+    line-height: normal;
+    padding: 0 3px;
 }
 
 
 
+}
+
+
+input.border-field-form {
+    width: 100%;
+    border: 1px solid #777;
+    padding: 6px 10px;
+    outline: none;
+}
+.enquiry-confirmation-form .label-black label {
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #262626;
+    width: 100%;
+    padding-bottom: 5px;
+    margin: 0;
+    margin-top: 0;
+}
+.label-black {
+    margin-bottom: 15px;
+}
+.form-btn-bar {
+    margin-top: 0;
+}
