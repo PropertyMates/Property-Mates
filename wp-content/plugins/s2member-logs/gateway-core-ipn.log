@@ -1,0 +1,1514 @@
+LOG ENTRY: Tue Aug 3rd, 2021 @ precisely 5:56 am UTC
+PHP v7.4.3 :: WordPress v5.8 :: s2Member v210526 :: s2Member Pro v210526
+Memory 5.98 MB :: Real Memory 2.00 MB :: Peak Memory 6.02 MB :: Real Peak Memory 2.00 MB
+dev.propertymates.io/?s2member_paypal_notify=1
+User-Agent: s2Member v210526; https://dev.propertymates.io
+Array
+(
+    [txn_type] => subscr_signup
+    [subscr_cid] => cus_JyD2Ng6U86mRGQ
+    [subscr_id] => sub_JyD21fQoFv7YB1
+    [custom] => dev.propertymates.io
+    [txn_cid] => cus_JyD2Ng6U86mRGQ
+    [txn_id] => sub_JyD21fQoFv7YB1
+    [period1] => 0 D
+    [period3] => 1 M
+    [mc_amount1] => 0.00
+    [mc_amount3] => 199.95
+    [mc_gross] => 199.95
+    [mc_currency] => USD
+    [tax] => 0.00
+    [recurring] => 199.95
+    [payer_email] => krupal@propertymates.io
+    [first_name] => Sameer
+    [last_name] => Ajmeri
+    [option_name1] => Referencing Customer ID
+    [option_selection1] => sub_JruhjfL8xrKzby
+    [option_name2] => Customer IP Address
+    [option_selection2] => 150.129.104.27
+    [item_name] => $199.95 USD / Monthly (recurring charge, for ongoing access)
+    [item_number] => 2
+    [period] => 0 D
+    [mc_amount] => 0.00
+    [option_name] => Referencing Customer ID
+    [option_selection] => sub_JruhjfL8xrKzby
+    [proxy_verified] => stripe
+    [s2member_log] => Array
+        (
+            [0] => IPN received on: Tue Aug 3, 2021 5:56:34 am UTC
+            [1] => s2Member POST vars verified with a Proxy Key
+            [2] => s2Member originating domain (`$_SERVER["HTTP_HOST"]`) validated.
+            [3] => s2Member `txn_type` identified as ( `web_accept|subscr_signup` ).
+            [4] => s2Member `txn_type` identified as ( `web_accept|subscr_signup` ) w/ update vars.
+            [5] => s2Member Level/Capabilities updated w/ advanced update routines.
+            [6] => Modification Confirmation Email sent to: "Sameer Ajmeri" <krupal@propertymates.io>.
+            [7] => Subscr. Return ( `modification=1` ), a Proxy Return URL is ready.
+            [8] => User exists. Handling `payment` for Subscription via ( `subscr-signup-as-subscr-payment` ).
+            [9] => Storing IPN signup vars now. These are associated with a User's account record; for future reference.
+        )
+
+    [subscr_gateway] => stripe
+    [subscr_baid] => sub_JyD21fQoFv7YB1
+    [level] => 2
+    [ccaps] => 
+    [eotper] => 
+    [ip] => 150.129.104.27
+    [initial_term] => 0 D
+    [initial] => 199.95
+    [regular] => 199.95
+    [regular_term] => 1 M
+    [currency] => USD
+    [currency_symbol] => $
+    [s2member_paypal_proxy_return_url] => /?subscription=success
+    [s2member_paypal_proxy] => stripe
+    [s2member_paypal_proxy_use] => pro-emails,subscr-signup-as-subscr-payment
+    [s2member_paypal_proxy_coupon] => Array
+        (
+            [coupon_code] => 
+            [full_coupon_code] => 
+            [affiliate_id] => 
+        )
+
+    [s2member_paypal_proxy_verification] => 921106fc5140ddc8a7f1b2e6184cbade
+)
+
+LOG ENTRY: Tue Aug 3rd, 2021 @ precisely 5:59 am UTC
+PHP v7.4.3 :: WordPress v5.8 :: s2Member v210526 :: s2Member Pro v210526
+Memory 5.86 MB :: Real Memory 2.00 MB :: Peak Memory 6.03 MB :: Real Peak Memory 2.00 MB
+dev.propertymates.io/?s2member_paypal_notify=1
+User-Agent: s2Member v210526; https://dev.propertymates.io
+Array
+(
+    [txn_type] => subscr_eot
+    [subscr_cid] => cus_JyD2Ng6U86mRGQ
+    [subscr_id] => sub_JyD21fQoFv7YB1
+    [custom] => dev.propertymates.io
+    [period1] => 0 D
+    [period3] => 1 M
+    [payer_email] => krupal@propertymates.io
+    [first_name] => Sameer
+    [last_name] => Ajmeri
+    [option_name1] => Referencing Customer ID
+    [option_selection1] => sub_JruhjfL8xrKzby
+    [option_name2] => Customer IP Address
+    [option_selection2] => 150.129.104.27
+    [item_name] => $199.95 USD / Monthly (recurring charge, for ongoing access)
+    [item_number] => 2
+    [period] => 0 D
+    [option_name] => Referencing Customer ID
+    [option_selection] => sub_JruhjfL8xrKzby
+    [proxy_verified] => stripe
+    [s2member_log] => Array
+        (
+            [0] => IPN received on: Tue Aug 3, 2021 5:59:46 am UTC
+            [1] => s2Member POST vars verified with a Proxy Key
+            [2] => s2Member originating domain (`$_SERVER["HTTP_HOST"]`) validated.
+            [3] => s2Member `txn_type` identified as ( `subscr_eot|recurring_payment_expired|recurring_payment_suspended_due_to_max_failed_payment` ) - or - `recurring_payment_profile_cancel` w/ `initial_payment_status` ( `failed` ).
+            [4] => Member Level/Capabilities demoted to: Subscriber.
+        )
+
+    [subscr_gateway] => stripe
+    [subscr_baid] => sub_JyD21fQoFv7YB1
+    [ip] => 150.129.104.27
+    [currency] => 
+    [currency_symbol] => $
+    [s2member_paypal_proxy] => stripe
+    [s2member_paypal_proxy_use] => pro-emails
+    [s2member_paypal_proxy_verification] => 921106fc5140ddc8a7f1b2e6184cbade
+)
+
+LOG ENTRY: Tue Aug 3rd, 2021 @ precisely 6:03 am UTC
+PHP v7.4.3 :: WordPress v5.8 :: s2Member v210526 :: s2Member Pro v210526
+Memory 5.96 MB :: Real Memory 2.00 MB :: Peak Memory 6.00 MB :: Real Peak Memory 2.00 MB
+dev.propertymates.io/?s2member_paypal_notify=1
+User-Agent: s2Member v210526; https://dev.propertymates.io
+Array
+(
+    [txn_type] => subscr_signup
+    [subscr_cid] => cus_JyD2Ng6U86mRGQ
+    [subscr_id] => sub_JyD9LPql1cDlLb
+    [custom] => dev.propertymates.io
+    [txn_cid] => cus_JyD2Ng6U86mRGQ
+    [txn_id] => sub_JyD9LPql1cDlLb
+    [period1] => 0 D
+    [period3] => 1 M
+    [mc_amount1] => 0.00
+    [mc_amount3] => 14.95
+    [mc_gross] => 14.95
+    [mc_currency] => USD
+    [tax] => 0.00
+    [recurring] => 14.95
+    [payer_email] => krupal@propertymates.io
+    [first_name] => Sameer
+    [last_name] => Ajmeri
+    [option_name1] => Referencing Customer ID
+    [option_selection1] => 39
+    [option_name2] => Customer IP Address
+    [option_selection2] => 150.129.104.27
+    [item_name] => $14.95 USD / Monthly (recurring charge, for ongoing access)
+    [item_number] => 1
+    [period] => 0 D
+    [mc_amount] => 0.00
+    [option_name] => Referencing Customer ID
+    [option_selection] => 39
+    [proxy_verified] => stripe
+    [s2member_log] => Array
+        (
+            [0] => IPN received on: Tue Aug 3, 2021 6:03:45 am UTC
+            [1] => s2Member POST vars verified with a Proxy Key
+            [2] => s2Member originating domain (`$_SERVER["HTTP_HOST"]`) validated.
+            [3] => s2Member `txn_type` identified as ( `web_accept|subscr_signup` ).
+            [4] => s2Member `txn_type` identified as ( `web_accept|subscr_signup` ) w/ update vars.
+            [5] => s2Member Level/Capabilities updated w/ advanced update routines.
+            [6] => Modification Confirmation Email sent to: "Sameer Ajmeri" <krupal@propertymates.io>.
+            [7] => Subscr. Return ( `modification=1` ), a Proxy Return URL is ready.
+            [8] => User exists. Handling `payment` for Subscription via ( `subscr-signup-as-subscr-payment` ).
+            [9] => Storing IPN signup vars now. These are associated with a User's account record; for future reference.
+        )
+
+    [subscr_gateway] => stripe
+    [subscr_baid] => sub_JyD9LPql1cDlLb
+    [level] => 1
+    [ccaps] => 
+    [eotper] => 
+    [ip] => 150.129.104.27
+    [initial_term] => 0 D
+    [initial] => 14.95
+    [regular] => 14.95
+    [regular_term] => 1 M
+    [currency] => USD
+    [currency_symbol] => $
+    [s2member_paypal_proxy_return_url] => /?subscription=success
+    [s2member_paypal_proxy] => stripe
+    [s2member_paypal_proxy_use] => pro-emails,subscr-signup-as-subscr-payment
+    [s2member_paypal_proxy_coupon] => Array
+        (
+            [coupon_code] => 
+            [full_coupon_code] => 
+            [affiliate_id] => 
+        )
+
+    [s2member_paypal_proxy_verification] => 921106fc5140ddc8a7f1b2e6184cbade
+)
+
+LOG ENTRY: Tue Aug 3rd, 2021 @ precisely 6:04 am UTC
+PHP v7.4.3 :: WordPress v5.8 :: s2Member v210526 :: s2Member Pro v210526
+Memory 5.85 MB :: Real Memory 2.00 MB :: Peak Memory 5.94 MB :: Real Peak Memory 2.00 MB
+dev.propertymates.io/?s2member_paypal_notify=1
+User-Agent: s2Member v210526; https://dev.propertymates.io
+Array
+(
+    [txn_type] => subscr_cancel
+    [subscr_cid] => cus_JyD2Ng6U86mRGQ
+    [subscr_id] => sub_JyD9LPql1cDlLb
+    [custom] => dev.propertymates.io
+    [period1] => 0 D
+    [period3] => 1 M
+    [payer_email] => krupal@propertymates.io
+    [first_name] => Sameer
+    [last_name] => Ajmeri
+    [option_name1] => Referencing Customer ID
+    [option_selection1] => 39
+    [option_name2] => Customer IP Address
+    [option_selection2] => 150.129.104.27
+    [item_name] => $14.95 USD / Monthly (recurring charge, for ongoing access)
+    [item_number] => 1
+    [period] => 0 D
+    [option_name] => Referencing Customer ID
+    [option_selection] => 39
+    [proxy_verified] => stripe
+    [s2member_log] => Array
+        (
+            [0] => IPN received on: Tue Aug 3, 2021 6:04:10 am UTC
+            [1] => s2Member POST vars verified with a Proxy Key
+            [2] => s2Member originating domain (`$_SERVER["HTTP_HOST"]`) validated.
+            [3] => s2Member `txn_type` identified as ( `subscr_cancel|recurring_payment_profile_cancel|mp_cancel` ).
+            [4] => Auto-EOT Time for this account: Fri Sep 3, 2021 6:03 am UTC
+        )
+
+    [subscr_gateway] => stripe
+    [subscr_baid] => sub_JyD9LPql1cDlLb
+    [level] => 1
+    [ccaps] => 
+    [ip] => 150.129.104.27
+    [s2member_paypal_proxy] => stripe
+    [s2member_paypal_proxy_use] => pro-emails
+    [s2member_paypal_proxy_verification] => 921106fc5140ddc8a7f1b2e6184cbade
+)
+
+LOG ENTRY: Tue Aug 3rd, 2021 @ precisely 6:04 am UTC
+PHP v7.4.3 :: WordPress v5.8 :: s2Member v210526 :: s2Member Pro v210526
+Memory 5.92 MB :: Real Memory 2.00 MB :: Peak Memory 5.94 MB :: Real Peak Memory 2.00 MB
+dev.propertymates.io/?s2member_paypal_notify=1
+User-Agent: s2Member v210526; https://dev.propertymates.io
+Array
+(
+    [txn_type] => subscr_eot
+    [subscr_cid] => cus_JyD2Ng6U86mRGQ
+    [subscr_id] => sub_JyD9LPql1cDlLb
+    [custom] => dev.propertymates.io
+    [period1] => 0 D
+    [period3] => 1 M
+    [payer_email] => krupal@propertymates.io
+    [first_name] => Sameer
+    [last_name] => Ajmeri
+    [option_name1] => Referencing Customer ID
+    [option_selection1] => 39
+    [option_name2] => Customer IP Address
+    [option_selection2] => 150.129.104.27
+    [item_name] => $14.95 USD / Monthly (recurring charge, for ongoing access)
+    [item_number] => 1
+    [period] => 0 D
+    [option_name] => Referencing Customer ID
+    [option_selection] => 39
+    [proxy_verified] => stripe
+    [s2member_log] => Array
+        (
+            [0] => IPN received on: Tue Aug 3, 2021 6:04:48 am UTC
+            [1] => s2Member POST vars verified with a Proxy Key
+            [2] => s2Member originating domain (`$_SERVER["HTTP_HOST"]`) validated.
+            [3] => s2Member `txn_type` identified as ( `subscr_eot|recurring_payment_expired|recurring_payment_suspended_due_to_max_failed_payment` ) - or - `recurring_payment_profile_cancel` w/ `initial_payment_status` ( `failed` ).
+            [4] => Skipping (demote|delete) Member, for now. An Auto-EOT Time is already set for this account. When an Auto-EOT Time has been recorded, s2Member will handle EOT (demote|delete) events using it's own Auto-EOT System - internally.
+        )
+
+    [subscr_gateway] => stripe
+    [subscr_baid] => sub_JyD9LPql1cDlLb
+    [ip] => 150.129.104.27
+    [currency] => 
+    [currency_symbol] => $
+    [s2member_paypal_proxy] => stripe
+    [s2member_paypal_proxy_use] => pro-emails
+    [s2member_paypal_proxy_verification] => 921106fc5140ddc8a7f1b2e6184cbade
+)
+
+LOG ENTRY: Tue Aug 3rd, 2021 @ precisely 6:06 am UTC
+PHP v7.4.3 :: WordPress v5.8 :: s2Member v210526 :: s2Member Pro v210526
+Memory 5.84 MB :: Real Memory 2.00 MB :: Peak Memory 5.84 MB :: Real Peak Memory 2.00 MB
+dev.propertymates.io/?s2member_paypal_notify=1
+User-Agent: s2Member v210526; https://dev.propertymates.io
+Array
+(
+    [txn_type] => subscr_eot
+    [subscr_cid] => cus_JyD2Ng6U86mRGQ
+    [subscr_id] => sub_JyD9LPql1cDlLb
+    [custom] => dev.propertymates.io
+    [period1] => 0 D
+    [period3] => 1 M
+    [payer_email] => krupal@propertymates.io
+    [first_name] => Sameer
+    [last_name] => Ajmeri
+    [option_name1] => Referencing Customer ID
+    [option_selection1] => 39
+    [option_name2] => Customer IP Address
+    [option_selection2] => 150.129.104.27
+    [item_name] => $14.95 USD / Monthly (recurring charge, for ongoing access)
+    [item_number] => 1
+    [period] => 0 D
+    [option_name] => Referencing Customer ID
+    [option_selection] => 39
+    [proxy_verified] => stripe
+    [s2member_log] => Array
+        (
+            [0] => IPN received on: Tue Aug 3, 2021 6:06:02 am UTC
+            [1] => s2Member POST vars verified with a Proxy Key
+            [2] => s2Member originating domain (`$_SERVER["HTTP_HOST"]`) validated.
+            [3] => Not processing. Duplicate IPN.
+            [4] => s2Member `txn_type` identified as a type of EOT.
+            [5] => Duplicate IPN. Already processed. This IPN will be ignored.
+        )
+
+    [subscr_gateway] => stripe
+    [subscr_baid] => sub_JyD9LPql1cDlLb
+    [s2member_paypal_proxy] => stripe
+    [s2member_paypal_proxy_use] => pro-emails
+    [s2member_paypal_proxy_verification] => 921106fc5140ddc8a7f1b2e6184cbade
+)
+
+LOG ENTRY: Tue Aug 3rd, 2021 @ precisely 2:05 pm UTC
+PHP v7.4.3 :: WordPress v5.8 :: s2Member v210526 :: s2Member Pro v210526
+Memory 5.96 MB :: Real Memory 2.00 MB :: Peak Memory 6.00 MB :: Real Peak Memory 2.00 MB
+dev.propertymates.io/?s2member_paypal_notify=1
+User-Agent: s2Member v210526; https://dev.propertymates.io
+Array
+(
+    [txn_type] => subscr_signup
+    [subscr_cid] => cus_JyKv0gcI8NKji8
+    [subscr_id] => sub_JyKvMkRfvknD6w
+    [custom] => dev.propertymates.io
+    [txn_cid] => cus_JyKv0gcI8NKji8
+    [txn_id] => sub_JyKvMkRfvknD6w
+    [period1] => 0 D
+    [period3] => 1 M
+    [mc_amount1] => 0.00
+    [mc_amount3] => 14.95
+    [mc_gross] => 14.95
+    [mc_currency] => USD
+    [tax] => 0.00
+    [recurring] => 14.95
+    [payer_email] => qa.xperts@gmail.com
+    [first_name] => qaxperts
+    [last_name] => testacc
+    [option_name1] => Referencing Customer ID
+    [option_selection1] => FREE-61094c9ac9d03
+    [option_name2] => Customer IP Address
+    [option_selection2] => 150.129.104.27
+    [item_name] => $14.95 USD / Monthly (recurring charge, for ongoing access)
+    [item_number] => 1
+    [period] => 0 D
+    [mc_amount] => 0.00
+    [option_name] => Referencing Customer ID
+    [option_selection] => FREE-61094c9ac9d03
+    [proxy_verified] => stripe
+    [s2member_log] => Array
+        (
+            [0] => IPN received on: Tue Aug 3, 2021 2:05:43 pm UTC
+            [1] => s2Member POST vars verified with a Proxy Key
+            [2] => s2Member originating domain (`$_SERVER["HTTP_HOST"]`) validated.
+            [3] => s2Member `txn_type` identified as ( `web_accept|subscr_signup` ).
+            [4] => s2Member `txn_type` identified as ( `web_accept|subscr_signup` ) w/ update vars.
+            [5] => s2Member Level/Capabilities updated w/ advanced update routines.
+            [6] => Modification Confirmation Email sent to: "qaxperts testacc" <qa.xperts@gmail.com>.
+            [7] => Subscr. Return ( `modification=1` ), a Proxy Return URL is ready.
+            [8] => User exists. Handling `payment` for Subscription via ( `subscr-signup-as-subscr-payment` ).
+            [9] => Storing IPN signup vars now. These are associated with a User's account record; for future reference.
+        )
+
+    [subscr_gateway] => stripe
+    [subscr_baid] => sub_JyKvMkRfvknD6w
+    [level] => 1
+    [ccaps] => 
+    [eotper] => 
+    [ip] => 150.129.104.27
+    [initial_term] => 0 D
+    [initial] => 14.95
+    [regular] => 14.95
+    [regular_term] => 1 M
+    [currency] => USD
+    [currency_symbol] => $
+    [s2member_paypal_proxy_return_url] => /?subscription=success
+    [s2member_paypal_proxy] => stripe
+    [s2member_paypal_proxy_use] => pro-emails,subscr-signup-as-subscr-payment
+    [s2member_paypal_proxy_coupon] => Array
+        (
+            [coupon_code] => 
+            [full_coupon_code] => 
+            [affiliate_id] => 
+        )
+
+    [s2member_paypal_proxy_verification] => 921106fc5140ddc8a7f1b2e6184cbade
+)
+
+LOG ENTRY: Tue Aug 3rd, 2021 @ precisely 2:06 pm UTC
+PHP v7.4.3 :: WordPress v5.8 :: s2Member v210526 :: s2Member Pro v210526
+Memory 5.85 MB :: Real Memory 2.00 MB :: Peak Memory 5.94 MB :: Real Peak Memory 2.00 MB
+dev.propertymates.io/?s2member_paypal_notify=1
+User-Agent: s2Member v210526; https://dev.propertymates.io
+Array
+(
+    [txn_type] => subscr_cancel
+    [subscr_cid] => cus_JyKv0gcI8NKji8
+    [subscr_id] => sub_JyKvMkRfvknD6w
+    [custom] => dev.propertymates.io
+    [period1] => 0 D
+    [period3] => 1 M
+    [payer_email] => qa.xperts@gmail.com
+    [first_name] => qaxperts
+    [last_name] => testacc
+    [option_name1] => Referencing Customer ID
+    [option_selection1] => FREE-61094c9ac9d03
+    [option_name2] => Customer IP Address
+    [option_selection2] => 150.129.104.27
+    [item_name] => $14.95 USD / Monthly (recurring charge, for ongoing access)
+    [item_number] => 1
+    [period] => 0 D
+    [option_name] => Referencing Customer ID
+    [option_selection] => FREE-61094c9ac9d03
+    [proxy_verified] => stripe
+    [s2member_log] => Array
+        (
+            [0] => IPN received on: Tue Aug 3, 2021 2:06:17 pm UTC
+            [1] => s2Member POST vars verified with a Proxy Key
+            [2] => s2Member originating domain (`$_SERVER["HTTP_HOST"]`) validated.
+            [3] => s2Member `txn_type` identified as ( `subscr_cancel|recurring_payment_profile_cancel|mp_cancel` ).
+            [4] => Auto-EOT Time for this account: Fri Sep 3, 2021 2:05 pm UTC
+        )
+
+    [subscr_gateway] => stripe
+    [subscr_baid] => sub_JyKvMkRfvknD6w
+    [level] => 1
+    [ccaps] => 
+    [ip] => 150.129.104.27
+    [s2member_paypal_proxy] => stripe
+    [s2member_paypal_proxy_use] => pro-emails
+    [s2member_paypal_proxy_verification] => 921106fc5140ddc8a7f1b2e6184cbade
+)
+
+LOG ENTRY: Tue Aug 3rd, 2021 @ precisely 2:06 pm UTC
+PHP v7.4.3 :: WordPress v5.8 :: s2Member v210526 :: s2Member Pro v210526
+Memory 5.92 MB :: Real Memory 2.00 MB :: Peak Memory 5.94 MB :: Real Peak Memory 2.00 MB
+dev.propertymates.io/?s2member_paypal_notify=1
+User-Agent: s2Member v210526; https://dev.propertymates.io
+Array
+(
+    [txn_type] => subscr_eot
+    [subscr_cid] => cus_JyKv0gcI8NKji8
+    [subscr_id] => sub_JyKvMkRfvknD6w
+    [custom] => dev.propertymates.io
+    [period1] => 0 D
+    [period3] => 1 M
+    [payer_email] => qa.xperts@gmail.com
+    [first_name] => qaxperts
+    [last_name] => testacc
+    [option_name1] => Referencing Customer ID
+    [option_selection1] => FREE-61094c9ac9d03
+    [option_name2] => Customer IP Address
+    [option_selection2] => 150.129.104.27
+    [item_name] => $14.95 USD / Monthly (recurring charge, for ongoing access)
+    [item_number] => 1
+    [period] => 0 D
+    [option_name] => Referencing Customer ID
+    [option_selection] => FREE-61094c9ac9d03
+    [proxy_verified] => stripe
+    [s2member_log] => Array
+        (
+            [0] => IPN received on: Tue Aug 3, 2021 2:06:36 pm UTC
+            [1] => s2Member POST vars verified with a Proxy Key
+            [2] => s2Member originating domain (`$_SERVER["HTTP_HOST"]`) validated.
+            [3] => s2Member `txn_type` identified as ( `subscr_eot|recurring_payment_expired|recurring_payment_suspended_due_to_max_failed_payment` ) - or - `recurring_payment_profile_cancel` w/ `initial_payment_status` ( `failed` ).
+            [4] => Skipping (demote|delete) Member, for now. An Auto-EOT Time is already set for this account. When an Auto-EOT Time has been recorded, s2Member will handle EOT (demote|delete) events using it's own Auto-EOT System - internally.
+        )
+
+    [subscr_gateway] => stripe
+    [subscr_baid] => sub_JyKvMkRfvknD6w
+    [ip] => 150.129.104.27
+    [currency] => 
+    [currency_symbol] => $
+    [s2member_paypal_proxy] => stripe
+    [s2member_paypal_proxy_use] => pro-emails
+    [s2member_paypal_proxy_verification] => 921106fc5140ddc8a7f1b2e6184cbade
+)
+
+LOG ENTRY: Tue Aug 3rd, 2021 @ precisely 2:07 pm UTC
+PHP v7.4.3 :: WordPress v5.8 :: s2Member v210526 :: s2Member Pro v210526
+Memory 5.96 MB :: Real Memory 2.00 MB :: Peak Memory 6.00 MB :: Real Peak Memory 2.00 MB
+dev.propertymates.io/?s2member_paypal_notify=1
+User-Agent: s2Member v210526; https://dev.propertymates.io
+Array
+(
+    [txn_type] => subscr_signup
+    [subscr_cid] => cus_JyKv0gcI8NKji8
+    [subscr_id] => sub_JyKwi7jn5F6mda
+    [custom] => dev.propertymates.io
+    [txn_cid] => cus_JyKv0gcI8NKji8
+    [txn_id] => sub_JyKwi7jn5F6mda
+    [period1] => 0 D
+    [period3] => 1 M
+    [mc_amount1] => 0.00
+    [mc_amount3] => 14.95
+    [mc_gross] => 14.95
+    [mc_currency] => USD
+    [tax] => 0.00
+    [recurring] => 14.95
+    [payer_email] => qa.xperts@gmail.com
+    [first_name] => qaxperts
+    [last_name] => testacc
+    [option_name1] => Referencing Customer ID
+    [option_selection1] => 81
+    [option_name2] => Customer IP Address
+    [option_selection2] => 150.129.104.27
+    [item_name] => $14.95 USD / Monthly (recurring charge, for ongoing access)
+    [item_number] => 1
+    [period] => 0 D
+    [mc_amount] => 0.00
+    [option_name] => Referencing Customer ID
+    [option_selection] => 81
+    [proxy_verified] => stripe
+    [s2member_log] => Array
+        (
+            [0] => IPN received on: Tue Aug 3, 2021 2:07:00 pm UTC
+            [1] => s2Member POST vars verified with a Proxy Key
+            [2] => s2Member originating domain (`$_SERVER["HTTP_HOST"]`) validated.
+            [3] => s2Member `txn_type` identified as ( `web_accept|subscr_signup` ).
+            [4] => s2Member `txn_type` identified as ( `web_accept|subscr_signup` ) w/ update vars.
+            [5] => s2Member Level/Capabilities updated w/ advanced update routines.
+            [6] => Modification Confirmation Email sent to: "qaxperts testacc" <qa.xperts@gmail.com>.
+            [7] => Subscr. Return ( `modification=1` ), a Proxy Return URL is ready.
+            [8] => User exists. Handling `payment` for Subscription via ( `subscr-signup-as-subscr-payment` ).
+            [9] => Storing IPN signup vars now. These are associated with a User's account record; for future reference.
+        )
+
+    [subscr_gateway] => stripe
+    [subscr_baid] => sub_JyKwi7jn5F6mda
+    [level] => 1
+    [ccaps] => 
+    [eotper] => 
+    [ip] => 150.129.104.27
+    [initial_term] => 0 D
+    [initial] => 14.95
+    [regular] => 14.95
+    [regular_term] => 1 M
+    [currency] => USD
+    [currency_symbol] => $
+    [s2member_paypal_proxy_return_url] => /?subscription=success
+    [s2member_paypal_proxy] => stripe
+    [s2member_paypal_proxy_use] => pro-emails,subscr-signup-as-subscr-payment
+    [s2member_paypal_proxy_coupon] => Array
+        (
+            [coupon_code] => 
+            [full_coupon_code] => 
+            [affiliate_id] => 
+        )
+
+    [s2member_paypal_proxy_verification] => 921106fc5140ddc8a7f1b2e6184cbade
+)
+
+LOG ENTRY: Wed Aug 4th, 2021 @ precisely 4:39 am UTC
+PHP v7.4.3 :: WordPress v5.8 :: s2Member v210526 :: s2Member Pro v210526
+Memory 5.96 MB :: Real Memory 2.00 MB :: Peak Memory 6.00 MB :: Real Peak Memory 2.00 MB
+dev.propertymates.io/?s2member_paypal_notify=1
+User-Agent: s2Member v210526; https://dev.propertymates.io
+Array
+(
+    [txn_type] => subscr_signup
+    [subscr_cid] => cus_JyZ0OBS3EvRkak
+    [subscr_id] => sub_JyZ0GZqgCwbPvV
+    [custom] => dev.propertymates.io
+    [txn_cid] => cus_JyZ0OBS3EvRkak
+    [txn_id] => sub_JyZ0GZqgCwbPvV
+    [period1] => 0 D
+    [period3] => 1 M
+    [mc_amount1] => 0.00
+    [mc_amount3] => 14.95
+    [mc_gross] => 14.95
+    [mc_currency] => USD
+    [tax] => 0.00
+    [recurring] => 14.95
+    [payer_email] => user3@gmail.com
+    [first_name] => User
+    [last_name] => Three
+    [option_name1] => Referencing Customer ID
+    [option_selection1] => FREE-610a0ff910fb5
+    [option_name2] => Customer IP Address
+    [option_selection2] => 137.147.64.137
+    [item_name] => $14.95 USD / Monthly (recurring charge, for ongoing access)
+    [item_number] => 1
+    [period] => 0 D
+    [mc_amount] => 0.00
+    [option_name] => Referencing Customer ID
+    [option_selection] => FREE-610a0ff910fb5
+    [proxy_verified] => stripe
+    [s2member_log] => Array
+        (
+            [0] => IPN received on: Wed Aug 4, 2021 4:39:20 am UTC
+            [1] => s2Member POST vars verified with a Proxy Key
+            [2] => s2Member originating domain (`$_SERVER["HTTP_HOST"]`) validated.
+            [3] => s2Member `txn_type` identified as ( `web_accept|subscr_signup` ).
+            [4] => s2Member `txn_type` identified as ( `web_accept|subscr_signup` ) w/ update vars.
+            [5] => s2Member Level/Capabilities updated w/ advanced update routines.
+            [6] => Modification Confirmation Email sent to: "User Three" <user3@gmail.com>.
+            [7] => Subscr. Return ( `modification=1` ), a Proxy Return URL is ready.
+            [8] => User exists. Handling `payment` for Subscription via ( `subscr-signup-as-subscr-payment` ).
+            [9] => Storing IPN signup vars now. These are associated with a User's account record; for future reference.
+        )
+
+    [subscr_gateway] => stripe
+    [subscr_baid] => sub_JyZ0GZqgCwbPvV
+    [level] => 1
+    [ccaps] => 
+    [eotper] => 
+    [ip] => 137.147.64.137
+    [initial_term] => 0 D
+    [initial] => 14.95
+    [regular] => 14.95
+    [regular_term] => 1 M
+    [currency] => USD
+    [currency_symbol] => $
+    [s2member_paypal_proxy_return_url] => /?subscription=success
+    [s2member_paypal_proxy] => stripe
+    [s2member_paypal_proxy_use] => pro-emails,subscr-signup-as-subscr-payment
+    [s2member_paypal_proxy_coupon] => Array
+        (
+            [coupon_code] => 
+            [full_coupon_code] => 
+            [affiliate_id] => 
+        )
+
+    [s2member_paypal_proxy_verification] => 921106fc5140ddc8a7f1b2e6184cbade
+)
+
+LOG ENTRY: Wed Aug 4th, 2021 @ precisely 4:39 am UTC
+PHP v7.4.3 :: WordPress v5.8 :: s2Member v210526 :: s2Member Pro v210526
+Memory 5.85 MB :: Real Memory 2.00 MB :: Peak Memory 5.94 MB :: Real Peak Memory 2.00 MB
+dev.propertymates.io/?s2member_paypal_notify=1
+User-Agent: s2Member v210526; https://dev.propertymates.io
+Array
+(
+    [txn_type] => subscr_cancel
+    [subscr_cid] => cus_JyZ0OBS3EvRkak
+    [subscr_id] => sub_JyZ0GZqgCwbPvV
+    [custom] => dev.propertymates.io
+    [period1] => 0 D
+    [period3] => 1 M
+    [payer_email] => user3@gmail.com
+    [first_name] => User
+    [last_name] => Three
+    [option_name1] => Referencing Customer ID
+    [option_selection1] => FREE-610a0ff910fb5
+    [option_name2] => Customer IP Address
+    [option_selection2] => 137.147.64.137
+    [item_name] => $14.95 USD / Monthly (recurring charge, for ongoing access)
+    [item_number] => 1
+    [period] => 0 D
+    [option_name] => Referencing Customer ID
+    [option_selection] => FREE-610a0ff910fb5
+    [proxy_verified] => stripe
+    [s2member_log] => Array
+        (
+            [0] => IPN received on: Wed Aug 4, 2021 4:39:38 am UTC
+            [1] => s2Member POST vars verified with a Proxy Key
+            [2] => s2Member originating domain (`$_SERVER["HTTP_HOST"]`) validated.
+            [3] => s2Member `txn_type` identified as ( `subscr_cancel|recurring_payment_profile_cancel|mp_cancel` ).
+            [4] => Auto-EOT Time for this account: Sat Sep 4, 2021 4:39 am UTC
+        )
+
+    [subscr_gateway] => stripe
+    [subscr_baid] => sub_JyZ0GZqgCwbPvV
+    [level] => 1
+    [ccaps] => 
+    [ip] => 137.147.64.137
+    [s2member_paypal_proxy] => stripe
+    [s2member_paypal_proxy_use] => pro-emails
+    [s2member_paypal_proxy_verification] => 921106fc5140ddc8a7f1b2e6184cbade
+)
+
+LOG ENTRY: Wed Aug 4th, 2021 @ precisely 9:40 am UTC
+PHP v7.4.3 :: WordPress v5.8 :: s2Member v210526 :: s2Member Pro v210526
+Memory 5.93 MB :: Real Memory 2.00 MB :: Peak Memory 5.94 MB :: Real Peak Memory 2.00 MB
+dev.propertymates.io/?s2member_paypal_notify=1
+User-Agent: s2Member v210526; https://dev.propertymates.io
+Array
+(
+    [txn_type] => subscr_eot
+    [subscr_cid] => cus_JyZ0OBS3EvRkak
+    [subscr_id] => sub_JyZ0GZqgCwbPvV
+    [custom] => dev.propertymates.io
+    [period1] => 0 D
+    [period3] => 1 M
+    [payer_email] => user3@gmail.com
+    [first_name] => User
+    [last_name] => Three
+    [option_name1] => Referencing Customer ID
+    [option_selection1] => FREE-610a0ff910fb5
+    [option_name2] => Customer IP Address
+    [option_selection2] => 137.147.64.137
+    [item_name] => $14.95 USD / Monthly (recurring charge, for ongoing access)
+    [item_number] => 1
+    [period] => 0 D
+    [option_name] => Referencing Customer ID
+    [option_selection] => FREE-610a0ff910fb5
+    [proxy_verified] => stripe
+    [s2member_log] => Array
+        (
+            [0] => IPN received on: Wed Aug 4, 2021 9:40:18 am UTC
+            [1] => s2Member POST vars verified with a Proxy Key
+            [2] => s2Member originating domain (`$_SERVER["HTTP_HOST"]`) validated.
+            [3] => s2Member `txn_type` identified as ( `subscr_eot|recurring_payment_expired|recurring_payment_suspended_due_to_max_failed_payment` ) - or - `recurring_payment_profile_cancel` w/ `initial_payment_status` ( `failed` ).
+            [4] => Skipping (demote|delete) Member, for now. An Auto-EOT Time is already set for this account. When an Auto-EOT Time has been recorded, s2Member will handle EOT (demote|delete) events using it's own Auto-EOT System - internally.
+        )
+
+    [subscr_gateway] => stripe
+    [subscr_baid] => sub_JyZ0GZqgCwbPvV
+    [ip] => 137.147.64.137
+    [currency] => 
+    [currency_symbol] => $
+    [s2member_paypal_proxy] => stripe
+    [s2member_paypal_proxy_use] => pro-emails
+    [s2member_paypal_proxy_verification] => 921106fc5140ddc8a7f1b2e6184cbade
+)
+
+LOG ENTRY: Wed Aug 4th, 2021 @ precisely 10:01 am UTC
+PHP v7.4.3 :: WordPress v5.8 :: s2Member v210526 :: s2Member Pro v210526
+Memory 5.96 MB :: Real Memory 2.00 MB :: Peak Memory 6.00 MB :: Real Peak Memory 2.00 MB
+dev.propertymates.io/?s2member_paypal_notify=1
+User-Agent: s2Member v210526; https://dev.propertymates.io
+Array
+(
+    [txn_type] => subscr_signup
+    [subscr_cid] => cus_JyeCrQlVZWhqUQ
+    [subscr_id] => sub_JyeCWl0lGImspQ
+    [custom] => dev.propertymates.io
+    [txn_cid] => cus_JyeCrQlVZWhqUQ
+    [txn_id] => sub_JyeCWl0lGImspQ
+    [period1] => 0 D
+    [period3] => 1 M
+    [mc_amount1] => 0.00
+    [mc_amount3] => 14.95
+    [mc_gross] => 14.95
+    [mc_currency] => USD
+    [tax] => 0.00
+    [recurring] => 14.95
+    [payer_email] => tagott@yopmail.com
+    [first_name] => test
+    [last_name] => mod
+    [option_name1] => Referencing Customer ID
+    [option_selection1] => 88
+    [option_name2] => Customer IP Address
+    [option_selection2] => 150.129.104.27
+    [item_name] => $14.95 USD / Monthly (recurring charge, for ongoing access)
+    [item_number] => 1
+    [period] => 0 D
+    [mc_amount] => 0.00
+    [option_name] => Referencing Customer ID
+    [option_selection] => 88
+    [proxy_verified] => stripe
+    [s2member_log] => Array
+        (
+            [0] => IPN received on: Wed Aug 4, 2021 10:01:08 am UTC
+            [1] => s2Member POST vars verified with a Proxy Key
+            [2] => s2Member originating domain (`$_SERVER["HTTP_HOST"]`) validated.
+            [3] => s2Member `txn_type` identified as ( `web_accept|subscr_signup` ).
+            [4] => s2Member `txn_type` identified as ( `web_accept|subscr_signup` ) w/ update vars.
+            [5] => s2Member Level/Capabilities updated w/ advanced update routines.
+            [6] => Modification Confirmation Email sent to: "test mod" <tagott@yopmail.com>.
+            [7] => Subscr. Return ( `modification=1` ), a Proxy Return URL is ready.
+            [8] => User exists. Handling `payment` for Subscription via ( `subscr-signup-as-subscr-payment` ).
+            [9] => Storing IPN signup vars now. These are associated with a User's account record; for future reference.
+        )
+
+    [subscr_gateway] => stripe
+    [subscr_baid] => sub_JyeCWl0lGImspQ
+    [level] => 1
+    [ccaps] => 
+    [eotper] => 
+    [ip] => 150.129.104.27
+    [initial_term] => 0 D
+    [initial] => 14.95
+    [regular] => 14.95
+    [regular_term] => 1 M
+    [currency] => USD
+    [currency_symbol] => $
+    [s2member_paypal_proxy_return_url] => /?subscription=success
+    [s2member_paypal_proxy] => stripe
+    [s2member_paypal_proxy_use] => pro-emails,subscr-signup-as-subscr-payment
+    [s2member_paypal_proxy_coupon] => Array
+        (
+            [coupon_code] => 
+            [full_coupon_code] => 
+            [affiliate_id] => 
+        )
+
+    [s2member_paypal_proxy_verification] => 921106fc5140ddc8a7f1b2e6184cbade
+)
+
+LOG ENTRY: Wed Aug 4th, 2021 @ precisely 10:34 pm UTC
+PHP v7.4.3 :: WordPress v5.8 :: s2Member v210526 :: s2Member Pro v210526
+Memory 5.96 MB :: Real Memory 2.00 MB :: Peak Memory 6.00 MB :: Real Peak Memory 2.00 MB
+dev.propertymates.io/?s2member_paypal_notify=1
+User-Agent: s2Member v210526; https://dev.propertymates.io
+Array
+(
+    [txn_type] => subscr_signup
+    [subscr_cid] => cus_JyqMWakYjucDZW
+    [subscr_id] => sub_JyqM0Y9WQca7Xm
+    [custom] => dev.propertymates.io
+    [txn_cid] => cus_JyqMWakYjucDZW
+    [txn_id] => sub_JyqM0Y9WQca7Xm
+    [period1] => 0 D
+    [period3] => 1 M
+    [mc_amount1] => 0.00
+    [mc_amount3] => 14.95
+    [mc_gross] => 14.95
+    [mc_currency] => AUD
+    [tax] => 0.00
+    [recurring] => 14.95
+    [payer_email] => user3@gmail.com
+    [first_name] => User
+    [last_name] => Three
+    [option_name1] => Referencing Customer ID
+    [option_selection1] => 86
+    [option_name2] => Customer IP Address
+    [option_selection2] => 137.147.64.137
+    [item_name] => $14.95 AUD / Monthly (recurring charge, for ongoing access)
+    [item_number] => 1
+    [period] => 0 D
+    [mc_amount] => 0.00
+    [option_name] => Referencing Customer ID
+    [option_selection] => 86
+    [proxy_verified] => stripe
+    [s2member_log] => Array
+        (
+            [0] => IPN received on: Wed Aug 4, 2021 10:34:37 pm UTC
+            [1] => s2Member POST vars verified with a Proxy Key
+            [2] => s2Member originating domain (`$_SERVER["HTTP_HOST"]`) validated.
+            [3] => s2Member `txn_type` identified as ( `web_accept|subscr_signup` ).
+            [4] => s2Member `txn_type` identified as ( `web_accept|subscr_signup` ) w/ update vars.
+            [5] => s2Member Level/Capabilities updated w/ advanced update routines.
+            [6] => Modification Confirmation Email sent to: "User Three" <user3@gmail.com>.
+            [7] => Subscr. Return ( `modification=1` ), a Proxy Return URL is ready.
+            [8] => User exists. Handling `payment` for Subscription via ( `subscr-signup-as-subscr-payment` ).
+            [9] => Storing IPN signup vars now. These are associated with a User's account record; for future reference.
+        )
+
+    [subscr_gateway] => stripe
+    [subscr_baid] => sub_JyqM0Y9WQca7Xm
+    [level] => 1
+    [ccaps] => 
+    [eotper] => 
+    [ip] => 137.147.64.137
+    [initial_term] => 0 D
+    [initial] => 14.95
+    [regular] => 14.95
+    [regular_term] => 1 M
+    [currency] => AUD
+    [currency_symbol] => $
+    [s2member_paypal_proxy_return_url] => /?subscription=success
+    [s2member_paypal_proxy] => stripe
+    [s2member_paypal_proxy_use] => pro-emails,subscr-signup-as-subscr-payment
+    [s2member_paypal_proxy_coupon] => Array
+        (
+            [coupon_code] => 
+            [full_coupon_code] => 
+            [affiliate_id] => 
+        )
+
+    [s2member_paypal_proxy_verification] => 921106fc5140ddc8a7f1b2e6184cbade
+)
+
+LOG ENTRY: Wed Aug 4th, 2021 @ precisely 10:35 pm UTC
+PHP v7.4.3 :: WordPress v5.8 :: s2Member v210526 :: s2Member Pro v210526
+Memory 5.85 MB :: Real Memory 2.00 MB :: Peak Memory 5.94 MB :: Real Peak Memory 2.00 MB
+dev.propertymates.io/?s2member_paypal_notify=1
+User-Agent: s2Member v210526; https://dev.propertymates.io
+Array
+(
+    [txn_type] => subscr_cancel
+    [subscr_cid] => cus_JyqMWakYjucDZW
+    [subscr_id] => sub_JyqM0Y9WQca7Xm
+    [custom] => dev.propertymates.io
+    [period1] => 0 D
+    [period3] => 1 M
+    [payer_email] => user3@gmail.com
+    [first_name] => User
+    [last_name] => Three
+    [option_name1] => Referencing Customer ID
+    [option_selection1] => 86
+    [option_name2] => Customer IP Address
+    [option_selection2] => 137.147.64.137
+    [item_name] => $14.95 AUD / Monthly (recurring charge, for ongoing access)
+    [item_number] => 1
+    [period] => 0 D
+    [option_name] => Referencing Customer ID
+    [option_selection] => 86
+    [proxy_verified] => stripe
+    [s2member_log] => Array
+        (
+            [0] => IPN received on: Wed Aug 4, 2021 10:35:06 pm UTC
+            [1] => s2Member POST vars verified with a Proxy Key
+            [2] => s2Member originating domain (`$_SERVER["HTTP_HOST"]`) validated.
+            [3] => s2Member `txn_type` identified as ( `subscr_cancel|recurring_payment_profile_cancel|mp_cancel` ).
+            [4] => Auto-EOT Time for this account: Sat Sep 4, 2021 10:34 pm UTC
+        )
+
+    [subscr_gateway] => stripe
+    [subscr_baid] => sub_JyqM0Y9WQca7Xm
+    [level] => 1
+    [ccaps] => 
+    [ip] => 137.147.64.137
+    [s2member_paypal_proxy] => stripe
+    [s2member_paypal_proxy_use] => pro-emails
+    [s2member_paypal_proxy_verification] => 921106fc5140ddc8a7f1b2e6184cbade
+)
+
+LOG ENTRY: Thu Aug 5th, 2021 @ precisely 12:45 am UTC
+PHP v7.4.3 :: WordPress v5.8 :: s2Member v210526 :: s2Member Pro v210526
+Memory 5.98 MB :: Real Memory 2.00 MB :: Peak Memory 6.02 MB :: Real Peak Memory 2.00 MB
+dev.propertymates.io/?s2member_paypal_notify=1
+User-Agent: s2Member v210526; https://dev.propertymates.io
+Array
+(
+    [txn_type] => subscr_signup
+    [subscr_cid] => cus_JysShrhfZOE9dE
+    [subscr_id] => sub_JysSDlA8Tkr9AI
+    [custom] => dev.propertymates.io
+    [txn_cid] => cus_JysShrhfZOE9dE
+    [txn_id] => sub_JysSDlA8Tkr9AI
+    [period1] => 0 D
+    [period3] => 1 M
+    [mc_amount1] => 0.00
+    [mc_amount3] => 14.95
+    [mc_gross] => 14.95
+    [mc_currency] => AUD
+    [tax] => 0.00
+    [recurring] => 14.95
+    [payer_email] => user1@gmail.com
+    [first_name] => Paras
+    [last_name] => Kumar
+    [option_name1] => Referencing Customer ID
+    [option_selection1] => FREE-610a093102eb3
+    [option_name2] => Customer IP Address
+    [option_selection2] => 137.147.64.137
+    [item_name] => $14.95 AUD / Monthly (recurring charge, for ongoing access)
+    [item_number] => 1
+    [period] => 0 D
+    [mc_amount] => 0.00
+    [option_name] => Referencing Customer ID
+    [option_selection] => FREE-610a093102eb3
+    [proxy_verified] => stripe
+    [s2member_log] => Array
+        (
+            [0] => IPN received on: Thu Aug 5, 2021 12:45:10 am UTC
+            [1] => s2Member POST vars verified with a Proxy Key
+            [2] => s2Member originating domain (`$_SERVER["HTTP_HOST"]`) validated.
+            [3] => s2Member `txn_type` identified as ( `web_accept|subscr_signup` ).
+            [4] => s2Member `txn_type` identified as ( `web_accept|subscr_signup` ) w/ update vars.
+            [5] => s2Member Level/Capabilities updated w/ advanced update routines.
+            [6] => Modification Confirmation Email sent to: "Paras Kumar" <user1@gmail.com>.
+            [7] => Subscr. Return ( `modification=1` ), a Proxy Return URL is ready.
+            [8] => User exists. Handling `payment` for Subscription via ( `subscr-signup-as-subscr-payment` ).
+            [9] => Storing IPN signup vars now. These are associated with a User's account record; for future reference.
+        )
+
+    [subscr_gateway] => stripe
+    [subscr_baid] => sub_JysSDlA8Tkr9AI
+    [level] => 1
+    [ccaps] => 
+    [eotper] => 
+    [ip] => 137.147.64.137
+    [initial_term] => 0 D
+    [initial] => 14.95
+    [regular] => 14.95
+    [regular_term] => 1 M
+    [currency] => AUD
+    [currency_symbol] => $
+    [s2member_paypal_proxy_return_url] => /?subscription=success
+    [s2member_paypal_proxy] => stripe
+    [s2member_paypal_proxy_use] => pro-emails,subscr-signup-as-subscr-payment
+    [s2member_paypal_proxy_coupon] => Array
+        (
+            [coupon_code] => 
+            [full_coupon_code] => 
+            [affiliate_id] => 
+        )
+
+    [s2member_paypal_proxy_verification] => 921106fc5140ddc8a7f1b2e6184cbade
+)
+
+LOG ENTRY: Thu Aug 5th, 2021 @ precisely 11:32 pm UTC
+PHP v7.4.3 :: WordPress v5.8 :: s2Member v210526 :: s2Member Pro v210526
+Memory 6.01 MB :: Real Memory 2.00 MB :: Peak Memory 6.81 MB :: Real Peak Memory 2.00 MB
+dev.propertymates.io/?s2member_paypal_notify=1
+User-Agent: s2Member v210526; https://dev.propertymates.io
+Array
+(
+    [txn_type] => subscr_signup
+    [subscr_cid] => cus_JysShrhfZOE9dE
+    [subscr_id] => sub_JzEWJGRTVmiPvH
+    [custom] => dev.propertymates.io
+    [txn_cid] => cus_JysShrhfZOE9dE
+    [txn_id] => sub_JzEWJGRTVmiPvH
+    [period1] => 0 D
+    [period3] => 1 M
+    [mc_amount1] => 0.00
+    [mc_amount3] => 199.95
+    [mc_gross] => 199.95
+    [mc_currency] => AUD
+    [tax] => 0.00
+    [recurring] => 199.95
+    [payer_email] => user1@gmail.com
+    [first_name] => Paras
+    [last_name] => Kumar
+    [option_name1] => Referencing Customer ID
+    [option_selection1] => sub_JysSDlA8Tkr9AI
+    [option_name2] => Customer IP Address
+    [option_selection2] => 137.147.64.137
+    [item_name] => $199.95 AUD / Monthly (recurring charge, for ongoing access)
+    [item_number] => 2
+    [period] => 0 D
+    [mc_amount] => 0.00
+    [option_name] => Referencing Customer ID
+    [option_selection] => sub_JysSDlA8Tkr9AI
+    [proxy_verified] => stripe
+    [s2member_log] => Array
+        (
+            [0] => IPN received on: Thu Aug 5, 2021 11:32:41 pm UTC
+            [1] => s2Member POST vars verified with a Proxy Key
+            [2] => s2Member originating domain (`$_SERVER["HTTP_HOST"]`) validated.
+            [3] => s2Member `txn_type` identified as ( `web_accept|subscr_signup` ).
+            [4] => s2Member `txn_type` identified as ( `web_accept|subscr_signup` ) w/ update vars.
+            [5] => s2Member Level/Capabilities updated w/ advanced update routines.
+            [6] => Modification Confirmation Email sent to: "Paras Kumar" <user1@gmail.com>.
+            [7] => Subscr. Return ( `modification=1` ), a Proxy Return URL is ready.
+            [8] => User exists. Handling `payment` for Subscription via ( `subscr-signup-as-subscr-payment` ).
+            [9] => Storing IPN signup vars now. These are associated with a User's account record; for future reference.
+        )
+
+    [subscr_gateway] => stripe
+    [subscr_baid] => sub_JzEWJGRTVmiPvH
+    [level] => 2
+    [ccaps] => 
+    [eotper] => 
+    [ip] => 137.147.64.137
+    [initial_term] => 0 D
+    [initial] => 199.95
+    [regular] => 199.95
+    [regular_term] => 1 M
+    [currency] => AUD
+    [currency_symbol] => $
+    [s2member_paypal_proxy_return_url] => /?subscription=success
+    [s2member_paypal_proxy] => stripe
+    [s2member_paypal_proxy_use] => pro-emails,subscr-signup-as-subscr-payment
+    [s2member_paypal_proxy_coupon] => Array
+        (
+            [coupon_code] => 
+            [full_coupon_code] => 
+            [affiliate_id] => 
+        )
+
+    [s2member_paypal_proxy_verification] => 921106fc5140ddc8a7f1b2e6184cbade
+)
+
+LOG ENTRY: Sat Aug 7th, 2021 @ precisely 12:50 am UTC
+PHP v7.4.3 :: WordPress v5.8 :: s2Member v210526 :: s2Member Pro v210526
+Memory 6.24 MB :: Real Memory 2.00 MB :: Peak Memory 6.28 MB :: Real Peak Memory 2.00 MB
+dev.propertymates.io/?s2member_paypal_notify=1
+User-Agent: s2Member v210526; https://dev.propertymates.io
+Array
+(
+    [txn_type] => subscr_signup
+    [subscr_cid] => cus_Jzd00Y7M7HDloe
+    [subscr_id] => sub_Jzd0VTNy5RxK9O
+    [custom] => dev.propertymates.io
+    [txn_cid] => cus_Jzd00Y7M7HDloe
+    [txn_id] => sub_Jzd0VTNy5RxK9O
+    [period1] => 0 D
+    [period3] => 1 M
+    [mc_amount1] => 0.00
+    [mc_amount3] => 14.95
+    [mc_gross] => 14.95
+    [mc_currency] => AUD
+    [tax] => 0.00
+    [recurring] => 14.95
+    [payer_email] => user2@gmail.com
+    [first_name] => User
+    [last_name] => Two
+    [option_name1] => Referencing Customer ID
+    [option_selection1] => FREE-610a0c54736bc
+    [option_name2] => Customer IP Address
+    [option_selection2] => 137.147.64.137
+    [item_name] => $14.95 AUD / Monthly (recurring charge, for ongoing access)
+    [item_number] => 1
+    [period] => 0 D
+    [mc_amount] => 0.00
+    [option_name] => Referencing Customer ID
+    [option_selection] => FREE-610a0c54736bc
+    [proxy_verified] => stripe
+    [s2member_log] => Array
+        (
+            [0] => IPN received on: Sat Aug 7, 2021 12:50:57 am UTC
+            [1] => s2Member POST vars verified with a Proxy Key
+            [2] => s2Member originating domain (`$_SERVER["HTTP_HOST"]`) validated.
+            [3] => s2Member `txn_type` identified as ( `web_accept|subscr_signup` ).
+            [4] => s2Member `txn_type` identified as ( `web_accept|subscr_signup` ) w/ update vars.
+            [5] => s2Member Level/Capabilities updated w/ advanced update routines.
+            [6] => Modification Confirmation Email sent to: "User Two" <user2@gmail.com>.
+            [7] => Subscr. Return ( `modification=1` ), a Proxy Return URL is ready.
+            [8] => User exists. Handling `payment` for Subscription via ( `subscr-signup-as-subscr-payment` ).
+            [9] => Storing IPN signup vars now. These are associated with a User's account record; for future reference.
+        )
+
+    [subscr_gateway] => stripe
+    [subscr_baid] => sub_Jzd0VTNy5RxK9O
+    [level] => 1
+    [ccaps] => 
+    [eotper] => 
+    [ip] => 137.147.64.137
+    [initial_term] => 0 D
+    [initial] => 14.95
+    [regular] => 14.95
+    [regular_term] => 1 M
+    [currency] => AUD
+    [currency_symbol] => $
+    [s2member_paypal_proxy_return_url] => /?subscription=success
+    [s2member_paypal_proxy] => stripe
+    [s2member_paypal_proxy_use] => pro-emails,subscr-signup-as-subscr-payment
+    [s2member_paypal_proxy_coupon] => Array
+        (
+            [coupon_code] => 
+            [full_coupon_code] => 
+            [affiliate_id] => 
+        )
+
+    [s2member_paypal_proxy_verification] => 921106fc5140ddc8a7f1b2e6184cbade
+)
+
+LOG ENTRY: Sat Aug 7th, 2021 @ precisely 3:03 am UTC
+PHP v7.4.3 :: WordPress v5.8 :: s2Member v210526 :: s2Member Pro v210526
+Memory 6.04 MB :: Real Memory 2.00 MB :: Peak Memory 6.42 MB :: Real Peak Memory 2.00 MB
+dev.propertymates.io/?s2member_paypal_notify=1
+User-Agent: s2Member v210526; https://dev.propertymates.io
+Array
+(
+    [txn_type] => subscr_eot
+    [subscr_cid] => cus_Jzd00Y7M7HDloe
+    [subscr_id] => sub_Jzd0VTNy5RxK9O
+    [custom] => dev.propertymates.io
+    [period1] => 0 D
+    [period3] => 1 M
+    [payer_email] => user2@gmail.com
+    [first_name] => User
+    [last_name] => Two
+    [option_name1] => Referencing Customer ID
+    [option_selection1] => FREE-610a0c54736bc
+    [option_name2] => Customer IP Address
+    [option_selection2] => 137.147.64.137
+    [item_name] => $14.95 AUD / Monthly (recurring charge, for ongoing access)
+    [item_number] => 1
+    [period] => 0 D
+    [option_name] => Referencing Customer ID
+    [option_selection] => FREE-610a0c54736bc
+    [proxy_verified] => stripe
+    [s2member_log] => Array
+        (
+            [0] => IPN received on: Sat Aug 7, 2021 3:03:38 am UTC
+            [1] => s2Member POST vars verified with a Proxy Key
+            [2] => s2Member originating domain (`$_SERVER["HTTP_HOST"]`) validated.
+            [3] => s2Member `txn_type` identified as ( `subscr_eot|recurring_payment_expired|recurring_payment_suspended_due_to_max_failed_payment` ) - or - `recurring_payment_profile_cancel` w/ `initial_payment_status` ( `failed` ).
+            [4] => Member Level/Capabilities demoted to: Subscriber.
+        )
+
+    [subscr_gateway] => stripe
+    [subscr_baid] => sub_Jzd0VTNy5RxK9O
+    [ip] => 137.147.64.137
+    [currency] => 
+    [currency_symbol] => $
+    [s2member_paypal_proxy] => stripe
+    [s2member_paypal_proxy_use] => pro-emails
+    [s2member_paypal_proxy_verification] => 921106fc5140ddc8a7f1b2e6184cbade
+)
+
+LOG ENTRY: Sat Aug 7th, 2021 @ precisely 3:31 am UTC
+PHP v7.4.3 :: WordPress v5.8 :: s2Member v210526 :: s2Member Pro v210526
+Memory 6.24 MB :: Real Memory 2.00 MB :: Peak Memory 6.28 MB :: Real Peak Memory 2.00 MB
+dev.propertymates.io/?s2member_paypal_notify=1
+User-Agent: s2Member v210526; https://dev.propertymates.io
+Array
+(
+    [txn_type] => subscr_signup
+    [subscr_cid] => cus_Jzfb8L4ieu9nGx
+    [subscr_id] => sub_Jzfb7PBwoquvAX
+    [custom] => dev.propertymates.io
+    [txn_cid] => cus_Jzfb8L4ieu9nGx
+    [txn_id] => sub_Jzfb7PBwoquvAX
+    [period1] => 0 D
+    [period3] => 1 M
+    [mc_amount1] => 0.00
+    [mc_amount3] => 14.95
+    [mc_gross] => 14.95
+    [mc_currency] => AUD
+    [tax] => 0.00
+    [recurring] => 14.95
+    [payer_email] => paras@propertymates.io
+    [first_name] => Paras
+    [last_name] => Kumar
+    [option_name1] => Referencing Customer ID
+    [option_selection1] => FREE-610dec98ed34a
+    [option_name2] => Customer IP Address
+    [option_selection2] => 137.147.64.137
+    [item_name] => $14.95 AUD / Monthly (recurring charge, for ongoing access)
+    [item_number] => 1
+    [period] => 0 D
+    [mc_amount] => 0.00
+    [option_name] => Referencing Customer ID
+    [option_selection] => FREE-610dec98ed34a
+    [proxy_verified] => stripe
+    [s2member_log] => Array
+        (
+            [0] => IPN received on: Sat Aug 7, 2021 3:31:53 am UTC
+            [1] => s2Member POST vars verified with a Proxy Key
+            [2] => s2Member originating domain (`$_SERVER["HTTP_HOST"]`) validated.
+            [3] => s2Member `txn_type` identified as ( `web_accept|subscr_signup` ).
+            [4] => s2Member `txn_type` identified as ( `web_accept|subscr_signup` ) w/ update vars.
+            [5] => s2Member Level/Capabilities updated w/ advanced update routines.
+            [6] => Modification Confirmation Email sent to: "Paras Kumar" <paras@propertymates.io>.
+            [7] => Subscr. Return ( `modification=1` ), a Proxy Return URL is ready.
+            [8] => User exists. Handling `payment` for Subscription via ( `subscr-signup-as-subscr-payment` ).
+            [9] => Storing IPN signup vars now. These are associated with a User's account record; for future reference.
+        )
+
+    [subscr_gateway] => stripe
+    [subscr_baid] => sub_Jzfb7PBwoquvAX
+    [level] => 1
+    [ccaps] => 
+    [eotper] => 
+    [ip] => 137.147.64.137
+    [initial_term] => 0 D
+    [initial] => 14.95
+    [regular] => 14.95
+    [regular_term] => 1 M
+    [currency] => AUD
+    [currency_symbol] => $
+    [s2member_paypal_proxy_return_url] => /?subscription=success
+    [s2member_paypal_proxy] => stripe
+    [s2member_paypal_proxy_use] => pro-emails,subscr-signup-as-subscr-payment
+    [s2member_paypal_proxy_coupon] => Array
+        (
+            [coupon_code] => 
+            [full_coupon_code] => 
+            [affiliate_id] => 
+        )
+
+    [s2member_paypal_proxy_verification] => 921106fc5140ddc8a7f1b2e6184cbade
+)
+
+LOG ENTRY: Sat Aug 7th, 2021 @ precisely 4:14 am UTC
+PHP v7.4.3 :: WordPress v5.8 :: s2Member v210526 :: s2Member Pro v210526
+Memory 6.03 MB :: Real Memory 2.00 MB :: Peak Memory 6.13 MB :: Real Peak Memory 2.00 MB
+dev.propertymates.io/?s2member_paypal_notify=1
+User-Agent: s2Member v210526; https://dev.propertymates.io
+Array
+(
+    [txn_type] => subscr_cancel
+    [subscr_cid] => cus_Jzfb8L4ieu9nGx
+    [subscr_id] => sub_Jzfb7PBwoquvAX
+    [custom] => dev.propertymates.io
+    [period1] => 0 D
+    [period3] => 1 M
+    [payer_email] => paras@propertymates.io
+    [first_name] => Paras
+    [last_name] => Kumar
+    [option_name1] => Referencing Customer ID
+    [option_selection1] => FREE-610dec98ed34a
+    [option_name2] => Customer IP Address
+    [option_selection2] => 137.147.64.137
+    [item_name] => $14.95 AUD / Monthly (recurring charge, for ongoing access)
+    [item_number] => 1
+    [period] => 0 D
+    [option_name] => Referencing Customer ID
+    [option_selection] => FREE-610dec98ed34a
+    [proxy_verified] => stripe
+    [s2member_log] => Array
+        (
+            [0] => IPN received on: Sat Aug 7, 2021 4:14:56 am UTC
+            [1] => s2Member POST vars verified with a Proxy Key
+            [2] => s2Member originating domain (`$_SERVER["HTTP_HOST"]`) validated.
+            [3] => s2Member `txn_type` identified as ( `subscr_cancel|recurring_payment_profile_cancel|mp_cancel` ).
+            [4] => Auto-EOT Time for this account: Tue Sep 7, 2021 3:31 am UTC
+        )
+
+    [subscr_gateway] => stripe
+    [subscr_baid] => sub_Jzfb7PBwoquvAX
+    [level] => 1
+    [ccaps] => 
+    [ip] => 137.147.64.137
+    [s2member_paypal_proxy] => stripe
+    [s2member_paypal_proxy_use] => pro-emails
+    [s2member_paypal_proxy_verification] => 921106fc5140ddc8a7f1b2e6184cbade
+)
+
+LOG ENTRY: Sat Aug 7th, 2021 @ precisely 4:17 am UTC
+PHP v7.4.3 :: WordPress v5.8 :: s2Member v210526 :: s2Member Pro v210526
+Memory 6.21 MB :: Real Memory 2.00 MB :: Peak Memory 6.25 MB :: Real Peak Memory 2.00 MB
+dev.propertymates.io/?s2member_paypal_notify=1
+User-Agent: s2Member v210526; https://dev.propertymates.io
+Array
+(
+    [txn_type] => subscr_signup
+    [subscr_cid] => cus_Jzfb8L4ieu9nGx
+    [subscr_id] => sub_JzgKpAUd64bn6W
+    [custom] => dev.propertymates.io
+    [txn_cid] => cus_Jzfb8L4ieu9nGx
+    [txn_id] => sub_JzgKpAUd64bn6W
+    [period1] => 0 D
+    [period3] => 1 M
+    [mc_amount1] => 0.00
+    [mc_amount3] => 199.95
+    [mc_gross] => 199.95
+    [mc_currency] => AUD
+    [tax] => 0.00
+    [recurring] => 199.95
+    [payer_email] => paras@propertymates.io
+    [first_name] => Paras
+    [last_name] => Kumar
+    [option_name1] => Referencing Customer ID
+    [option_selection1] => sub_Jzfb7PBwoquvAX
+    [option_name2] => Customer IP Address
+    [option_selection2] => 137.147.64.137
+    [item_name] => $199.95 AUD / Monthly (recurring charge, for ongoing access)
+    [item_number] => 2
+    [period] => 0 D
+    [mc_amount] => 0.00
+    [option_name] => Referencing Customer ID
+    [option_selection] => sub_Jzfb7PBwoquvAX
+    [proxy_verified] => stripe
+    [s2member_log] => Array
+        (
+            [0] => IPN received on: Sat Aug 7, 2021 4:17:09 am UTC
+            [1] => s2Member POST vars verified with a Proxy Key
+            [2] => s2Member originating domain (`$_SERVER["HTTP_HOST"]`) validated.
+            [3] => s2Member `txn_type` identified as ( `web_accept|subscr_signup` ).
+            [4] => s2Member `txn_type` identified as ( `web_accept|subscr_signup` ) w/ update vars.
+            [5] => s2Member Level/Capabilities updated w/ advanced update routines.
+            [6] => Modification Confirmation Email sent to: "Paras Kumar" <paras@propertymates.io>.
+            [7] => Subscr. Return ( `modification=1` ), a Proxy Return URL is ready.
+            [8] => User exists. Handling `payment` for Subscription via ( `subscr-signup-as-subscr-payment` ).
+            [9] => Storing IPN signup vars now. These are associated with a User's account record; for future reference.
+        )
+
+    [subscr_gateway] => stripe
+    [subscr_baid] => sub_JzgKpAUd64bn6W
+    [level] => 2
+    [ccaps] => 
+    [eotper] => 
+    [ip] => 137.147.64.137
+    [initial_term] => 0 D
+    [initial] => 199.95
+    [regular] => 199.95
+    [regular_term] => 1 M
+    [currency] => AUD
+    [currency_symbol] => $
+    [s2member_paypal_proxy_return_url] => /?subscription=success
+    [s2member_paypal_proxy] => stripe
+    [s2member_paypal_proxy_use] => pro-emails,subscr-signup-as-subscr-payment
+    [s2member_paypal_proxy_coupon] => Array
+        (
+            [coupon_code] => 
+            [full_coupon_code] => 
+            [affiliate_id] => 
+        )
+
+    [s2member_paypal_proxy_verification] => 921106fc5140ddc8a7f1b2e6184cbade
+)
+
+LOG ENTRY: Sat Aug 7th, 2021 @ precisely 4:18 am UTC
+PHP v7.4.3 :: WordPress v5.8 :: s2Member v210526 :: s2Member Pro v210526
+Memory 6.03 MB :: Real Memory 2.00 MB :: Peak Memory 6.13 MB :: Real Peak Memory 2.00 MB
+dev.propertymates.io/?s2member_paypal_notify=1
+User-Agent: s2Member v210526; https://dev.propertymates.io
+Array
+(
+    [txn_type] => subscr_cancel
+    [subscr_cid] => cus_Jzfb8L4ieu9nGx
+    [subscr_id] => sub_JzgKpAUd64bn6W
+    [custom] => dev.propertymates.io
+    [period1] => 0 D
+    [period3] => 1 M
+    [payer_email] => paras@propertymates.io
+    [first_name] => Paras
+    [last_name] => Kumar
+    [option_name1] => Referencing Customer ID
+    [option_selection1] => sub_Jzfb7PBwoquvAX
+    [option_name2] => Customer IP Address
+    [option_selection2] => 137.147.64.137
+    [item_name] => $199.95 AUD / Monthly (recurring charge, for ongoing access)
+    [item_number] => 2
+    [period] => 0 D
+    [option_name] => Referencing Customer ID
+    [option_selection] => sub_Jzfb7PBwoquvAX
+    [proxy_verified] => stripe
+    [s2member_log] => Array
+        (
+            [0] => IPN received on: Sat Aug 7, 2021 4:18:46 am UTC
+            [1] => s2Member POST vars verified with a Proxy Key
+            [2] => s2Member originating domain (`$_SERVER["HTTP_HOST"]`) validated.
+            [3] => s2Member `txn_type` identified as ( `subscr_cancel|recurring_payment_profile_cancel|mp_cancel` ).
+            [4] => Auto-EOT Time for this account: Tue Sep 7, 2021 4:17 am UTC
+        )
+
+    [subscr_gateway] => stripe
+    [subscr_baid] => sub_JzgKpAUd64bn6W
+    [level] => 2
+    [ccaps] => 
+    [ip] => 137.147.64.137
+    [s2member_paypal_proxy] => stripe
+    [s2member_paypal_proxy_use] => pro-emails
+    [s2member_paypal_proxy_verification] => 921106fc5140ddc8a7f1b2e6184cbade
+)
+
+LOG ENTRY: Sun Aug 8th, 2021 @ precisely 5:11 am UTC
+PHP v7.4.3 :: WordPress v5.8 :: s2Member v210526 :: s2Member Pro v210526
+Memory 6.10 MB :: Real Memory 2.00 MB :: Peak Memory 6.12 MB :: Real Peak Memory 2.00 MB
+dev.propertymates.io/?s2member_paypal_notify=1
+User-Agent: s2Member v210526; https://dev.propertymates.io
+Array
+(
+    [txn_type] => subscr_eot
+    [subscr_cid] => cus_Jzfb8L4ieu9nGx
+    [subscr_id] => sub_JzgKpAUd64bn6W
+    [custom] => dev.propertymates.io
+    [period1] => 0 D
+    [period3] => 1 M
+    [payer_email] => paras@propertymates.io
+    [first_name] => Paras
+    [last_name] => Kumar
+    [option_name1] => Referencing Customer ID
+    [option_selection1] => sub_Jzfb7PBwoquvAX
+    [option_name2] => Customer IP Address
+    [option_selection2] => 137.147.64.137
+    [item_name] => $199.95 AUD / Monthly (recurring charge, for ongoing access)
+    [item_number] => 2
+    [period] => 0 D
+    [option_name] => Referencing Customer ID
+    [option_selection] => sub_Jzfb7PBwoquvAX
+    [proxy_verified] => stripe
+    [s2member_log] => Array
+        (
+            [0] => IPN received on: Sun Aug 8, 2021 5:11:54 am UTC
+            [1] => s2Member POST vars verified with a Proxy Key
+            [2] => s2Member originating domain (`$_SERVER["HTTP_HOST"]`) validated.
+            [3] => s2Member `txn_type` identified as ( `subscr_eot|recurring_payment_expired|recurring_payment_suspended_due_to_max_failed_payment` ) - or - `recurring_payment_profile_cancel` w/ `initial_payment_status` ( `failed` ).
+            [4] => Skipping (demote|delete) Member, for now. An Auto-EOT Time is already set for this account. When an Auto-EOT Time has been recorded, s2Member will handle EOT (demote|delete) events using it's own Auto-EOT System - internally.
+        )
+
+    [subscr_gateway] => stripe
+    [subscr_baid] => sub_JzgKpAUd64bn6W
+    [ip] => 137.147.64.137
+    [currency] => 
+    [currency_symbol] => $
+    [s2member_paypal_proxy] => stripe
+    [s2member_paypal_proxy_use] => pro-emails
+    [s2member_paypal_proxy_verification] => 921106fc5140ddc8a7f1b2e6184cbade
+)
+
+LOG ENTRY: Sun Aug 8th, 2021 @ precisely 5:11 am UTC
+PHP v7.4.3 :: WordPress v5.8 :: s2Member v210526 :: s2Member Pro v210526
+Memory 6.02 MB :: Real Memory 2.00 MB :: Peak Memory 6.02 MB :: Real Peak Memory 2.00 MB
+dev.propertymates.io/?s2member_paypal_notify=1
+User-Agent: s2Member v210526; https://dev.propertymates.io
+Array
+(
+    [txn_type] => subscr_eot
+    [subscr_cid] => cus_Jzfb8L4ieu9nGx
+    [subscr_id] => sub_JzgKpAUd64bn6W
+    [custom] => dev.propertymates.io
+    [period1] => 0 D
+    [period3] => 1 M
+    [payer_email] => paras@propertymates.io
+    [first_name] => Paras
+    [last_name] => Kumar
+    [option_name1] => Referencing Customer ID
+    [option_selection1] => sub_Jzfb7PBwoquvAX
+    [option_name2] => Customer IP Address
+    [option_selection2] => 137.147.64.137
+    [item_name] => $199.95 AUD / Monthly (recurring charge, for ongoing access)
+    [item_number] => 2
+    [period] => 0 D
+    [option_name] => Referencing Customer ID
+    [option_selection] => sub_Jzfb7PBwoquvAX
+    [proxy_verified] => stripe
+    [s2member_log] => Array
+        (
+            [0] => IPN received on: Sun Aug 8, 2021 5:11:54 am UTC
+            [1] => s2Member POST vars verified with a Proxy Key
+            [2] => s2Member originating domain (`$_SERVER["HTTP_HOST"]`) validated.
+            [3] => Not processing. Duplicate IPN.
+            [4] => s2Member `txn_type` identified as a type of EOT.
+            [5] => Duplicate IPN. Already processed. This IPN will be ignored.
+        )
+
+    [subscr_gateway] => stripe
+    [subscr_baid] => sub_JzgKpAUd64bn6W
+    [s2member_paypal_proxy] => stripe
+    [s2member_paypal_proxy_use] => pro-emails
+    [s2member_paypal_proxy_verification] => 921106fc5140ddc8a7f1b2e6184cbade
+)
+
