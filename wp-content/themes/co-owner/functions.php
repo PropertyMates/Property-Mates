@@ -965,4 +965,40 @@ add_action('init',function(){
 	}
 });
 
+
+  add_action( 'pre_get_posts', 'slug_cpt_category_archives',999 );
+    function slug_cpt_category_archives( $query ) {
+		if( is_post_type_archive( 'community' ) ) {
+			
+    if ( !empty($_GET['p_cat']))  {	
+	
+	
+				$tax_query = $query->get( 'tax_query' );
+				if ( ! is_array( $tax_query ) ) {
+					$tax_query = array();
+				}
+				$taxquery[] = array(
+					'taxonomy' => 'assistance',
+					'field'    => 'slug',
+					'terms'    => $_GET['p_cat']
+				);
+				$query->set( 'tax_query', $taxquery );	
+
+    }
+	
+	if( !empty($_GET['p_order']) && $_GET['p_order']=='oldest'){
+		$query->set( 'order','ASC');
+	}
+		
+	if( !empty($_GET['p_order']) &&  $_GET['p_order']=='newest'){
+		$query->set( 'order','DESC');
+	}
+	
+		}
+	
+	
+    return $query;
+    }
+
+
 ?> 
