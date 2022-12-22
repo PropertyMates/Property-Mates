@@ -39,7 +39,7 @@
 	$cropedImages = get_post_meta($post->ID, '_pl_images_cropped', true);
 	//pr($cropedImages);
 	
-	
+	$is_liked = get_property_is_liked($property->ID);
 ?>
 
 <div class="modal fade property-modal-custom" id="property-images-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -241,188 +241,204 @@ class="form-select single-select2" name="interested_in">
 
 <div class="center-area">
 <?php if($property): ?>
-<div class="main-section bg-white public-title border-bottom py-20px">
+
+
+
+
+<div class="proerty-singl-pg">
 <div class="container">
-<div class="row">
-<?php // $is_matching = $property ? check_is_maching_property($user_id,$property->ID) : false; ?>
-<div class="col-sm-12 inner-section-grey list-view-title">
-<div class="title-area">
-<h3 class="d-flex align-items-center">
+	<div class="back-page-button">
+		<a class="bck-pgbtn" href="<?php echo get_site_url(); ?>/property-search/"> <img src="<?php echo get_template_directory_uri(); ?>/images/bk-pgarrow.png"> Back to properties</a>
+	</div>
+	<div class="propert-singl-nameaddress mobile">
+		<h2><?php echo $property->post_title; ?></h2>
+	</div>
 
-<?php echo $property->enable_pool ? co_owner_get_svg('enable_pool').'&nbsp;' : ''; ?>
-<span><?php echo $property->post_title; ?></span>
+ <?php if($property->images && count($property->images) > 0): ?>
+		<div class="proerty-singl-pics proerty-singl-picsmobile hidden">
+		
+				<div class="row">
+					<div class="col-xl-6 col-lg-6 col-md-12 col-12 pb-3 mb-1">
+						<div class="big-thumb-property">
+							<img src="<?php echo $property->images[0]['url']; ?>" alt="">
+						</div>
+					</div>
 
-<?php if($is_my_property): ?>
-<?php if($property->post_status == 'publish'): ?>
-<div class="ms-auto pt-3 pt-md-0">
-<div class="">
-<a href="<?php echo home_url(CO_OWNER_CREATE_A_PROPERTY_PAGE) ?>/?id=<?php echo $property->ID; ?>" class="btn btn-orange-bordered rounded-pill my-1">Edit Listing</a>
-<a href="#" data-id="<?php echo $property->ID; ?>" class="btn btn-orange-bordered rounded-pill my-1 property-delete-listing">
-Delete Listing
-</a>
-<?php if($property->post_status != 'completed'): ?>
-<a href="#" data-url="<?php echo home_url() ?>?action=property_mark_as_completed&id=<?php echo $property->ID; ?>" class="btn btn-orange rounded-pill my-1 confirm-to-property-mark-as-completed">
-Mark as Completed
-</a>
-<?php endif; ?>
-</div>
-</div>
-<?php else: ?>
-<div class="ms-auto pt-3 pt-md-0">
-<a href="<?php echo home_url(CO_OWNER_CREATE_A_PROPERTY_PAGE) ?>/?id=<?php echo $property->ID; ?>" class="btn btn-orange-bordered rounded-pill my-1">
-Continue Edit
-</a>
-<a href="<?php echo home_url(CO_OWNER_PROPERTY_DETAILS_PAGE) ?>/?id=<?php echo $property->ID; ?>&update_property_status=publish" class="btn btn-orange-bordered rounded-pill my-1">
-Post Listing
-</a>
-</div>
-<?php endif; ?>
-<?php else: ?>
-<div class="ms-auto pt-3 pt-md-0">
-<div class="">
-<?php if(!current_user_can('administrator') && $property->available_share > 0): ?>
-<a href="<?php echo $connection_link; ?>" data-id="<?php echo $property->ID; ?>" class="btn btn-orange-bordered <?php echo !$property->is_liked ? 'add-to-shortlist' : 'remove-to-shortlist'; ?> rounded-pill my-1 px-4"><?php echo $property->is_liked ? 'Remove From ' : null; ?>Shortlist</a>
-<?php if(!$property->is_already_member): ?>
-<a href="<?php echo $connection_link; ?>" data-id="<?php echo $property->ID; ?>" class="btn btn-orange rounded-pill px-4 my-1" <?php echo ($user_id && $user_status == 1 && !$property->is_already_member && $show_connection_button) ? 'data-bs-toggle="modal" data-bs-target="#property-connection-modal"' : ''; ?>>Connect</a>
-<?php endif; ?>
-<?php endif; ?>
-</div>
-</div>
-<?php endif; ?>
-</h3>
-</div>
-</div>
-</div>
-</div>
-</div>
+					<div class="col-xl-6 col-lg-6 col-md-12 col-12 property-show">
+						<div class="row">
+							<?php
+								//pr($cropedImages);
+							?>
+							<?php /*foreach ($cropedImages as $key => $image):  */
+								foreach ($property->images as $key => $image): 
+							?>
 
-<?php if($property->images && count($property->images) > 0): ?>
-<div class="main-section list-section pt-40px">
-<div class="container">
-<div class="row">
-<div class="col-xl-7 col-lg-7 col-md-12 col-12 pb-3 mb-1">
-<div class="big-thumb-property">
-<img src="<?php echo $property->images[0]['url']; ?>" alt="">
-</div>
-</div>
-
-<div class="col-xl-5 col-lg-5 col-md-12 col-12 property-show">
-<div class="row">
-<?php
-	//pr($cropedImages);
-?>
-<?php /*foreach ($cropedImages as $key => $image):  */
-	foreach ($property->images as $key => $image): 
-?>
-
-<?php if($key != 0 && $key < 5): ?>
-<?php $filename_from_url = parse_url($image['url']);
-	$ext = pathinfo($filename_from_url['path'], PATHINFO_EXTENSION); 
-	//if($ext){
-?>
-<div class="col-sm-6 col-6 pb-3 mb-1">
-<div class="medium-thumb-property">
-
-<img src="<?php echo $image['url']; ?>" alt="">
-</div>
-</div>
-<?php //} ?>
-<?php endif; ?>
-<?php endforeach; ?>
-</div>
+							<?php if($key != 0 && $key < 5): ?>
+							<?php $filename_from_url = parse_url($image['url']);
+								$ext = pathinfo($filename_from_url['path'], PATHINFO_EXTENSION); 
+								//if($ext){
+							?>
+					<div class="col-sm-6 col-6 pb-3 mb-1">
+						<div class="medium-thumb-property">
+							<img src="<?php echo $image['url']; ?>" alt="">
+						</div>
+					</div>
+				<?php //} ?>
+			<?php endif; ?>
+		<?php endforeach; ?>
+	</div>
 <a href="#" class="btn btn-white rounded-pill show_all_pics"  data-bs-toggle="modal" data-bs-target="#property-images-modal">show all Photos</a>
 
 </div>
 
 </div>
+ 
 </div>
+<?php endif; ?>	
+	<div class="row">
+		<div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12  property-details-left">
+ 
+ <?php if($property->images && count($property->images) > 0): ?>
+		<div class="proerty-singl-pics">
+		
+				<div class="row">
+					<div class="col-xl-6 col-lg-6 col-md-12 col-12 pb-3 mb-1">
+						<div class="big-thumb-property">
+							<img src="<?php echo $property->images[0]['url']; ?>" alt="">
+						</div>
+					</div>
+
+					<div class="col-xl-6 col-lg-6 col-md-12 col-12 property-show">
+						<div class="row">
+							<?php
+								//pr($cropedImages);
+							?>
+							<?php /*foreach ($cropedImages as $key => $image):  */
+								foreach ($property->images as $key => $image): 
+							?>
+
+							<?php if($key != 0 && $key < 5): ?>
+							<?php $filename_from_url = parse_url($image['url']);
+								$ext = pathinfo($filename_from_url['path'], PATHINFO_EXTENSION); 
+								//if($ext){
+							?>
+					<div class="col-sm-6 col-6 pb-3 mb-1">
+						<div class="medium-thumb-property">
+							<img src="<?php echo $image['url']; ?>" alt="">
+						</div>
+					</div>
+				<?php //} ?>
+			<?php endif; ?>
+		<?php endforeach; ?>
+	</div>
+<a href="#" class="btn btn-white rounded-pill show_all_pics"  data-bs-toggle="modal" data-bs-target="#property-images-modal">show all Photos</a>
+
+</div>
+
+</div>
+ 
 </div>
 <?php endif; ?>
 
-<div class="main-section py-40px pt-4 pb-0">
-<div class="container">
-<div class="row">
-<div class="col-xl-9 col-lg-8 col-md-12 col-sm-12 col-12">
-<div class="card custom-card public-view-card">
-<div class="card-body">
-<h3 class="d-flex">
-<div>
-Property Information
-<?php if($property->enable_pool == true && $property->available_share > 0): ?>
-<span class="badge bg-dark-teal">Looking for people to join</span>
-<?php endif; ?>
-<?php if($property->available_share == 0): ?>
-<span class="badge bg-danger pool-is-full">POOL IS FULL</span>
-<?php endif; ?>
+<div class="propert-singl-nameaddress">
+	<div class="ps-nameaddress-left">
+<h2><?php echo $property->post_title; ?></h2>
+<p><img src="<?php echo get_template_directory_uri(); ?>/images/properrt-address.svg"><?php echo $property->address; ?></p>
 </div>
-</h3>
-<h4>Address </h4>
-<p><?php echo $property->address; ?></p>
-<div class="property-facility-area">
-<?php if($property->property_category == 'residential'): ?>
-<a href="#">
-<?php echo co_owner_get_svg('bedroom'); ?>
-<span><?php echo $property->bedroom; ?></span>
-</a>
-<a href="#">
-<?php echo co_owner_get_svg('bathroom'); ?>
-<span><?php echo $property->bathroom; ?></span>
-</a>
-<a href="#">
-<?php echo co_owner_get_svg('parking'); ?>
-<span><?php echo $property->parking; ?></span>
-</a>
-<?php endif; ?>
-</div>
+<div class="ps-nameaddress-right">
+	 <div class="share_widget">
+ <a title="Share" href="#"  data-id="<?php echo $property->ID; ?>" class="btn ms-auto share_box_pop"><span>Share</span></a>
+ 
+   <div class="share_widget_box" style="display:none;">
+       <h3>Share Listing</h3>
+       <ul class="share_items">
+			<li class="share_item icon_email"><a href="mailto:?Subject=<?php echo get_the_title();?>&amp;body=<?php echo get_the_permalink();?>" id="send_by_email">Send by Email</a></li>
+			<li class="share_item icon_copy_link"><a href="<?php echo get_the_permalink();?>" id="copy_link">Copy Link</a></li>
+			<li class="share_item icon_fb"><a href="" id="share_fb">Share to Facebook</a></li>
+			<!-- <li class="share_item icon_wapp"><a href="" id="share_wapp">Share to Whatsapp</a></li> -->
+	   </ul>
+   </div>
+  </div>
 
-<div class="row">
-<div class="col-sm-12 col-12 pt-40px">
-<h4>Description </h4>
+ <a  title="Favorite/Shortlist" href="#" data-id="<?php echo $property->ID; ?>" data-type='property' class="btn btn-favourite btn-favourite-new ms-auto <?php echo $is_liked ? 'active make-property-dislike-pop' : 'make-property-like' ?>"> </a>
+ </div>
+ </div>
+
+ 
+<!-- black bar section start -->
+
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+	<li class="nav-item" role="presentation">
+		<button class="nav-link active" id="Summary-tab" data-bs-toggle="tab" data-bs-target="#Summary" type="button" role="tab" aria-controls="Summary" aria-selected="true">Summary</button>
+	</li>
+	<li class="nav-item" role="presentation">
+		<button class="nav-link" id="Details-tab" data-bs-toggle="tab" data-bs-target="#Details" type="button" role="tab" aria-controls="Details" aria-selected="false">Details</button>
+	</li>
+	<li class="nav-item" role="presentation">
+		<button class="nav-link" id="Members-tab" data-bs-toggle="tab" data-bs-target="#Members" type="button" role="tab" aria-controls="Members" aria-selected="false">Members</button>
+	</li>
+	<li class="nav-item" role="presentation">
+		<button class="nav-link" id="Location-tab" data-bs-toggle="tab" data-bs-target="#Location" type="button" role="tab" aria-controls="Location" aria-selected="false">Location</button> 
+	</li>
+</ul>
+
+<div class="tab-content" id="myTabContent">
+	<div class="tab-pane fade active show" id="Summary" role="tabpanel" aria-labelledby="Summary-tab">
+
+		<div class="facility-properrt">
+		   <?php if($property->property_category == 'residential'): ?>
+		       <a title="Bedroom">
+		            <img src="<?php echo get_template_directory_uri(); ?>/images/bedroom-ico.svg">
+		            <span><?php echo $property->bedroom; ?></span>
+		        </a>
+		        
+		        <a title="Bathroom">
+		            <img src="<?php echo get_template_directory_uri(); ?>/images/bathroom-ico.svg">
+		            <span><?php echo $property->bathroom; ?></span>
+		        </a>
+		        
+		        <a title="Parking">
+		            <img src="<?php echo get_template_directory_uri(); ?>/images/vhicle-ico.svg">
+		            <span><?php echo $property->parking; ?></span>
+		        </a>
+				 
+		    <?php endif; ?>
+		</div>
+<div class="property-detail-description">
 <?php $description = apply_filters('the_content',$property->post_content); ?>
 <?php if(!empty($description)): ?>
-<div class="description-box">
-<div class="description-small" style="height: 3em;"><?php echo $description; ?>
-<div class="blur-line" id="blur-line"></div>
-</div>
-<div class="description-full" style="display: none;"><?php echo $description; ?></div>
-</div>
+	<div class="description-box">
+		<div class="description-small" style="height: 3em;"><?php echo $description; ?>
+			<div class="blur-line" id="blur-line"></div>
+		</div>
+	<div class="description-full" style="display: none;"><?php echo $description; ?></div>
+	</div>
 <a href="#" class="btn view-full-description btn-orange-bordered rounded-pill btn-sm <?php echo strlen($description) > 80 ?: 'd-none';?>">Read more</a>
 <?php else: ?>
 -
-<?php endif; ?>
+<?php endif; ?>		
 </div>
+	</div>
+
+
+
+
+<div class="tab-pane fade" id="Details" role="tabpanel" aria-labelledby="Details-tab">
+<div class="row propertytypes">		
+<div class="col-sm-12 col-md-6 col-6">
+	<h4>Property Type</h4>
+	<p><?php echo ucfirst($property->property_category).' - '.ucfirst($property->property_type); ?></p>
+	<h4>Building Area</h4>
+	<p><?php echo ucfirst($property->building_area) ?? ''; ?> </p>	
+	<h4>Land Area</h4>
+	<p><?php echo ucfirst($property->land_area) ?? ''; ?> </p>
+	<h4>Age/year built</h4>
+	<p><?php echo ucfirst($property->age_year_built) ?? ''; ?> </p>
 
 </div>
-
-<div class="row pt-40px">
-<div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
-<h4>Property Type</h4>
-<p><?php echo ucfirst($property->property_category).' - '.ucfirst($property->property_type); ?></p>
-</div>
-
-<div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
-<h4>Building Area</h4>
-<p><?php echo ucfirst($property->building_area) ?? ''; ?> </p>
-</div>
-</div>
-
-<div class="row pt-40px">
-<div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
-<h4>Land Area</h4>
-<p><?php echo ucfirst($property->land_area) ?? ''; ?> </p>
-</div>
-
-<div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
-<h4>Age/year built</h4>
-<p><?php echo ucfirst($property->age_year_built) ?? ''; ?> </p>
-</div>
-</div>
-
+<div class="col-sm-12 col-md-6 col-6">
 <?php if(is_array($property->property_features) && count($property->property_features) > 0): ?>
-<div class="row pt-40px">
-<div class="col-sm-12 col-12">
-<h4>Property Features</h4>
-</div>
+ <h4>Property Features</h4>
 <?php
 	$array1 = (is_array($property->property_features) && count($property->property_features) > 0) ? $property->property_features : array();
 	$array2 = (is_array($property->manually_features) && count($property->manually_features) > 0) ? $property->manually_features : array();
@@ -431,324 +447,166 @@ foreach (array_merge($array1,$array2)  as $features): ?>
 <p><?php echo $features; ?></p>
 </div>
 <?php endforeach; ?>
+ 
+<?php endif; ?>	
 </div>
-<?php endif; ?>
-
-<div class="d-flex align-items-center pt-5 pb-3">
-<h3 class="pb-0">Member<?php echo (count($property->members) > 1) ? '(s)' : ''; ?> Information</h3>
-<?php if($user_status == 1 && $property->post_author == $user_id && $property->enable_pool && $property->available_share > 0 && $property->post_status == 'publish'): ?>
-<a href="#" class="btn btn-orange rounded-pill ms-auto text-nowrap" data-bs-toggle="modal" data-bs-target="#my-members-modal">Add Member</a>
-<?php endif; ?>
+</div>
 </div>
 
-<div class="row">
+
+
+
+<div class="tab-pane fade" id="Members" role="tabpanel" aria-labelledby="Members-tab">
+		
+
+<div class="row"> 
 <?php foreach($property->members as $key => $member): ?>
-<div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 mb-4 member-box">
-<div class="card member-card <?php echo $member->is_admin ? 'green' : ( ($key % 2) ? 'red' : 'yellow'); ?>">
-<div class="card-body">
-<div class="mbr-title d-flex w-100">
-<h6>Member <?php echo ($key)+1; ?></h6>
-<div class="dropdown member-drop ms-auto">
-<?php if(!$member->is_admin && $property->post_author == $user_id): ?>
-<button class="btn dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
-<?php echo co_owner_get_svg('3-dots'); ?>
-</button>
-<ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-<!--                                                            <li><a class="dropdown-item" data-id="--><?php //echo $member->id; ?><!--" href="#">Make Admin</a></li>-->
-<li><a class="dropdown-item remove-group-member" data-group-id="<?php echo $member->group_id; ?>" data-id="<?php echo $member->id; ?>" href="#">Remove </a></li>
-</ul>
-<?php  endif; ?>
-</div>
-</div>
-
-<div class="mbr-detail-area">
-<div class="<?php echo get_user_shield_status($member->id) == 1 ? 'mbr-icon-onthumb user-shield-tooltip' : ''?> mt--46px">
-<div class="mbr-thumb mx-auto">
-<img src="<?php  echo esc_url( get_avatar_url($member->id));  ?>" alt="">
-</div>
-</div>
-<a href="<?php echo home_url('/'.CO_OWNER_PERSON_DETAILS_PAGE).'?id='.$member->id; ?>">
-<h4 class="text-center"><?php echo $member->display_name; ?></h4>
-</a>
-<div class="property-own text-center">
-<?php if($member->is_admin && $property->interested_in_selling == 'full_property'): ?>
-<?php echo $property->posted_by; ?>  | Admin
-<?php elseif($member->is_admin && $property->interested_in_selling == 'portion_of_it'): ?>
-<?php echo $property->posted_by; ?>  | Admin | holds <?php echo get_admin_hold_pr($property->ID); ?>%
-<?php else: ?>
-holds <?php echo $member->interested_in; ?>% Portions
-<?php endif; ?>
-</div>
-
-<?php if($user_id): ?>
-<span class="title text-center">Email id</span>
-<span class="cnt text-center">
-<a href="mailto:<?php echo $member->user_email; ?>">
-<?php echo $member->user_email; ?>
-</a>
-</span>
-<?php if($member->mobile): ?>
-<span class="title text-center">Phone No</span>
-<span class="cnt text-center"><?php echo $member->mobile; ?></span>
-<?php endif; ?>
-<?php endif; ?>
-</div>
-</div>
-</div>
+<div class="col-xl-3 col-lg-4 col-md-4 col-sm-4 col-4 mb-4 member-box">
+	<div class="card member-card <?php echo $member->is_admin ? 'green' : ( ($key % 2) ? 'red' : 'yellow'); ?>">
+		<div class="mbr-detail-area">
+			<div class="<?php echo get_user_shield_status($member->id) == 1 ? 'mbr-icon-onthumb user-shield-tooltip' : ''?> ">
+				<a href="<?php echo home_url('/'.CO_OWNER_PERSON_DETAILS_PAGE).'?id='.$member->id; ?>">
+				<div class="mbr-thumb mx-auto">
+					<img src="<?php  echo esc_url( get_avatar_url($member->id));  ?>" alt="">
+				</div>
+			</a>
+			</div>
+				<a class="membername-crd" href="<?php echo home_url('/'.CO_OWNER_PERSON_DETAILS_PAGE).'?id='.$member->id; ?>">
+				<h4><?php echo $member->display_name; ?></h4>
+				<div class="shield-star"><img src="<?php echo get_template_directory_uri(); ?>/images/codicon_verified-filled.svg"></div> 				
+			</a>
+			<div class="property-own text-center">
+				<span >
+				<?php if($member->is_admin && $property->interested_in_selling == 'full_property'): ?>
+					<?php echo $property->posted_by; ?> 
+						<?php elseif($member->is_admin && $property->interested_in_selling == 'portion_of_it'): ?>
+						<?php echo $property->posted_by; ?>  <?php echo get_admin_hold_pr($property->ID); ?>%
+					<?php else: ?>
+	 				<?php echo $member->interested_in; ?>% 
+				<?php endif; ?>
+				</span>
+			</div>
+		</div>
+ 
+	</div>
 </div>
 <?php endforeach; ?>
+<div class="col-xl-3 col-lg-4 col-md-4 col-sm-4 col-4 mb-4 member-box addmember-box">
+	<?php if($user_status == 1 && $property->post_author == $user_id && $property->enable_pool && $property->available_share > 0 && $property->post_status == 'publish'): ?>
+<a href="#" class="btn btn-orange btn-orange-gradiant addmember" data-bs-toggle="modal" data-bs-target="#my-members-modal">Add Member</a>
+<?php endif; ?>
+
 </div>
-
-<!-- black bar section start -->
-
-<div class="book-nn">
-<div class="logo-engury"><img src="<?php echo get_template_directory_uri(); ?>/images/Banner.png"></div>
-<div class="book-enq">
-
-<a class="btn btn-orange rounded-pill ms-auto" href="#" data-bs-toggle="modal" data-bs-target="#enquire-popup-detail">Enquire Now </a>
-<?php 
-	if(is_user_logged_in()){    ?>
-	<!-- <a class="btn btn-orange rounded-pill ms-auto" href="#" data-bs-toggle="modal" data-bs-target="#enquire-popup-detail">Enquire Now </a> -->
-	<?php
-	} else { ?>
-	<!-- <span><a class="btn btn-orange rounded-pill ms-auto" href="<?php echo site_url().'/login?vs=1'; ?>" >Enquire Now </a></span> -->
-	
-<?php }  ?>
 </div>
-
-
-<div class="modal enquire-pp fade default-modal-custom" id="enquire-popup-detail" data-bs-keyboard="false" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-<div class="modal-dialog modal-dialog-centered modal-xl">
-<div class="modal-content">
-<div class="modal-body">
-<div class="row">
-<div class="col-sm-12 col-12 d-flex">
-<button type="button" class="btn-close ms-auto" data-bs-dismiss="modal" aria-label="Close"></button>
-</div>
-<?php 
-	
-		$cu = wp_get_current_user(); 
-		//print_r($cu);
-		
-	?>
-	<div class="col-12 enquiry-confirmation-form">
-	<h4>Please Confirm</h4>
-	
-	<form id="enquirey" method="post">
-	 <input type="hidden" name="action" value="my_action_name"> 
-	 <input type="hidden" name="urls" value="<?php echo get_the_permalink($post->ID); ?>"> 
-	 <input type="hidden" name="title" value="<?php echo get_the_title($post->ID); ?>"> 
-	 <input type="hidden" name="is_logged_in" id ="is_logged_in" value="<?php echo (is_user_logged_in()) ? 'Yes' : 'No'; ?>"> 
-	  
-	 
-	<div class="field-form">
-	<label>Property Details:</label>
-	<input type="text" value="<?php echo $property->address; ?>">
 	</div>
-	<div class="field-form ">
-	<label>User Details:</label>
-	
-	<?php
-	  if(is_user_logged_in()){
-		echo '<input  type="hidden" value="'.$cu->full_name.'" id="name" name="name"><br/>
-		<input  type="hidden" value="'.$cu->user_email.'" id="email" name="email"> 
-		<input  type="hidden" value="'.$cu->_mobile.'" id="phone_number" name="phone_number"> 
-		<p>'.$cu->full_name.'</p>
-		<p>'.$cu->user_email.' | '.$cu->_mobile.'</p>';
-		//echo '   Paras Kumar  paras.kumar@gmail.com | 0452375990';
-	  }else{
-	?>
-	
-	<div class="row label-black">
-		<div class="col col-sm-6 col-12 mb-3">
-	<label>First Name:</label>
-	<input class="border-field-form"  type="text" value="" name="first_name" id="first_name" required> 
-</div>
-	<div class="col col-sm-6 col-12 mb-3">
-	<label>last Name:</label>
-	<input class="border-field-form" type="text" value="" name="last_name" id="last_name" required> 	
+
+	<div class="tab-pane fade" id="Location" role="tabpanel" aria-labelledby="Location-tab">
+		<div class="public-view-map" id="property-map-view" data-id="<?php echo $property->ID; ?>" data-address="<?php echo get_property_full_address($property->ID,true); ?>" style="height: 450px;width: 100%;"></div>
 	</div>
-	<div class="col col-sm-12 col-12">
-	<label>Email:</label>
-	<input class="border-field-form"  type="email" value="" name="email" id="email" required> 	
 </div>
+
 </div>
-	
-	  <?php } ?>	
-	
-	</div>
-	<!-- Added new drop down for inquery -->
-	<!-- <div class="field-form">
-	<label>Please Select the reason Below:</label>
-	<select required="required" id="agreement" name="agreement" required>
-	<option value="">Select Option</option>
-	<option value="Co-ownership agreement">Co-ownership agreement</option>
-	<option value="Review of sale contract">Review of sale contract</option>
-	<option value="Conveyancing">Conveyancing</option>
-	</select>
-	</div>
-	-->
-	<div class="field-form  label-black">
-	<label>Type of assistance:</label>
-	<select required="required" id="assistance" name="assistance" required>
-	<option value="">Select Option</option>
-	<?php 
-		$assistanceTerms = get_terms([
-		'taxonomy' => 'assistance',
-		'hide_empty' => false,
-		]);
-		if($assistanceTerms){
-			foreach($assistanceTerms as $term){
-			?>
-			
-			<option value="<?php echo $term->term_id;?>"><?php echo $term->name;?></option>
-		<?php }} ?>
-		
-		</select>
-		
-		
-		</div>			
-		
-		<div class="field-form label-black">
-		<label>Please choose a partner:</label>
-		<select required="required" id="partner" name="partner" required>
-		</select>
-		</div>								
-		
-		<div style="display:none;" class="form-btn-bar">
-		<a id="cancel-enq" class="btn btn-orange-outline rounded-pill ms-auto" href="#">Cancel</a>
-		<!--       <a class="btn btn-orange rounded-pill ms-auto" href="#">Submit</a>-->
-		<button  type="submit" value="submit">Submit</button>
-		<img  class="load-custom" src="<?php echo get_template_directory_uri(); ?>/images/loading-buffering.gif">
-		<div id="enquire-sent" ></div>
+ 
+
+<div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 property-details-right">
+<div class="sidebar-property-details">
+<div class="sidebar-property-in">
+	<div class="box-sellprice box-sellprice-totla box-shadow-new">
+		<div class="price-boxsel">
+			<h2><?php echo CO_OWNER_CURRENCY_SYMBOL; ?> <?php echo number_format($property->property_original_price); ?> <small>total</small></h2>
 		</div>
-		
-		<!-- Added new drop down for inquery -->
-		</form>
+		<div class="price-boxseinfo">
+		<a href="<?php echo WWW_DOMAIN_COM_AU_PROPERTY_PROFILE; ?>" target="_blank" class="fs-6">Get real market value</a>
+		<?php if($property->interested_in_selling == 'portion_of_it'): ?>
+		<h4 class="pt-3 mt-2">I want to sell % </h4>
+		<h3><?php echo $property->i_want_to_sell; ?> %</h3>
+
+		<h4 class="pt-3">Selling Price</h4>
+		<h3><?php echo CO_OWNER_CURRENCY_SYMBOL; ?> <?php echo number_format($property->calculated); ?></h3>
+
+		<?php endif; ?>
+
+		<?php if($property->enable_pool) :
+			$property_members = array_filter($property->members,function($user) {
+				if(!$user->is_admin){
+					return $user;
+				}
+			});
+		?>
+		<?php if(count($property_members) > 0): ?>
+		<h3 class="pt-3">Pool Information</h3>
+		<div class="pl-list">
+		<div>
+		<?php foreach ($property_members as $p_member): if($p_member->is_admin == 0): ?>
+		<h4><?php echo $p_member->display_name; ?> holds <span></span><?php echo $p_member->interested_in; ?>%</h4>
+		<?php endif; endforeach; ?>
 		</div>
-		
+		</div>
+		<?php endif; ?>
+		 
+		<?php if($property->available_share == 0): ?>
+		<span class="badge bg-danger pool-is-full" style="font-size: 10px;">POOL IS FULL</span>
+		<?php endif; ?>
 
-<div class="col-12 enquiry-data tankyu-enqury">
-<img src="<?php echo get_template_directory_uri(); ?>/images/tick.jpg">
-<h3><?php echo "Thank you for showing your interest."; ?></h3>
-<p>We have received your message. <br> Our team will get in touch with you soon.</p>
-<br>
-<p>Please check your email for future updates.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+		<?php if($property->available_share > 0): ?>
+		<h4>Available share <span></span> <?php echo $property->available_share; ?> %</h4>
+		<h4>Share price <span></span><?php echo CO_OWNER_CURRENCY_SYMBOL.' '.number_format($property->available_price) ; ?></h4>
+		<?php else: ?>
+		<h4 class="pt-3 text-error">Portions of the property are not available</h4>
+		<?php endif; ?>
+		<hr>
+		<?php endif; ?>
 
+		<h4>Currently leased <span></span><?php echo $property->currently_on_leased; ?></h4>
 
-<!-- black bar section end -->
-
-
-
-
-
-</div>
-
-<h3 class="pt-5">Location</h3>
-<div class="row">
-<div class="col-sm-12 col-12">
-<div class="public-view-map" id="property-map-view" data-id="<?php echo $property->ID; ?>" data-address="<?php echo get_property_full_address($property->ID,true); ?>" style="height: 450px;width: 100%;"></div>
-</div>
-</div>
-</div>
+		<?php if(strtolower($property->currently_on_leased) == 'yes'): ?>
+		<h4 class="pt-3">MONTHLY RENT</h4>
+		<h3><?php echo CO_OWNER_CURRENCY_SYMBOL.' '.number_format($property->rent_per_month); ?><strong class="str-list text-orange">PM</strong></h3>
+		<?php endif; ?>
+		<h4>Negotiable<span></span> <?php echo $property->negotiable ? 'Yes' : 'No'; ?></h4>
 </div>
 </div>
 
-<div class="col-xl-3 col-lg-4 col-md-12 col-sm-12 col-12">
-<div class="card custom-card public-view-card">
-<div class="card-body pb-4">
-<h3>Price Information</h3>
-<h4>Property Market Price</h4>
-<h2><?php echo CO_OWNER_CURRENCY_SYMBOL; ?> <?php echo number_format($property->property_original_price); ?></h2>
-<h2 class="text-black-50 preview-get-real-market-value"></h2>
-<!--                                <a href="#" class="blue-link get-real-market-value" data-address="--><?php //echo get_property_full_address($property->ID,true); ?><!--">-->
-<!--                                    Get real market value of this property-->
-<!--                                </a>-->
-<a href="<?php echo WWW_DOMAIN_COM_AU_PROPERTY_PROFILE; ?>" target="_blank" class="fs-6">Get real market value</a>
-<h2 class="text-black-50 d-none">
-<div class="domain-logo">
-<span>Powered by</span>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 97 22"><path class="domain-logo__svg-icon-tow" fill="#0ea800" d="M72.51 18.27v-7c0-4.28-2.63-5.51-6-5.51-3.62 0-6 1.89-6 5h2.79c0-1.55 1-2.42 3.29-2.42 2.49 0 3.21 1.08 3.21 2.09 0 .84-.18 1.29-1.65 1.56l-3.32.63c-2.91.54-5 1.86-5 4.91 0 2.82 2.34 4.47 5 4.47A6.15 6.15 0 0070 19.62V20a1.54 1.54 0 001.41 1.66 1.37 1.37 0 00.35 0H74v-2.34h-.36c-.86 0-1.13-.32-1.13-1.05zm-2.66-2.69c0 2.09-1.77 3.89-4.53 3.89-1.64 0-2.54-.84-2.54-2.22s1-2 3.11-2.48l2.67-.57a4.21 4.21 0 001.29-.45zM7 .12H0V21.6h6.71c6.62 0 11-4.53 11-10.76C17.7 3.83 12.67.12 7 .12zm-.29 18.81H2.94V2.82h3.47c4.91 0 8.33 2.66 8.33 8s-3.69 8.11-8.03 8.11zM75.66 6.15h2.68V21.6h-2.68zM87.87 5.75a5.53 5.53 0 00-4.42 2v-1.6h-2.68V21.6h2.68v-9.75a3.73 3.73 0 016-2.95 4 4 0 01.48.44l.07.09a3.68 3.68 0 01.89 2.41v9.76h2.68v-9.53c.02-3.98-2.1-6.32-5.7-6.32zM77 0a1.81 1.81 0 101.82 1.8A1.82 1.82 0 0077 0zM52.18 5.48L47.4 8.73l-4.8-3.25-3.45 2.33V6.15h-2.68V21.6h2.68V11.06l3.45-2.34 3.43 2.34V21.6h2.68V11.06l3.47-2.34 3.46 2.34V21.6h2.68V9.62l-6.14-4.14zM27 5.74a7.93 7.93 0 00-8.08 7.78v.36a7.91 7.91 0 007.7 8.12H27a7.91 7.91 0 008-7.82v-.3a7.93 7.93 0 00-7.72-8.14zm0 13.54a5.41 5.41 0 115.4-5.42 5.42 5.42 0 01-5.4 5.42z" fill-rule="evenodd"></path></svg>
-</div>
-</h2>
+	<div class="box-sellprice box-sellprice-totla box-shadow-new">
+		<h3 class="mb-3" style="text-align: center;">Calculate your share</h3>
+		<div class="input-residential-badprki">
+		   <label for="_pl_i_want_to_sell">Amount you want to invest</label>
+		   <div class="badprki-fields-edit">
+		   	<input type="text" name="_pl_i_want_to_sell" id="_pl_i_want_to_sell" placeholder="0" >
+  		     <span class="edit-field"></span>
+            </div>
+		   <input type="text" name="_pl_i_want_to_sell_range" id="_pl_i_want_to_sell_range">
+		</div>
+		<div class="input-residential-badprki">
+		   <label for="_pl_i_want_to_sell">Share in the property, %</label>
+		   <div class="badprki-fields-edit">
+		   	 <input type="text" name="_pl_price_sell" id="_pl_price_sell" placeholder="0" >
+  		     <span class="edit-field"></span>
+            </div>
+		  <input type="text" name="_pl_price_sell_range" id="_pl_price_sell_range">
+		</div>
+ 
 
-<?php if($property->interested_in_selling == 'portion_of_it'): ?>
-<h4 class="pt-3 mt-2">I want to sell % </h4>
-<h3><?php echo $property->i_want_to_sell; ?> %</h3>
+	</div>
 
-<h4 class="pt-3">Selling Price</h4>
-<h3><?php echo CO_OWNER_CURRENCY_SYMBOL; ?> <?php echo number_format($property->calculated); ?></h3>
 
-<?php endif; ?>
 
-<?php if($property->enable_pool) :
-	$property_members = array_filter($property->members,function($user) {
-		if(!$user->is_admin){
-			return $user;
-		}
-	});
-?>
-<?php if(count($property_members) > 0): ?>
-<h4 class="pt-3">Pool Information</h4>
-<div class="pl-list">
-<ul>
-<?php foreach ($property_members as $p_member): if($p_member->is_admin == 0): ?>
-<li class="d-flex align-items-center">
-<span class="name"><?php echo $p_member->display_name; ?> holds</span>
-<span class="percent ms-auto"><?php echo $p_member->interested_in; ?>%</span>
-</li>
-<?php endif; endforeach; ?>
-</ul>
-</div>
-<?php endif; ?>
-
-<?php if($property->available_share == 0): ?>
-<span class="badge bg-danger pool-is-full" style="font-size: 10px;">POOL IS FULL</span>
-<?php endif; ?>
-
-<?php if($property->available_share > 0): ?>
-<h4 class="pt-3">Available portion</h4>
-<h3><?php echo $property->available_share; ?> %</h3>
-
-<h4 class="pt-3">Will Cost</h4>
-<h3><?php echo CO_OWNER_CURRENCY_SYMBOL.' '.number_format($property->available_price) ; ?></h3>
-<?php else: ?>
-<h4 class="pt-3 text-error">Portions of the property are not available</h4>
-<?php endif; ?>
-<hr>
-<?php endif; ?>
-
-<h4 class="pt-3">CURRENTLY LEASED</h4>
-<h3 class="text-capitalize"><?php echo $property->currently_on_leased; ?></h3>
-
-<?php if(strtolower($property->currently_on_leased) == 'yes'): ?>
-<h4 class="pt-3">MONTHLY RENT</h4>
-<h3><?php echo CO_OWNER_CURRENCY_SYMBOL.' '.number_format($property->rent_per_month); ?><strong class="str-list text-orange">PM</strong></h3>
-<?php endif; ?>
-
-<h4 class="pt-3">NEGOTIABLE</h4>
-<h3 class="text-capitalize"><?php echo $property->negotiable ? 'Yes' : 'No'; ?></h3>
+<div class="calculate-share-btn-mobile box-shadow-new hidden">Calculate your share</div>
 
 
 <?php if(!$is_my_property): ?>
 <?php if(!$property->enable_pool) : ?>
+
 <div class="investor-cnt mt-3">
 <h3 class="mb-2">Interested in this listing?</h3>
 <p class="pb-3">Connect with the Admin to learn more about the listing.</p>
 <a href="<?php echo $connection_link; ?>" data-id="<?php echo $property->ID; ?>" class="btn btn-orange rounded-pill" <?php echo ($user_id && $user_status == 1 && !$property->is_already_member) ? 'data-bs-toggle="modal" data-bs-target="#property-connection-modal"' : '' ?>>Show your interest</a>
 </div>
+ 
 <?php elseif($property->available_share > 0): ?>
+	<div class="box-sellprice box-sellprice-share box-shadow-new">
 <div class="inner-price-cal">
-<span class="badge bg-dark-teal mb-3">Looking for people to join</span>
-<p class="pb-3">Below is a calculator for your convenience to calculate the portion v/s budget you can get.</p>
-
-<h3 class="mb-3">Price Calculator</h3>
+<h3 class="mb-3">Calculate your share</h3>
 
 <div class="mb-3">
 <label for="buy" class="form-label">Share I want to Buy</label>
@@ -783,7 +641,7 @@ class="btn btn-orange rounded-pill mb-2 calculate-price">Calculate Price</a>
 <?php endif; ?>
 <?php endif; ?>
 </div>
-</div>
+
 <?php
 	$filters = array(
 	'price' => $property->property_market_price,
@@ -792,32 +650,15 @@ class="btn btn-orange rounded-pill mb-2 calculate-price">Calculate Price</a>
 	);
 	$similar_properties = get_similar_properties($filters);
 ?>
-<?php if(count($similar_properties) > 0): ?>
-<div class="side-property-main pt-30px">
-<h3>Similar Properties </h3>
-<?php
-	foreach ($similar_properties as $sm_property):
-?>
-<div class="card custom-card side-card mb-4">
-<div class="card-body">
-<div class="side-property-thumb">
-<a href="<?php echo get_the_permalink($sm_property->ID); ?>">
-<img src="<?php echo $sm_property->image; ?>" alt="">
-</a>
-</div>
-<div class="side-property-cnt">
-<a href="<?php echo get_the_permalink($sm_property->ID); ?>">
-<p><?php echo $sm_property->address; ?></p>
-</a>
-<h2><?php echo CO_OWNER_CURRENCY_SYMBOL.' '.number_format($sm_property->price); ?></h2>
-</div>
-</div>
-</div>
-<?php endforeach; ?>
-</div>
-
-<?php endif; ?>
-
+ 
+<div class="findexpert-side">       
+        <?php
+            if(is_active_sidebar('findexpert')) {
+                dynamic_sidebar('findexpert');
+            }
+        ?>          
+    </div>
+    </div>
 <?php 
 	
 	$args = array(  
@@ -833,75 +674,24 @@ class="btn btn-orange rounded-pill mb-2 calculate-price">Calculate Price</a>
 	
 	
 ?>
-<div class="side-new">
-<div class="owl-carousel pdetail-community-owlslider">
-<?php 
-	while ( $lawyerObj->have_posts() ) : $lawyerObj->the_post();
-	$lawyer_logo = get_field('logo');
-	$lawyer_banner = get_field('banner');
-	
-	
-?>
-<?php if($lawyer_banner):?>
-<div class="side-new-inn">
-<img src="<?php echo $lawyer_banner['url'];?>">
-
-<a class="btn btn-orange rounded-pill ms-auto" href="/booking-process/?book_id=<?php echo get_the_ID(); ?>" >Book Consultation</a>
-<?php //echo do_shortcode('[accept_stripe_payment name="Payments (powered by Stripe). This is a 60 mins consultation with our law firm. You can discuss anything in this call." price="250" url="http://example.com/downloads/my-script.zip" button_text="Book Consultation"]'); ?>
-</div>
-<?php else: ?>
-<div class="side-new-inn">
-<img src="<?php echo get_template_directory_uri(); ?>/images/sutton-logo.png">
-<h5>Need advice or assistance with a legal matter?</h5>
-<a class="btn btn-orange rounded-pill ms-auto" href="/booking-process/?book_id=<?php echo get_the_ID(); ?>" >Book Consultation</a>
-<?php //echo do_shortcode('[accept_stripe_payment name="Payments (powered by Stripe). This is a 60 mins consultation with our law firm. You can discuss anything in this call." price="250" url="http://example.com/downloads/my-script.zip" button_text="Book Consultation"]'); ?>
-</div>
-<?php endif; ?>
-<?php endwhile; ?>
-</div>
-</div>
-<script type="text/javascript">
-jQuery(document).ready(function($) {
-	$(".pdetail-community-owlslider").owlCarousel({
-        loop: false,
-        margin: 10,
-        nav: true,
-        dots: false,
-         autoplay:false,
-    autoplayTimeout:2000,
-    autoplayHoverPause:true,
-        stageClass: "owl-stage d-flex",
-        responsive: {
-			0: { items: 1 },
-			768: { items: 1 },
-			1000: { items: 1 },
-			1400: { items: 1 },
-		},
-	});
-    
-});
-
-
-
-</script>
+ 
+ 
 </div>
 
 
 
 </div>
-
+</div>
 
 </div>
 
-<div class="comment-add">
-<div class="container">
-<h2>Add Comments</h2>
-<?php comments_template( '', true ); ?>
+<!-- <div class="comment-add">
+	<div class="container">
+		<h2>Add Comments</h2>
+		<?php //comments_template( '', true ); ?>
+	</div>
+</div> -->
 
-
-
-
-</div></div>
 
 </div>
 
@@ -1057,11 +847,104 @@ jQuery('.form-btn-bar').hide();
 });
 
 
+
 //
+jQuery(document).ready(function(){
+  jQuery(".price-boxsel").click(function(){
+  	jQuery(this).toggleClass("price-boxsel-active") ,
+    jQuery(".price-boxseinfo").toggleClass("price-boxseinfo-active");
+ });
+
+  jQuery(".calculate-share-btn-mobile").click(function(){
+  	jQuery(this).toggleClass("share-btn-active") ,
+    jQuery(".box-sellprice-share").toggleClass("box-sellprice-share-active");
+ });
+ 
+ 
+ 	var delay = (function(){
+	  var timer = 0;
+	  return function(callback, ms){
+		clearTimeout (timer);
+		timer = setTimeout(callback, ms);
+	  };
+	})();
+ 
+
+var _pl_i_want_to_sell_range = jQuery('#_pl_i_want_to_sell_range');
+var _pl_price_sell_range = jQuery('#_pl_price_sell_range');
+_pl_i_want_to_sell_range.ionRangeSlider({
+        type: "single",
+        grid: true,
+        min: 1,
+        max: 100,
+        from: 1,
+        to: 30,
+        postfix: "",
+		onChange: function (data) {
+            // fired on every range slider update
+			jQuery('#_pl_i_want_to_sell').val(data.from);
+        },
+        onUpdate: function (data) {
+            // fired on pointer release
+			jQuery('#_pl_i_want_to_sell').val(data.from);
+        },		
+    });
+	
+
+_pl_price_sell_range.ionRangeSlider({
+        type: "single",
+        grid: true,
+        min: 1,
+        max: 1000000,
+        from: 5000,
+        to: 500000,
+        prefix: "$",
+       onChange: function (data) {
+            // fired on every range slider update
+			jQuery('#_pl_price_sell').val(data.from);
+        },	
+        onUpdate: function (data) {
+            // fired on pointer release
+			jQuery('#_pl_price_sell').val(data.from);
+        },
+		
+    });	
+
+var _pl_i_want_to_sell_range_instance = _pl_i_want_to_sell_range.data("ionRangeSlider");
+var pl_price_range_instance = _pl_price_sell_range.data("ionRangeSlider");
+
+
+ 
+ jQuery('#_pl_i_want_to_sell').keyup(function() {
+	var _this = jQuery(this);
+    delay(function(){
+        _pl_i_want_to_sell_range_instance.update({
+            from: _this.val(),
+        });	 
+    }, 1000 );
+});
+
+jQuery('#_pl_price_sell').keyup(function() {
+	var _this = jQuery(this);
+    delay(function(){
+        pl_price_range_instance.update({
+            from: _this.val(),
+        });	 
+    }, 1000 );
+})
+
+ 
+ 
+ 
+ 
+ 
+});
 
 
 /* Drop down function */
 
 </script>
+
 <?php 
 get_footer(); ?>
+<?php include('modals/favorite-remove-box.php'); ?>
